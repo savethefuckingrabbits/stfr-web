@@ -60,7 +60,7 @@ body{
 }
 
 /* ============================================ */
-/* PANEL DESPLEGABLE - SIN BORDE, FONDO NEGRO  */
+/* PANEL DESPLEGABLE - MUY PEGADO AL LOGO      */
 /* ============================================ */
 
 .info-panel{
@@ -74,22 +74,22 @@ body{
     pointer-events:none;
 }
 
-/* ACTIVADO POR HOVER (ESCRITORIO) O CLICK (MÓVIL) */
+/* ACTIVADO - CASI PEGADO AL LOGO */
 .logo-wrapper.active .info-panel,
 .logo-wrapper:hover .info-panel{
     max-height:1200px;
     opacity:1;
-    margin-top:15px;
-    padding:20px 0 25px;
+    margin-top:5px;
+    padding:15px 0 20px;
     pointer-events:auto;
 }
 
 /* ============================================ */
-/* TEXTO DEL PANEL - SIN ANIMACIÓN DE ENTRADA   */
+/* TEXTO DEL PANEL - TODO EN AMARILLO          */
 /* ============================================ */
 
 .info-panel p{
-    color:rgba(255,255,255,0.8);
+    color:#F4DE65;
     font-family:'Inter',sans-serif;
     font-weight:300;
     font-size:13px;
@@ -101,11 +101,6 @@ body{
 
 .info-panel p:last-child{
     margin-bottom:0;
-}
-
-.info-panel .destacado{
-    color:#F4DE65;
-    font-weight:400;
 }
 
 /* ============================================ */
@@ -122,7 +117,7 @@ body{
 
 .logo-wrapper.active .proyectos,
 .logo-wrapper:hover .proyectos{
-    margin-top:20px;
+    margin-top:10px;
 }
 
 .columna-izquierda{
@@ -354,7 +349,13 @@ body{
 
     .logo-wrapper.active .info-panel,
     .logo-wrapper:hover .info-panel{
-        padding:15px 0 20px;
+        margin-top:3px;
+        padding:10px 0 15px;
+    }
+
+    .logo-wrapper.active .proyectos,
+    .logo-wrapper:hover .proyectos{
+        margin-top:5px;
     }
 
     .footer{
@@ -409,9 +410,9 @@ body{
 
         <img class="logo-img" src="logo.png" alt="SAVE THE F***ING RABBITS">
 
-        <!-- PANEL DESPLEGABLE - SIN BORDE -->
+        <!-- PANEL DESPLEGABLE - CASI PEGADO AL LOGO -->
         <div class="info-panel">
-            <p><span class="destacado">SAVE THE F***ING RABBITS .prod</span> es un colectivo de artes vivas fundado en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
+            <p>SAVE THE F***ING RABBITS .prod es un colectivo de artes vivas fundado en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
 
             <p>Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, donde diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.</p>
 
@@ -419,7 +420,7 @@ body{
 
             <p>En términos de contenido, el colectivo explora la condición humana en relación con lo oscuro y el tabú, abordando temas complejos que se mueven entre lo político y lo filosófico, sirviéndose de paralelismos entre "lo humano" y "lo animal" para intentar comprender las complejidades que nos definen como especie.</p>
 
-            <p>En definitiva, <span class="destacado">SAVE THE F***ING RABBITS .prod</span> invita al espectador a un viaje de introspección y descubrimiento, siendo un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
+            <p>En definitiva, SAVE THE F***ING RABBITS .prod invita al espectador a un viaje de introspección y descubrimiento, siendo un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
         </div>
 
     </div>
