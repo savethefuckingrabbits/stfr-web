@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,7 +10,6 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
@@ -23,85 +20,143 @@
     box-sizing:border-box;
 }
 
+html, body {
+    overflow-x: hidden; /* ← Evita el scroll horizontal */
+}
+
 body{
     background:#000;
-    color:#fff;
+    color:white;
     font-family:'Inter',sans-serif;
-    overflow-x:auto;
 }
 
 .container{
-    width:1850px;
-    margin:18px auto 50px;
+    width:100%; /* ← Ahora ocupa todo el ancho */
+    max-width:1900px;
+    margin:15px auto 40px;
+    padding:0 10px; /* ← Pequeño padding para que no toque el borde en móviles muy pequeños */
 }
 
 .logo{
+    width:100%;
+    max-width:860px;
     display:block;
-    width:860px;
-    margin:0 auto 45px;
+    margin:0 auto 25px;
 }
 
 .proyectos{
-
     display:grid;
     grid-template-columns:1fr 1fr;
-    column-gap:170px;
+    column-gap:220px;
     align-items:start;
-
 }
+
+/* IZQUIERDA */
 
 .columna-izquierda{
-
     display:flex;
     flex-direction:column;
-    gap:95px;
-
+    gap:90px;
 }
 
-.columna-derecha{
+/* DERECHA */
 
+.columna-derecha{
     display:flex;
     flex-direction:column;
-    gap:95px;
-    padding-top:145px;
+    gap:90px;
+    margin-top:145px;
+}
 
+.proyecto {
+    position: relative;
+    overflow: hidden; /* ← Para que las imágenes no se salgan */
 }
 
 .proyecto img{
-
-    width:100%;
+    width:100%; /* ← Antes era 104%, ahora 100% para que no desborde */
     display:block;
-
 }
 
-/* ---------- TÍTULOS ---------- */
+/* TÍTULOS */
 
 .titulo{
-
-    margin-top:14px;
-
     color:#F4DE65;
-
     font-size:11px;
-
     font-weight:300;
-
-    letter-spacing:2px;
-
+    letter-spacing:1.8px;
     text-transform:uppercase;
-
+    margin-top:12px;
 }
 
+/* Los dos bloques miran hacia el centro */
+/* Ajustados para que los títulos queden alineados con el borde de las imágenes */
+
 .columna-izquierda .titulo{
-
-    text-align:right;
-
+    margin-left:0; /* ← Lo quitamos porque ahora las imágenes llegan al borde */
 }
 
 .columna-derecha .titulo{
+    margin-left:0; /* ← Lo quitamos porque ahora las imágenes llegan al borde */
+}
 
-    text-align:left;
+/* --- RESPONSIVE: MÓVIL --- */
+@media (max-width: 768px) {
 
+    .container{
+        padding:0; /* ← Sin padding en móvil para que las fotos toquen el borde */
+        margin:10px auto 30px;
+    }
+
+    .logo{
+        padding:0 10px; /* ← Solo el logo tiene un poco de margen */
+        max-width:100%;
+    }
+
+    .proyectos{
+        grid-template-columns:1fr; /* ← Una sola columna en móvil */
+        column-gap:0;
+    }
+
+    .columna-izquierda{
+        gap:60px;
+    }
+
+    .columna-derecha{
+        gap:60px;
+        margin-top:60px; /* ← Menos margen en móvil */
+    }
+
+    .proyecto img{
+        width:100%; /* ← Ocupa todo el ancho, tocando los bordes */
+        border-radius:0;
+    }
+
+    .columna-izquierda .titulo,
+    .columna-derecha .titulo{
+        margin-left:10px; /* ← Solo un pequeño margen para que no toque el borde */
+        margin-right:10px;
+    }
+
+    .titulo{
+        font-size:10px;
+        letter-spacing:1.5px;
+    }
+}
+
+/* --- Para pantallas muy grandes (opcional) --- */
+@media (min-width: 1400px) {
+    .proyectos{
+        column-gap:280px; /* ← Más separación en pantallas enormes */
+    }
+
+    .columna-izquierda .titulo{
+        margin-left:0;
+    }
+
+    .columna-derecha .titulo{
+        margin-left:0;
+    }
 }
 
 </style>
@@ -119,27 +174,17 @@ body{
 <div class="columna-izquierda">
 
 <div class="proyecto">
-
 <img src="sucré.jpg" alt="Sucré">
-
 <div class="titulo">
-
 SUCRÉ
-
 </div>
-
 </div>
 
 <div class="proyecto">
-
 <img src="madriguera.png" alt="SAVE THE F***ING RABBITS">
-
 <div class="titulo">
-
 SAVE THE F***ING RABBITS
-
 </div>
-
 </div>
 
 </div>
@@ -147,27 +192,17 @@ SAVE THE F***ING RABBITS
 <div class="columna-derecha">
 
 <div class="proyecto">
-
 <img src="hours.png" alt="The Hours">
-
 <div class="titulo">
-
 THE HOURS
-
 </div>
-
 </div>
 
 <div class="proyecto">
-
 <img src="pisapapeles.jpg" alt="Pisapapeles">
-
 <div class="titulo">
-
 PISAPAPELES
-
 </div>
-
 </div>
 
 </div>
@@ -177,5 +212,4 @@ PISAPAPELES
 </div>
 
 </body>
-
 </html>
