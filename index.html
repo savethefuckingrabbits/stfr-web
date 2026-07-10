@@ -19,49 +19,69 @@ body{
 }
 
 .container{
-    width:96%;
+    width:94%;
     max-width:1700px;
-    margin:25px auto;
+    margin:20px auto 80px auto;
 }
 
 .logo{
+    display:block;
     width:100%;
     max-width:900px;
-    display:block;
-    margin:0 auto 50px;
+    margin:0 auto 35px auto;
 }
 
 .proyectos{
     display:grid;
     grid-template-columns:1fr 1fr;
-    column-gap:35px;
-    row-gap:60px;
+    column-gap:120px;
     align-items:start;
 }
 
+/* Columna izquierda */
+
+.columna-izquierda{
+    display:flex;
+    flex-direction:column;
+    gap:70px;
+}
+
+/* Columna derecha */
+
+.columna-derecha{
+    display:flex;
+    flex-direction:column;
+    gap:70px;
+    margin-top:80px;
+}
+
 .proyecto img{
-    width:100%;
+    width:88%;
     display:block;
 }
 
 .titulo{
-    color:#FFD700;
-    font-size:13px;
-    margin-top:10px;
-    text-transform:uppercase;
+    color:#F4DE65;
+    font-size:12px;
     letter-spacing:1px;
+    margin-top:12px;
+    margin-left:40px;
+    text-transform:uppercase;
+    font-weight:normal;
 }
 
 p{
+    max-width:900px;
+    margin:70px auto 30px auto;
     line-height:1.8;
     font-size:1.05em;
 }
 
 .footer{
     text-align:center;
-    margin-top:60px;
     color:#666;
-    font-size:.9em;
+    margin-top:60px;
+    font-size:12px;
 }
 
 </style>
@@ -76,33 +96,41 @@ p{
 
 <div class="proyectos">
 
-    <div class="proyecto">
-        <img src="sucré.jpg" alt="Sucré">
-        <div class="titulo">
-            SUCRÉ, ZUCCHERATO, SWEETENED, AZUCARADO, GEZUCKERT
-        </div>
-    </div>
+<div class="columna-izquierda">
 
-    <div class="proyecto">
-        <img src="hours.png" alt="The Hours">
-        <div class="titulo">
-            THE HOURS
-        </div>
-    </div>
+<div class="proyecto">
+<img src="sucré.jpg" alt="Sucré">
+<div class="titulo">
+SUCRÉ, ZUCCHERATO, SWEETENED, AZUCARADO, GEZUCKERT
+</div>
+</div>
 
-    <div class="proyecto">
-        <img src="madriguera.png" alt="SAVE THE F***ING RABBITS">
-        <div class="titulo">
-            SAVE THE F***ING RABBITS
-        </div>
-    </div>
+<div class="proyecto">
+<img src="madriguera.png" alt="SAVE THE F***ING RABBITS">
+<div class="titulo">
+SAVE THE F***ING RABBITS
+</div>
+</div>
 
-    <div class="proyecto">
-        <img src="pisapapeles.jpg" alt="Pisapapeles">
-        <div class="titulo">
-            PISAPAPELES
-        </div>
-    </div>
+</div>
+
+<div class="columna-derecha">
+
+<div class="proyecto">
+<img src="hours.png" alt="The Hours">
+<div class="titulo">
+THE HOURS
+</div>
+</div>
+
+<div class="proyecto">
+<img src="pisapapeles.jpg" alt="Pisapapeles">
+<div class="titulo">
+PISAPAPELES
+</div>
+</div>
+
+</div>
 
 </div>
 
@@ -127,7 +155,7 @@ En definitiva, SAVE THE F***ING RABBITS prod. invita al espectador a un viaje de
 </p>
 
 <div class="footer">
-    SAVE THE F***ING RABBITS PROD · 2026
+SAVE THE F***ING RABBITS PROD · 2026
 </div>
 
 </div>
