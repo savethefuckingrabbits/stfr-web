@@ -14,6 +14,10 @@
 
 <style>
 
+/* ============================================ */
+/* RESET Y BASE                                */
+/* ============================================ */
+
 *{
     margin:0;
     padding:0;
@@ -36,23 +40,95 @@ body{
     flex:1;
 }
 
-.logo{
+/* ============================================ */
+/* LOGO CABECERA - DESPLEGABLE                 */
+/* ============================================ */
+
+.logo-wrapper{
     width:100%;
     max-width:860px;
-    display:block;
     margin:0 auto 25px;
-    transition: opacity 0.4s ease;
+    position:relative;
+    display:block;
 }
 
-.logo:hover{
+.logo-img{
+    width:100%;
+    display:block;
+    transition: opacity 0.3s ease;
+    cursor:pointer;
+}
+
+.logo-img:hover{
     opacity:0.7;
 }
+
+/* ============================================ */
+/* VENTANA DESPLEGABLE - BORDE AMARILLO        */
+/* ============================================ */
+
+.info-panel{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition: all 0.6s ease;
+    margin-top:0;
+    border:1px solid transparent;
+    border-radius:8px;
+    padding:0 25px;
+    background:rgba(10,10,10,0.95);
+    pointer-events:none;
+}
+
+/* ACTIVADO POR HOVER (ESCRITORIO) O CLICK (MÓVIL) */
+.logo-wrapper.active .info-panel,
+.logo-wrapper:hover .info-panel{
+    max-height:1200px;
+    opacity:1;
+    margin-top:20px;
+    border-color:#F4DE65;
+    padding:30px 30px 35px;
+    pointer-events:auto;
+}
+
+/* ============================================ */
+/* TEXTO DE LA VENTANA                         */
+/* ============================================ */
+
+.info-panel p{
+    color:rgba(255,255,255,0.8);
+    font-size:13px;
+    font-weight:300;
+    line-height:1.8;
+    letter-spacing:0.3px;
+    margin-bottom:18px;
+    text-align:justify;
+}
+
+.info-panel p:last-child{
+    margin-bottom:0;
+}
+
+.info-panel .destacado{
+    color:#F4DE65;
+    font-weight:400;
+}
+
+/* ============================================ */
+/* PROYECTOS - SE DESPLAZAN CON EL TEXTO       */
+/* ============================================ */
 
 .proyectos{
     display:grid;
     grid-template-columns:1fr 1fr;
     column-gap:220px;
     align-items:start;
+    transition: margin-top 0.6s ease;
+}
+
+.logo-wrapper.active .proyectos,
+.logo-wrapper:hover .proyectos{
+    margin-top:20px;
 }
 
 .columna-izquierda{
@@ -71,7 +147,7 @@ body{
 .proyecto{
     position:relative;
     cursor:pointer;
-    border-radius: 4px;
+    border-radius:4px;
 }
 
 .proyecto img{
@@ -83,39 +159,7 @@ body{
 }
 
 /* ============================================ */
-/* ESCRITORIO - BRILLO AMARILLO SUAVE          */
-/* ============================================ */
-
-@media (min-width: 769px) {
-    
-    .proyecto:hover img{
-        filter: brightness(1.25) saturate(1.4) sepia(0.5);
-    }
-
-    .proyecto:hover .titulo{
-        color: #ffffff;
-        letter-spacing: 2.5px;
-    }
-}
-
-/* ============================================ */
-/* MÓVIL - EFECTO TAP                          */
-/* ============================================ */
-
-@media (max-width: 768px) {
-    
-    .proyecto:active img{
-        filter: brightness(1.25) saturate(1.4) sepia(0.5);
-        transition: filter 0.15s ease;
-    }
-
-    .proyecto:active .titulo{
-        color: #ffffff;
-    }
-}
-
-/* ============================================ */
-/* TÍTULOS                                     */
+/* TÍTULOS DE PROYECTOS                        */
 /* ============================================ */
 
 .titulo{
@@ -125,14 +169,42 @@ body{
     letter-spacing:1.8px;
     text-transform:uppercase;
     margin-top:12px;
-    text-align: center;
+    text-align:center;
     transition: all 0.4s ease;
     position:relative;
     z-index:2;
 }
 
 /* ============================================ */
-/* FOOTER - CON MUCHO ESPACIO                  */
+/* ESCRITORIO - HOVER PROYECTOS                */
+/* ============================================ */
+
+@media (min-width:769px){
+    .proyecto:hover img{
+        filter:brightness(1.25) saturate(1.4) sepia(0.5);
+    }
+    .proyecto:hover .titulo{
+        color:#ffffff;
+        letter-spacing:2.5px;
+    }
+}
+
+/* ============================================ */
+/* MÓVIL - TAP PROYECTOS                       */
+/* ============================================ */
+
+@media (max-width:768px){
+    .proyecto:active img{
+        filter:brightness(1.25) saturate(1.4) sepia(0.5);
+        transition:filter 0.15s ease;
+    }
+    .proyecto:active .titulo{
+        color:#ffffff;
+    }
+}
+
+/* ============================================ */
+/* FOOTER                                      */
 /* ============================================ */
 
 .footer{
@@ -152,21 +224,20 @@ body{
 .footer-logos img{
     display:block;
     opacity:0.8;
-    transition: opacity 0.3s ease;
+    transition:opacity 0.3s ease;
 }
 
 .footer-logos img:hover{
     opacity:1;
 }
 
-/* CONTACTO - ARRIBA */
 .contacto-text{
     color:#F4DE65;
     font-size:10px;
     font-weight:300;
     letter-spacing:2.5px;
     text-transform:uppercase;
-    transition: color 0.3s ease;
+    transition:color 0.3s ease;
     margin-bottom:80px;
 }
 
@@ -174,10 +245,42 @@ body{
     color:#ffffff;
 }
 
-/* LOGO INAEM - CENTRO */
+.logo-inaem-wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    cursor:pointer;
+    position:relative;
+}
+
 .logo-inaem{
     height:55px;
     width:auto;
+    transition: all 0.3s ease;
+}
+
+.compania-info{
+    color:rgba(255,255,255,0.6);
+    font-size:9px;
+    font-weight:300;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    line-height:1.8;
+    margin-top:0;
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition: all 0.5s ease;
+}
+
+.logo-inaem-wrapper:hover .compania-info{
+    max-height:200px;
+    opacity:1;
+    margin-top:20px;
+}
+
+.logo-inaem-wrapper:hover .logo-inaem{
+    opacity:1;
 }
 
 .footer-text{
@@ -188,20 +291,25 @@ body{
     text-transform:uppercase;
     display:inline-block;
     margin-top:15px;
+    transition: margin-top 0.5s ease;
+}
+
+.logo-inaem-wrapper:hover ~ .footer-text{
+    margin-top:30px;
 }
 
 /* ============================================ */
 /* MÓVIL - RESPONSIVE                          */
 /* ============================================ */
 
-@media (max-width: 768px) {
+@media (max-width:768px){
 
     .container{
         width:92%;
         margin:10px auto 0;
     }
 
-    .logo{
+    .logo-wrapper{
         max-width:100%;
         margin:0 auto 20px;
     }
@@ -248,6 +356,17 @@ body{
         text-align:center;
     }
 
+    .info-panel p{
+        font-size:12px;
+        line-height:1.7;
+        text-align:left;
+    }
+
+    .logo-wrapper.active .info-panel,
+    .logo-wrapper:hover .info-panel{
+        padding:20px 20px 25px;
+    }
+
     .footer{
         width:92%;
         margin:100px auto 20px;
@@ -263,10 +382,24 @@ body{
         height:40px;
     }
 
+    .compania-info{
+        font-size:8px;
+        letter-spacing:1px;
+        line-height:1.6;
+    }
+
+    .logo-inaem-wrapper:hover .compania-info{
+        margin-top:15px;
+    }
+
     .footer-text{
         font-size:9px;
         letter-spacing:1.2px;
         margin-top:12px;
+    }
+
+    .logo-inaem-wrapper:hover ~ .footer-text{
+        margin-top:25px;
     }
 }
 
@@ -278,49 +411,72 @@ body{
 
 <div class="container">
 
-<a href="index.html" style="display:block; text-decoration:none;">
-    <img class="logo" src="logo.png" alt="SAVE THE F***ING RABBITS">
-</a>
+    <!-- ============================================ -->
+    <!-- LOGO CON DESPLEGABLE                         -->
+    <!-- ============================================ -->
 
-<div class="proyectos">
+    <div class="logo-wrapper" id="logoWrapper">
 
-<div class="columna-izquierda">
+        <img class="logo-img" src="logo.png" alt="SAVE THE F***ING RABBITS">
 
-    <a href="sucre.html" target="_blank" style="text-decoration:none; display:block;">
-        <div class="proyecto">
-            <img src="sucré.jpg" alt="Sucré">
-            <div class="titulo">SUCRÉ</div>
+        <!-- VENTANA DESPLEGABLE -->
+        <div class="info-panel">
+            <p><span class="destacado">SAVE THE F***ING RABBITS .prod</span> es un colectivo de artes vivas fundado en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
+
+            <p>Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, donde diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.</p>
+
+            <p>La propuesta artística se distingue por su capacidad para generar sensaciones, gracias a su carácter experiencial, que no solo apela a la percepción visual y auditiva, sino también a otras formas de involucrar los sentidos, creando un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.</p>
+
+            <p>En términos de contenido, el colectivo explora la condición humana en relación con lo oscuro y el tabú, abordando temas complejos que se mueven entre lo político y lo filosófico, sirviéndose de paralelismos entre "lo humano" y "lo animal" para intentar comprender las complejidades que nos definen como especie.</p>
+
+            <p>En definitiva, <span class="destacado">SAVE THE F***ING RABBITS .prod</span> invita al espectador a un viaje de introspección y descubrimiento, siendo un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
         </div>
-    </a>
 
-    <a href="rabbits.html" target="_blank" style="text-decoration:none; display:block;">
-        <div class="proyecto">
-            <img src="madriguera.png" alt="SAVE THE F***ING RABBITS">
-            <div class="titulo">SAVE THE F***ING RABBITS</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- PROYECTOS                                    -->
+    <!-- ============================================ -->
+
+    <div class="proyectos">
+
+        <div class="columna-izquierda">
+
+            <a href="sucre.html" target="_blank" style="text-decoration:none; display:block;">
+                <div class="proyecto">
+                    <img src="sucré.jpg" alt="Sucré">
+                    <div class="titulo">SUCRÉ</div>
+                </div>
+            </a>
+
+            <a href="rabbits.html" target="_blank" style="text-decoration:none; display:block;">
+                <div class="proyecto">
+                    <img src="madriguera.png" alt="SAVE THE F***ING RABBITS">
+                    <div class="titulo">SAVE THE F***ING RABBITS</div>
+                </div>
+            </a>
+
         </div>
-    </a>
 
-</div>
+        <div class="columna-derecha">
 
-<div class="columna-derecha">
+            <a href="hours.html" target="_blank" style="text-decoration:none; display:block;">
+                <div class="proyecto">
+                    <img src="hours.png" alt="The Hours">
+                    <div class="titulo">THE HOURS</div>
+                </div>
+            </a>
 
-    <a href="hours.html" target="_blank" style="text-decoration:none; display:block;">
-        <div class="proyecto">
-            <img src="hours.png" alt="The Hours">
-            <div class="titulo">THE HOURS</div>
+            <a href="pisapapeles.html" target="_blank" style="text-decoration:none; display:block;">
+                <div class="proyecto">
+                    <img src="pisapapeles.jpg" alt="Pisapapeles">
+                    <div class="titulo">PISAPAPELES</div>
+                </div>
+            </a>
+
         </div>
-    </a>
 
-    <a href="pisapapeles.html" target="_blank" style="text-decoration:none; display:block;">
-        <div class="proyecto">
-            <img src="pisapapeles.jpg" alt="Pisapapeles">
-            <div class="titulo">PISAPAPELES</div>
-        </div>
-    </a>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 
@@ -332,17 +488,69 @@ body{
 
     <div class="footer-logos">
 
-        <!-- CONTACTO MUY ARRIBA -->
         <span class="contacto-text">CONTACTO</span>
 
-        <!-- LOGO INAEM MUCHO MÁS ABAJO -->
-        <img class="logo-inaem" src="logo-blanco-inaem-1200x212.png" alt="INAEM">
+        <div class="logo-inaem-wrapper">
+            <img class="logo-inaem" src="logo-blanco-inaem-1200x212.png" alt="INAEM">
+            <div class="compania-info">
+                COMPAÑÍA DE TEATRO<br>
+                FUNDADA EN 2020 · MADRID
+            </div>
+        </div>
 
     </div>
 
     <span class="footer-text">SAVE THE F***ING RABBITS .prod © 2026</span>
 
 </div>
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT PARA MÓVIL                       -->
+<!-- ============================================ -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const wrapper = document.getElementById('logoWrapper');
+        const panel = wrapper.querySelector('.info-panel');
+        let isOpen = false;
+
+        // Detectar si es móvil (pantalla pequeña o touch)
+        const isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
+
+        // Solo aplicamos el comportamiento de click en móvil
+        if (isMobile) {
+
+            // Click en el logo: abre o cierra
+            wrapper.addEventListener('click', function(e) {
+                e.stopPropagation();
+                wrapper.classList.toggle('active');
+                isOpen = wrapper.classList.contains('active');
+            });
+
+            // Click fuera del panel y del logo: cierra
+            document.addEventListener('click', function(e) {
+                if (isOpen && !wrapper.contains(e.target)) {
+                    wrapper.classList.remove('active');
+                    isOpen = false;
+                }
+            });
+
+            // En móvil, desactivamos el hover por CSS (lo dejamos solo para escritorio)
+            // pero como usamos la clase .active, el hover de CSS no molesta
+        }
+
+        // En escritorio, el hover funciona por CSS, no necesitamos JS
+        // Pero si el usuario redimensiona de móvil a escritorio, limpiamos
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                wrapper.classList.remove('active');
+                isOpen = false;
+            }
+        });
+
+    });
+</script>
 
 </body>
 </html>
