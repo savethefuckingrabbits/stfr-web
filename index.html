@@ -27,7 +27,7 @@ body{
     background:#000;
     color:#fff;
     font-family:'Inter',sans-serif;
-    overflow-x:auto;
+    overflow-x:hidden;
 }
 
 .container{
@@ -103,7 +103,22 @@ body{
     text-align:left;
 
 }
+/* ---------- MÓVIL ---------- */
 
+@media (max-width:768px){
+
+    .container{
+
+        width:1850px;
+
+        transform:scale(calc(100vw / 1850));
+
+        transform-origin:top left;
+    height:calc(3000px * (100vw / 1850));
+
+    }
+
+}
 </style>
 
 </head>
