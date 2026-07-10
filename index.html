@@ -37,6 +37,11 @@ body{
     max-width:860px;
     display:block;
     margin:0 auto 25px;
+    transition: opacity 0.4s ease;
+}
+
+.logo:hover{
+    opacity:0.7;
 }
 
 .proyectos{
@@ -63,9 +68,65 @@ body{
     margin-top:145px;
 }
 
+.proyecto{
+    position:relative;
+    cursor:pointer;
+}
+
 .proyecto img{
     width:104%;
     display:block;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: brightness(0.8) saturate(0.9);
+    border-radius: 4px;
+}
+
+/* EFECTO HOVER EN ESCRITORIO */
+@media (min-width: 769px) {
+    .proyecto:hover img{
+        filter: brightness(1.1) saturate(1.1) drop-shadow(0 0 30px rgba(244, 222, 101, 0.3));
+        transform: scale(1.02);
+    }
+
+    .proyecto:hover .titulo{
+        color: #fff;
+        letter-spacing: 2.5px;
+    }
+
+    .proyecto::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(244, 222, 101, 0.05) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+        border-radius: 4px;
+    }
+
+    .proyecto:hover::after{
+        opacity: 1;
+    }
+}
+
+/* EFECTO TAP EN MÓVIL (sutil) */
+@media (max-width: 768px) {
+    .proyecto:active img{
+        filter: brightness(1.2) saturate(1.1);
+        transform: scale(0.98);
+        transition: all 0.15s ease;
+    }
+
+    .proyecto:active .titulo{
+        color: #fff;
+    }
+}
+
+.proyecto img{
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* TÍTULOS */
@@ -78,6 +139,7 @@ body{
     text-transform:uppercase;
     margin-top:12px;
     text-align: center;
+    transition: all 0.4s ease;
 }
 
 /* ============================================ */
@@ -128,6 +190,7 @@ body{
         width:90%;
         max-width:400px;
         display:block;
+        filter: brightness(0.9) saturate(0.9);
     }
 
     .titulo{
@@ -147,43 +210,50 @@ body{
 
 <div class="container">
 
-<img class="logo" src="logo.png" alt="SAVE THE F***ING RABBITS">
+<!-- Logo con enlace a la página principal (opcional) -->
+<a href="index.html" style="display:block; text-decoration:none;">
+    <img class="logo" src="logo.png" alt="SAVE THE F***ING RABBITS">
+</a>
 
 <div class="proyectos">
 
 <div class="columna-izquierda">
 
-<div class="proyecto">
-<img src="sucré.jpg" alt="Sucré">
-<div class="titulo">
-SUCRÉ
-</div>
-</div>
+    <!-- PROYECTO 1: SUCRÉ -->
+    <a href="sucre.html" target="_blank" style="text-decoration:none; display:block;">
+        <div class="proyecto">
+            <img src="sucré.jpg" alt="Sucré">
+            <div class="titulo">SUCRÉ</div>
+        </div>
+    </a>
 
-<div class="proyecto">
-<img src="madriguera.png" alt="SAVE THE F***ING RABBITS">
-<div class="titulo">
-SAVE THE F***ING RABBITS
-</div>
-</div>
+    <!-- PROYECTO 2: SAVE THE F***ING RABBITS -->
+    <a href="rabbits.html" target="_blank" style="text-decoration:none; display:block;">
+        <div class="proyecto">
+            <img src="madriguera.png" alt="SAVE THE F***ING RABBITS">
+            <div class="titulo">SAVE THE F***ING RABBITS</div>
+        </div>
+    </a>
 
 </div>
 
 <div class="columna-derecha">
 
-<div class="proyecto">
-<img src="hours.png" alt="The Hours">
-<div class="titulo">
-THE HOURS
-</div>
-</div>
+    <!-- PROYECTO 3: THE HOURS -->
+    <a href="hours.html" target="_blank" style="text-decoration:none; display:block;">
+        <div class="proyecto">
+            <img src="hours.png" alt="The Hours">
+            <div class="titulo">THE HOURS</div>
+        </div>
+    </a>
 
-<div class="proyecto">
-<img src="pisapapeles.jpg" alt="Pisapapeles">
-<div class="titulo">
-PISAPAPELES
-</div>
-</div>
+    <!-- PROYECTO 4: PISAPAPELES -->
+    <a href="pisapapeles.html" target="_blank" style="text-decoration:none; display:block;">
+        <div class="proyecto">
+            <img src="pisapapeles.jpg" alt="Pisapapeles">
+            <div class="titulo">PISAPAPELES</div>
+        </div>
+    </a>
 
 </div>
 
