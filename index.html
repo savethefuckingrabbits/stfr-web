@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,6 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
@@ -22,71 +25,83 @@
 
 body{
     background:#000;
-    color:white;
+    color:#fff;
     font-family:'Inter',sans-serif;
+    overflow-x:auto;
 }
 
 .container{
-    width:99.5%;
-    max-width:1900px;
-    margin:15px auto 40px;
+    width:1850px;
+    margin:18px auto 50px;
 }
 
 .logo{
-    width:100%;
-    max-width:860px;
     display:block;
-    margin:0 auto 25px;
+    width:860px;
+    margin:0 auto 45px;
 }
 
 .proyectos{
+
     display:grid;
     grid-template-columns:1fr 1fr;
-    column-gap:220px;
+    column-gap:170px;
     align-items:start;
-}
 
-/* IZQUIERDA */
+}
 
 .columna-izquierda{
+
     display:flex;
     flex-direction:column;
-    gap:90px;
+    gap:95px;
+
 }
 
-/* DERECHA */
-
 .columna-derecha{
+
     display:flex;
     flex-direction:column;
-    gap:90px;
-    margin-top:145px;
+    gap:95px;
+    padding-top:145px;
+
 }
 
 .proyecto img{
-    width:104%;
+
+    width:100%;
     display:block;
+
 }
 
-/* TÍTULOS */
+/* ---------- TÍTULOS ---------- */
 
 .titulo{
+
+    margin-top:14px;
+
     color:#F4DE65;
+
     font-size:11px;
+
     font-weight:300;
-    letter-spacing:1.8px;
+
+    letter-spacing:2px;
+
     text-transform:uppercase;
-    margin-top:12px;
+
 }
 
-/* Los dos bloques miran hacia el centro */
-
 .columna-izquierda .titulo{
-    margin-left:180px;
+
+    text-align:right;
+
 }
 
 .columna-derecha .titulo{
-    margin-left:45px;
+
+    text-align:left;
+
 }
 
 </style>
@@ -104,17 +119,27 @@ body{
 <div class="columna-izquierda">
 
 <div class="proyecto">
+
 <img src="sucré.jpg" alt="Sucré">
+
 <div class="titulo">
+
 SUCRÉ
+
 </div>
+
 </div>
 
 <div class="proyecto">
+
 <img src="madriguera.png" alt="SAVE THE F***ING RABBITS">
+
 <div class="titulo">
+
 SAVE THE F***ING RABBITS
+
 </div>
+
 </div>
 
 </div>
@@ -122,17 +147,27 @@ SAVE THE F***ING RABBITS
 <div class="columna-derecha">
 
 <div class="proyecto">
+
 <img src="hours.png" alt="The Hours">
+
 <div class="titulo">
+
 THE HOURS
+
 </div>
+
 </div>
 
 <div class="proyecto">
+
 <img src="pisapapeles.jpg" alt="Pisapapeles">
+
 <div class="titulo">
+
 PISAPAPELES
+
 </div>
+
 </div>
 
 </div>
@@ -142,4 +177,5 @@ PISAPAPELES
 </div>
 
 </body>
+
 </html>
