@@ -6,9 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SAVE THE F***ING RABBITS</title>
-
-<link rel="icon" type="image/png" href="favicon.png">
+@@ -10,6 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,27 +14,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+@@ -22,71 +25,83 @@
 
 body{
     background:#000;
+    color:white;
     color:#fff;
     font-family:'Inter',sans-serif;
-    overflow-x:hidden;
+    overflow-x:auto;
 }
 
 .container{
+    width:99.5%;
+    max-width:1900px;
+    margin:15px auto 40px;
     width:1850px;
     margin:18px auto 50px;
 }
 
 .logo{
+    width:100%;
+    max-width:860px;
     display:block;
+    margin:0 auto 25px;
     width:860px;
     margin:0 auto 45px;
 }
@@ -45,35 +45,45 @@ body{
 
     display:grid;
     grid-template-columns:1fr 1fr;
+    column-gap:220px;
     column-gap:170px;
     align-items:start;
+}
 
+/* IZQUIERDA */
 }
 
 .columna-izquierda{
 
     display:flex;
     flex-direction:column;
+    gap:90px;
+}
     gap:95px;
 
+/* DERECHA */
 }
 
 .columna-derecha{
 
     display:flex;
     flex-direction:column;
+    gap:90px;
+    margin-top:145px;
     gap:95px;
     padding-top:145px;
 
 }
 
 .proyecto img{
+    width:104%;
 
     width:100%;
     display:block;
 
 }
 
+/* TÍTULOS */
 /* ---------- TÍTULOS ---------- */
 
 .titulo{
@@ -85,52 +95,33 @@ body{
     font-size:11px;
 
     font-weight:300;
+    letter-spacing:1.8px;
 
     letter-spacing:2px;
 
     text-transform:uppercase;
+    margin-top:12px;
+}
 
+/* Los dos bloques miran hacia el centro */
 }
 
 .columna-izquierda .titulo{
+    margin-left:180px;
 
     text-align:right;
 
 }
 
 .columna-derecha .titulo{
+    margin-left:45px;
 
     text-align:left;
 
 }
-/* ---------- MÓVIL ---------- */
 
-@media (max-width:768px){
-
-    .container{
-
-        width:1850px;
-
-        transform:scale(calc(100vw / 1850));
-
-        transform-origin:top left;
-    height:calc(3000px * (100vw / 1850));
-
-    }
-
-}
 </style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<img class="logo" src="logo.png" alt="SAVE THE F***ING RABBITS">
-
-<div class="proyectos">
-
+@@ -104,35 +119,55 @@
 <div class="columna-izquierda">
 
 <div class="proyecto">
@@ -186,9 +177,7 @@ PISAPAPELES
 </div>
 
 </div>
-
-</div>
-
+@@ -142,4 +177,5 @@
 </div>
 
 </body>
