@@ -132,13 +132,13 @@ body{
 }
 
 /* ============================================ */
-/* FOOTER - LOGOS + TEXTO CENTRADO             */
+/* FOOTER - CON MÁS ESPACIO                    */
 /* ============================================ */
 
 .footer{
     width:99.5%;
     max-width:1900px;
-    margin:80px auto 30px;
+    margin:150px auto 30px;
     text-align:center;
 }
 
@@ -160,37 +160,23 @@ body{
     opacity:1;
 }
 
-/* LOGO INAEM - MÁS GRANDE Y ARRIBA */
-.logo-inaem{
-    height:55px;
-    width:auto;
-}
-
-/* ICONO CORREO - MÁS ABAJO, SE TIÑE DE AMARILLO */
-.logo-correo{
-    height:32px;
-    width:auto;
-    filter: brightness(0) saturate(100%) invert(85%) sepia(50%) saturate(1000%) hue-rotate(-5deg);
-    transition: filter 0.3s ease;
-}
-
-.logo-correo:hover{
-    filter: brightness(0) saturate(100%) invert(85%) sepia(50%) saturate(1000%) hue-rotate(-5deg) brightness(1.3);
-}
-
-/* TEXTO CONTACTO EN AMARILLO */
 .contacto-text{
     color:#F4DE65;
     font-size:10px;
     font-weight:300;
     letter-spacing:2.5px;
     text-transform:uppercase;
-    margin-top:2px;
     transition: color 0.3s ease;
+    margin-bottom:5px;
 }
 
 .contacto-text:hover{
     color:#ffffff;
+}
+
+.logo-inaem{
+    height:55px;
+    width:auto;
 }
 
 .footer-text{
@@ -263,7 +249,7 @@ body{
 
     .footer{
         width:92%;
-        margin:60px auto 20px;
+        margin:100px auto 20px;
     }
 
     .footer-logos{
@@ -271,17 +257,14 @@ body{
         margin-bottom:25px;
     }
 
-    .logo-inaem{
-        height:40px;
-    }
-
-    .logo-correo{
-        height:26px;
-    }
-
     .contacto-text{
         font-size:9px;
         letter-spacing:2px;
+        margin-bottom:3px;
+    }
+
+    .logo-inaem{
+        height:40px;
     }
 
     .footer-text{
@@ -345,25 +328,19 @@ body{
 </div>
 
 <!-- ============================================ -->
-<!-- FOOTER - ESTRUCTURA COMPLETA                -->
+<!-- FOOTER                                      -->
 <!-- ============================================ -->
 
 <div class="footer">
 
     <div class="footer-logos">
 
-        <!-- LOGO INAEM (ARRIBA, MÁS GRANDE) -->
-        <img class="logo-inaem" src="logo-blanco-inaem-1200x212.png" alt="INAEM">
-
-        <!-- ICONO CORREO (ABAJO, SE TIÑE DE AMARILLO) -->
-        <img class="logo-correo" src="correo.png" alt="Email">
-
-        <!-- TEXTO CONTACTO EN AMARILLO -->
         <span class="contacto-text">CONTACTO</span>
+
+        <img class="logo-inaem" src="logo-blanco-inaem-1200x212.png" alt="INAEM">
 
     </div>
 
-    <!-- TEXTO FINAL -->
     <span class="footer-text">SAVE THE F***ING RABBITS .prod © 2026</span>
 
 </div>
