@@ -67,18 +67,6 @@ body{
 }
 
 /* ============================================ */
-/* ZONA DE HOVER - SOLO SE ACTIVA SOBRE EL LOGO */
-/* ============================================ */
-
-.hover-zone{
-    position:relative;
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-/* ============================================ */
 /* PANEL DESPLEGABLE - INFO COMPAÑÍA           */
 /* ============================================ */
 
@@ -95,8 +83,7 @@ body{
     pointer-events:none;
 }
 
-.logo-wrapper.active .info-panel,
-.logo-wrapper:hover .info-panel{
+.logo-wrapper.active .info-panel{
     max-height:1400px;
     opacity:1;
     margin-top:10px;
@@ -142,8 +129,7 @@ body{
     max-width:1900px;
 }
 
-.logo-wrapper.active .proyectos,
-.logo-wrapper:hover .proyectos{
+.logo-wrapper.active .proyectos{
     margin-top:20px;
 }
 
@@ -449,14 +435,12 @@ body{
         font-weight:400;
     }
 
-    .logo-wrapper.active .info-panel,
-    .logo-wrapper:hover .info-panel{
+    .logo-wrapper.active .info-panel{
         margin-top:8px;
         padding:15px 0 20px;
     }
 
-    .logo-wrapper.active .proyectos,
-    .logo-wrapper:hover .proyectos{
+    .logo-wrapper.active .proyectos{
         margin-top:15px;
     }
 
@@ -518,22 +502,18 @@ body{
 
     <div class="logo-wrapper" id="logoWrapper">
 
-        <img class="logo-img" src="logo.png" alt="SAVE THE F***ING RABBITS">
+        <img class="logo-img" id="logoImg" src="logo.png" alt="SAVE THE F***ING RABBITS">
 
-        <div class="hover-zone" id="hoverZone">
+        <div class="info-panel">
+            <p><span class="destacado">SAVE THE F***ING RABBITS</span> es una compañía de teatro contemporáneo fundada en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
 
-            <div class="info-panel">
-                <p><span class="destacado">SAVE THE F***ING RABBITS</span> es una compañía de teatro contemporáneo fundada en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
+            <p>Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, en el que diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.</p>
 
-                <p>Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, en el que diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.</p>
+            <p>En términos de contenido, la compañía investiga la condición humana, abordando temas complejos que se mueven entre lo político y lo filosófico. El animal atraviesa las creaciones como un recurso poético y conceptual desde el que pensar al ser humano. A través de esta relación, se explora la distancia que hemos construido entre lo humano y lo animal y las contradicciones que surgen de esa separación, preguntándonos por aquello que nos define como especie.</p>
 
-                <p>En términos de contenido, la compañía investiga la condición humana, abordando temas complejos que se mueven entre lo político y lo filosófico. El animal atraviesa las creaciones como un recurso poético y conceptual desde el que pensar al ser humano. A través de esta relación, se explora la distancia que hemos construido entre lo humano y lo animal y las contradicciones que surgen de esa separación, preguntándonos por aquello que nos define como especie.</p>
+            <p>La propuesta artística se distingue por su capacidad para generar sensaciones: no solo apela a la percepción visual y auditiva, sino que involucra otros sentidos para crear un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.</p>
 
-                <p>La propuesta artística se distingue por su capacidad para generar sensaciones: no solo apela a la percepción visual y auditiva, sino que involucra otros sentidos para crear un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.</p>
-
-                <p>El proyecto busca situar al espectador ante una experiencia que lo interpele, convirtiéndolo en un sujeto activo dentro de la propuesta. Es un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
-            </div>
-
+            <p>El proyecto busca situar al espectador ante una experiencia que lo interpele, convirtiéndolo en un sujeto activo dentro de la propuesta. Es un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
         </div>
 
     </div>
@@ -632,33 +612,84 @@ body{
 document.addEventListener('DOMContentLoaded', function() {
 
     const logoWrapper = document.getElementById('logoWrapper');
+    const logoImg = document.getElementById('logoImg');
     const contactoWrapper = document.getElementById('contactoWrapper');
     let closeTimeout = null;
 
     const isMobile = window.innerWidth <= 768;
 
     // ========================================== */
-    // ESCRITORIO - HOVER                        */
+    // LOGO - HOVER SOLO SOBRE LA IMAGEN         */
     // ========================================== */
 
     if (!isMobile) {
 
-        // LOGO
-        logoWrapper.addEventListener('mouseenter', function() {
+        // Al pasar el ratón sobre la imagen del logo → abrir
+        logoImg.addEventListener('mouseenter', function() {
             clearTimeout(closeTimeout);
             logoWrapper.classList.add('active');
         });
 
+        // Al salir del logo-wrapper (incluye el texto desplegado) → cerrar con retardo
         logoWrapper.addEventListener('mouseleave', function(e) {
+            // Si el ratón se mueve al panel de texto, no cerramos
             const related = e.relatedTarget;
-            if (!logoWrapper.contains(related)) {
+            if (related && logoWrapper.contains(related)) {
+                return;
+            }
+            closeTimeout = setTimeout(function() {
+                logoWrapper.classList.remove('active');
+            }, 400);
+        });
+
+        // Mantener abierto si el ratón está dentro del panel de texto
+        const infoPanel = document.querySelector('.info-panel');
+        if (infoPanel) {
+            infoPanel.addEventListener('mouseenter', function() {
+                clearTimeout(closeTimeout);
+            });
+            infoPanel.addEventListener('mouseleave', function() {
                 closeTimeout = setTimeout(function() {
                     logoWrapper.classList.remove('active');
-                }, 300);
+                }, 400);
+            });
+        }
+
+    }
+
+    // ========================================== */
+    // MÓVIL - CLICK EN EL LOGO                 */
+    // ========================================== */
+
+    if (isMobile) {
+
+        logoWrapper.addEventListener('click', function(e) {
+            if (e.target.closest('a')) return;
+
+            if (logoWrapper.classList.contains('active')) {
+                window.location.href = 'index.html';
+            } else {
+                logoWrapper.classList.add('active');
             }
         });
 
-        // CONTACTO
+        document.addEventListener('click', function(e) {
+            if (logoWrapper.classList.contains('active') && !logoWrapper.contains(e.target)) {
+                logoWrapper.classList.remove('active');
+            }
+            if (contactoWrapper.classList.contains('active') && !contactoWrapper.contains(e.target)) {
+                contactoWrapper.classList.remove('active');
+            }
+        });
+
+    }
+
+    // ========================================== */
+    // CONTACTO - HOVER / CLICK                  */
+    // ========================================== */
+
+    if (!isMobile) {
+
         contactoWrapper.addEventListener('mouseenter', function() {
             clearTimeout(closeTimeout);
             contactoWrapper.classList.add('active');
@@ -673,39 +704,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-    }
+        const contactoPanel = contactoWrapper.querySelector('.contacto-panel');
+        if (contactoPanel) {
+            contactoPanel.addEventListener('mouseenter', function() {
+                clearTimeout(closeTimeout);
+            });
+            contactoPanel.addEventListener('mouseleave', function() {
+                closeTimeout = setTimeout(function() {
+                    contactoWrapper.classList.remove('active');
+                }, 250);
+            });
+        }
 
-    // ========================================== */
-    // MÓVIL - REDIRIGE A INDEX AL TOCAR LOGO   */
-    // ========================================== */
+    }
 
     if (isMobile) {
 
-        // LOGO: si está abierto, redirige a index; si no, abre
-        logoWrapper.addEventListener('click', function(e) {
-            if (e.target.closest('a')) return;
-
-            if (logoWrapper.classList.contains('active')) {
-                window.location.href = 'index.html';
-            } else {
-                logoWrapper.classList.add('active');
-            }
-        });
-
-        // CONTACTO - toggle normal
         contactoWrapper.addEventListener('click', function(e) {
             if (e.target.closest('a')) return;
             contactoWrapper.classList.toggle('active');
-        });
-
-        // Cerrar al hacer click fuera
-        document.addEventListener('click', function(e) {
-            if (logoWrapper.classList.contains('active') && !logoWrapper.contains(e.target)) {
-                logoWrapper.classList.remove('active');
-            }
-            if (contactoWrapper.classList.contains('active') && !contactoWrapper.contains(e.target)) {
-                contactoWrapper.classList.remove('active');
-            }
         });
 
     }
