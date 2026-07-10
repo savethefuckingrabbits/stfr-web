@@ -55,14 +55,12 @@ body{
     max-width:100%;
     height:auto;
     display:block;
-    transition: filter 0.3s ease, opacity 0.3s ease;
+    transition: opacity 0.3s ease;
     cursor:pointer;
-    filter: brightness(1);
 }
 
 .logo-img:hover{
-    filter: brightness(1.15);
-    opacity:0.9;
+    opacity:0.7;
 }
 
 /* ============================================ */
@@ -224,6 +222,16 @@ body{
     margin-bottom:30px;
 }
 
+.footer-logos img{
+    display:block;
+    opacity:0.8;
+    transition:opacity 0.3s ease;
+}
+
+.footer-logos img:hover{
+    opacity:1;
+}
+
 /* ============================================ */
 /* CONTACTO - DESPLEGABLE HACIA ARRIBA         */
 /* ============================================ */
@@ -254,7 +262,7 @@ body{
     color:#ffffff;
 }
 
-/* PANEL DE CONTACTO */
+/* PANEL DE CONTACTO - SIN ICONOS */
 .contacto-panel{
     max-height:0;
     opacity:0;
@@ -283,29 +291,20 @@ body{
 
 .contacto-panel p{
     color:#F4DE65;
-    font-family:'Georgia', 'Times New Roman', serif;
-    font-weight:300;
-    font-size:12px;
-    line-height:2.4;
-    letter-spacing:0.3px;
-    margin:0;
-    text-align:center;
-}
-
-.contacto-panel .icono{
     font-family:'Inter',sans-serif;
     font-weight:300;
-    font-size:13px;
-    letter-spacing:2px;
-    opacity:0.6;
-    margin-right:6px;
+    font-size:11px;
+    line-height:2.2;
+    letter-spacing:0.5px;
+    margin:0;
+    text-align:center;
 }
 
 .contacto-panel a{
     color:#F4DE65;
     text-decoration:none;
     transition:color 0.3s ease;
-    font-family:'Georgia', 'Times New Roman', serif;
+    font-family:'Inter',sans-serif;
     font-weight:300;
 }
 
@@ -314,21 +313,40 @@ body{
 }
 
 /* ============================================ */
-/* TEXTO INAEM - SIN LOGO, DOS LÍNEAS          */
+/* INAEM - LOGO + TEXTO SIEMPRE VISIBLE        */
 /* ============================================ */
 
-.inaem-text{
+.logo-inaem-wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+}
+
+.logo-inaem{
+    height:55px;
+    width:auto;
+    transition: opacity 0.3s ease;
+    display:block;
+    opacity:0.8;
+}
+
+.logo-inaem:hover{
+    opacity:1;
+}
+
+.compania-info{
     color:rgba(255,255,255,0.4);
     font-size:9px;
     font-weight:300;
     letter-spacing:1.2px;
     text-transform:uppercase;
     line-height:1.8;
-    margin-bottom:20px;
-    text-align:center;
+    margin-top:15px;
+    display:block;
 }
 
-.inaem-text span{
+.compania-info span{
     display:block;
 }
 
@@ -445,19 +463,19 @@ body{
     }
 
     .contacto-panel p{
-        font-size:11px;
-        line-height:2.2;
+        font-size:10px;
+        line-height:2;
     }
 
-    .contacto-panel .icono{
-        font-size:11px;
+    .logo-inaem{
+        height:40px;
     }
 
-    .inaem-text{
+    .compania-info{
         font-size:8px;
         letter-spacing:1px;
         line-height:1.6;
-        margin-bottom:15px;
+        margin-top:12px;
     }
 
     .footer-text{
@@ -559,19 +577,22 @@ body{
         <div class="contacto-wrapper" id="contactoWrapper">
 
             <div class="contacto-panel">
-                <p><span class="icono">✉</span> <a href="mailto:savethefvckingrabbits@gmail.com">savethefvckingrabbits@gmail.com</a></p>
-                <p><span class="icono">✆</span> <a href="tel:+34644606210">+34 644606210</a></p>
-                <p><span class="icono">◈</span> <a href="https://www.instagram.com/savethefuckingrabbits/?hl=zh-cn" target="_blank">@savethefuckingrabbits</a></p>
+                <p><a href="mailto:savethefvckingrabbits@gmail.com">savethefvckingrabbits@gmail.com</a></p>
+                <p><a href="tel:+34644606210">+34 644606210</a></p>
+                <p><a href="https://www.instagram.com/savethefuckingrabbits/?hl=zh-cn" target="_blank">@savethefuckingrabbits</a></p>
             </div>
 
             <span class="contacto-text">CONTACTO</span>
 
         </div>
 
-        <!-- TEXTO INAEM SIN LOGO - DOS LÍNEAS -->
-        <div class="inaem-text">
-            <span>COMPAÑÍA DE TEATRO</span>
-            <span>FUNDADA EN 2020 · MADRID</span>
+        <!-- LOGO INAEM + TEXTO EN DOS LÍNEAS -->
+        <div class="logo-inaem-wrapper">
+            <img class="logo-inaem" src="logo-blanco-inaem-1200x212.png" alt="INAEM">
+            <div class="compania-info">
+                <span>COMPAÑÍA DE TEATRO</span>
+                <span>FUNDADA EN 2020 · MADRID</span>
+            </div>
         </div>
 
     </div>
