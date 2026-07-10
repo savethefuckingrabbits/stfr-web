@@ -93,7 +93,7 @@ body{
 
 .logo-wrapper.active .info-panel,
 .logo-wrapper:hover .info-panel{
-    max-height:1200px;
+    max-height:1400px;
     opacity:1;
     margin-top:5px;
     padding:15px 0 20px;
@@ -101,15 +101,15 @@ body{
 }
 
 /* ============================================ */
-/* TEXTO DEL PANEL - TODO EN AMARILLO          */
+/* TEXTO DEL PANEL - INTER MÁS GRUESA Y GRANDE */
 /* ============================================ */
 
 .info-panel p{
     color:#F4DE65;
     font-family:'Inter',sans-serif;
-    font-weight:300;
-    font-size:13px;
-    line-height:1.8;
+    font-weight:400;
+    font-size:15px;
+    line-height:1.9;
     letter-spacing:0.3px;
     margin-bottom:18px;
     text-align:justify;
@@ -117,6 +117,11 @@ body{
 
 .info-panel p:last-child{
     margin-bottom:0;
+}
+
+.info-panel .destacado{
+    font-weight:600;
+    color:#F4DE65;
 }
 
 /* ============================================ */
@@ -427,9 +432,10 @@ body{
     }
 
     .info-panel p{
-        font-size:12px;
-        line-height:1.7;
+        font-size:14px;
+        line-height:1.8;
         text-align:left;
+        font-weight:400;
     }
 
     .logo-wrapper.active .info-panel,
@@ -506,15 +512,15 @@ body{
         <div class="hover-zone" id="hoverZone">
 
             <div class="info-panel">
-                <p>SAVE THE F***ING RABBITS .prod es un colectivo de artes vivas fundado en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
+                <p><span class="destacado">SAVE THE F***ING RABBITS</span> es una compañía de teatro contemporáneo fundada en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
 
-                <p>Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, donde diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.</p>
+                <p>Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, en el que diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.</p>
 
-                <p>La propuesta artística se distingue por su capacidad para generar sensaciones, gracias a su carácter experiencial, que no solo apela a la percepción visual y auditiva, sino también a otras formas de involucrar los sentidos, creando un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.</p>
+                <p>En términos de contenido, la compañía investiga la condición humana, abordando temas complejos que se mueven entre lo político y lo filosófico. El animal atraviesa las creaciones como un recurso poético y conceptual desde el que pensar al ser humano. A través de esta relación, se explora la distancia que hemos construido entre lo humano y lo animal y las contradicciones que surgen de esa separación, preguntándonos por aquello que nos define como especie.</p>
 
-                <p>En términos de contenido, el colectivo explora la condición humana en relación con lo oscuro y el tabú, abordando temas complejos que se mueven entre lo político y lo filosófico, sirviéndose de paralelismos entre "lo humano" y "lo animal" para intentar comprender las complejidades que nos definen como especie.</p>
+                <p>La propuesta artística se distingue por su capacidad para generar sensaciones: no solo apela a la percepción visual y auditiva, sino que involucra otros sentidos para crear un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.</p>
 
-                <p>En definitiva, SAVE THE F***ING RABBITS .prod invita al espectador a un viaje de introspección y descubrimiento, siendo un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
+                <p>El proyecto busca situar al espectador ante una experiencia que lo interpele, convirtiéndolo en un sujeto activo dentro de la propuesta. Es un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
             </div>
 
         </div>
@@ -662,14 +668,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // LOGO: si está abierto, redirige a index; si no, abre
         logoWrapper.addEventListener('click', function(e) {
-            // Si el click fue en un enlace dentro del panel, no hacemos nada
             if (e.target.closest('a')) return;
 
             if (logoWrapper.classList.contains('active')) {
-                // Si está abierto, recarga la página (va a index)
                 window.location.href = 'index.html';
             } else {
-                // Si está cerrado, lo abrimos
                 logoWrapper.classList.add('active');
             }
         });
