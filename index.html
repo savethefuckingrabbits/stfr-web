@@ -45,11 +45,16 @@ body{
     max-width:860px;
     margin:0 auto 25px;
     position:relative;
-    display:block;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
+/* EL LOGO SE AJUSTA A SU CONTENIDO REAL */
 .logo-img{
-    width:100%;
+    width:auto;
+    max-width:100%;
+    height:auto;
     display:block;
     transition: opacity 0.3s ease;
     cursor:pointer;
@@ -71,6 +76,7 @@ body{
     margin-top:0;
     padding:0 0;
     background:#000;
+    width:100%;
     pointer-events:none;
 }
 
@@ -297,6 +303,12 @@ body{
     .logo-wrapper{
         max-width:100%;
         margin:0 auto 20px;
+        align-items:center;
+    }
+
+    .logo-img{
+        width:100%;
+        max-width:100%;
     }
 
     .proyectos{
@@ -410,7 +422,7 @@ body{
 
         <img class="logo-img" src="logo.png" alt="SAVE THE F***ING RABBITS">
 
-        <!-- PANEL DESPLEGABLE - CASI PEGADO AL LOGO -->
+        <!-- PANEL DESPLEGABLE -->
         <div class="info-panel">
             <p>SAVE THE F***ING RABBITS .prod es un colectivo de artes vivas fundado en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
 
@@ -496,16 +508,58 @@ body{
 </div>
 
 <!-- ============================================ -->
-<!-- JAVASCRIPT PARA MÓVIL                       -->
+<!-- JAVASCRIPT PARA HOVER INTELIGENTE           -->
 <!-- ============================================ -->
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
     const wrapper = document.getElementById('logoWrapper');
+    const panel = wrapper.querySelector('.info-panel');
     let isOpen = false;
+    let closeTimeout = null;
 
     const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+
+    // ============================================ */
+    // ESCRITORIO - HOVER CON RETARDO              */
+    // ============================================ */
+
+    if (!isMobile) {
+
+        // Abrir al entrar en el wrapper
+        wrapper.addEventListener('mouseenter', function() {
+            clearTimeout(closeTimeout);
+            wrapper.classList.add('active');
+            isOpen = true;
+        });
+
+        // Cerrar con retardo al salir del wrapper
+        wrapper.addEventListener('mouseleave', function() {
+            closeTimeout = setTimeout(function() {
+                wrapper.classList.remove('active');
+                isOpen = false;
+            }, 300); // 300ms de retardo para permitir movimientos suaves
+        });
+
+        // Si el cursor entra al panel, cancelamos el cierre
+        panel.addEventListener('mouseenter', function() {
+            clearTimeout(closeTimeout);
+        });
+
+        // Si el cursor sale del panel, empezamos el cierre
+        panel.addEventListener('mouseleave', function() {
+            closeTimeout = setTimeout(function() {
+                wrapper.classList.remove('active');
+                isOpen = false;
+            }, 300);
+        });
+
+    }
+
+    // ============================================ */
+    // MÓVIL - CLICK                                */
+    // ============================================ */
 
     if (isMobile) {
 
@@ -523,6 +577,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     }
+
+    // ============================================ */
+    // REDIMENSIONAR - RESET                        */
+    // ============================================ */
 
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
