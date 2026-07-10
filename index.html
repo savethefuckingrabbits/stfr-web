@@ -64,7 +64,7 @@ body{
 }
 
 /* ============================================ */
-/* ZONA DE HOVER EXTENDIDA (logo + texto + fotos) */
+/* ZONA DE HOVER EXTENDIDA                     */
 /* ============================================ */
 
 .hover-zone{
@@ -75,20 +75,8 @@ body{
     align-items:center;
 }
 
-/* EXTENSIÓN INVISIBLE HACIA ABAJO (para cubrir las fotos) */
-.hover-zone::after{
-    content:'';
-    position:absolute;
-    top:100%;
-    left:0;
-    width:100%;
-    height:400px; /* Altura suficiente para cubrir las primeras fotos */
-    pointer-events:none;
-    z-index:0;
-}
-
 /* ============================================ */
-/* PANEL DESPLEGABLE                           */
+/* PANEL DESPLEGABLE - INFO COMPAÑÍA           */
 /* ============================================ */
 
 .info-panel{
@@ -244,6 +232,18 @@ body{
     opacity:1;
 }
 
+/* ============================================ */
+/* CONTACTO - DESPLEGABLE CON BORDE AMARILLO   */
+/* ============================================ */
+
+.contacto-wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    cursor:pointer;
+    position:relative;
+}
+
 .contacto-text{
     color:#F4DE65;
     font-size:10px;
@@ -252,11 +252,69 @@ body{
     text-transform:uppercase;
     transition:color 0.3s ease;
     margin-bottom:80px;
+    cursor:pointer;
+    user-select:none;
 }
 
 .contacto-text:hover{
     color:#ffffff;
 }
+
+/* PANEL DE CONTACTO - PEQUEÑO CON BORDE */
+.contacto-panel{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease, margin-top 0.6s ease, padding 0.6s ease;
+    margin-top:0;
+    padding:0 25px;
+    background:#000;
+    width:auto;
+    min-width:280px;
+    border:1px solid transparent;
+    border-radius:8px;
+    pointer-events:none;
+    margin-bottom:0;
+}
+
+.contacto-wrapper.active .contacto-panel,
+.contacto-wrapper:hover .contacto-panel{
+    max-height:300px;
+    opacity:1;
+    margin-top:-60px;
+    padding:20px 30px;
+    border-color:#F4DE65;
+    pointer-events:auto;
+}
+
+.contacto-panel p{
+    color:#F4DE65;
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    font-size:11px;
+    line-height:2;
+    letter-spacing:0.5px;
+    margin:0;
+    text-align:center;
+}
+
+.contacto-panel a{
+    color:#F4DE65;
+    text-decoration:none;
+    transition:color 0.3s ease;
+}
+
+.contacto-panel a:hover{
+    color:#ffffff;
+}
+
+.contacto-panel .icono{
+    margin-right:8px;
+}
+
+/* ============================================ */
+/* LOGO INAEM                                  */
+/* ============================================ */
 
 .logo-inaem-wrapper{
     display:flex;
@@ -403,6 +461,18 @@ body{
         margin-bottom:60px;
     }
 
+    .contacto-wrapper.active .contacto-panel,
+    .contacto-wrapper:hover .contacto-panel{
+        margin-top:-50px;
+        padding:15px 20px;
+        min-width:200px;
+    }
+
+    .contacto-panel p{
+        font-size:10px;
+        line-height:1.8;
+    }
+
     .logo-inaem{
         height:40px;
     }
@@ -444,10 +514,8 @@ body{
 
         <img class="logo-img" src="logo.png" alt="SAVE THE F***ING RABBITS">
 
-        <!-- ZONA DE HOVER -->
         <div class="hover-zone" id="hoverZone">
 
-            <!-- PANEL DESPLEGABLE -->
             <div class="info-panel">
                 <p>SAVE THE F***ING RABBITS .prod es un colectivo de artes vivas fundado en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
 
@@ -518,8 +586,21 @@ body{
 
     <div class="footer-logos">
 
-        <span class="contacto-text">CONTACTO</span>
+        <!-- CONTACTO DESPLEGABLE -->
+        <div class="contacto-wrapper" id="contactoWrapper">
 
+            <span class="contacto-text">CONTACTO</span>
+
+            <!-- PANEL DE CONTACTO - PEQUEÑO CON BORDE -->
+            <div class="contacto-panel">
+                <p>📧 <a href="mailto:savethefvckingrabbits@gmail.com">savethefvckingrabbits@gmail.com</a></p>
+                <p>📞 <a href="tel:+34644606210">+34 644606210</a></p>
+                <p>📷 <a href="https://www.instagram.com/savethefuckingrabbits/?hl=zh-cn" target="_blank">@savethefuckingrabbits</a></p>
+            </div>
+
+        </div>
+
+        <!-- LOGO INAEM -->
         <div class="logo-inaem-wrapper">
             <img class="logo-inaem" src="logo-blanco-inaem-1200x212.png" alt="INAEM">
             <div class="compania-info">
@@ -535,13 +616,17 @@ body{
 </div>
 
 <!-- ============================================ -->
-<!-- JAVASCRIPT - HOVER ZONE EXTENDIDA           -->
+<!-- JAVASCRIPT                                   -->
 <!-- ============================================ -->
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-    const wrapper = document.getElementById('logoWrapper');
+    // ========================================== */
+    // LOGO - HOVER / CLICK                      */
+    // ========================================== */
+
+    const logoWrapper = document.getElementById('logoWrapper');
     const hoverZone = document.getElementById('hoverZone');
     const panel = document.querySelector('.info-panel');
     let closeTimeout = null;
@@ -550,83 +635,124 @@ document.addEventListener('DOMContentLoaded', function() {
                      'ontouchstart' in window || 
                      navigator.maxTouchPoints > 0;
 
-    // ========================================== */
-    // ESCRITORIO - HOVER ZONE EXTENDIDA         */
-    // ========================================== */
-
     if (!isMobile) {
 
         function openPanel() {
             clearTimeout(closeTimeout);
-            wrapper.classList.add('active');
+            logoWrapper.classList.add('active');
         }
 
         function closePanelWithDelay() {
             clearTimeout(closeTimeout);
             closeTimeout = setTimeout(function() {
-                wrapper.classList.remove('active');
-            }, 500); // Retardo más largo para que no se cierre bruscamente
+                logoWrapper.classList.remove('active');
+            }, 500);
         }
 
-        // Al entrar al wrapper (logo) o al panel → abrir
-        wrapper.addEventListener('mouseenter', openPanel);
+        logoWrapper.addEventListener('mouseenter', openPanel);
         panel.addEventListener('mouseenter', openPanel);
 
-        // Al salir del wrapper → cerrar con retardo
-        wrapper.addEventListener('mouseleave', function(e) {
+        logoWrapper.addEventListener('mouseleave', function(e) {
             const related = e.relatedTarget;
-            // Si el cursor va al panel o al hoverZone, no cerramos
-            if (!panel.contains(related) && !hoverZone.contains(related) && !wrapper.contains(related)) {
+            if (!panel.contains(related) && !hoverZone.contains(related) && !logoWrapper.contains(related)) {
                 closePanelWithDelay();
             }
         });
 
-        // Al salir del panel → cerrar con retardo
         panel.addEventListener('mouseleave', function(e) {
             const related = e.relatedTarget;
-            // Si el cursor va al wrapper (logo), no cerramos
-            if (!wrapper.contains(related) && !panel.contains(related) && !hoverZone.contains(related)) {
+            if (!logoWrapper.contains(related) && !panel.contains(related) && !hoverZone.contains(related)) {
                 closePanelWithDelay();
             }
         });
 
-        // Al entrar al hoverZone (zona extendida) → mantener abierto
         hoverZone.addEventListener('mouseenter', openPanel);
 
-        // Al salir del hoverZone → cerrar con retardo
         hoverZone.addEventListener('mouseleave', function(e) {
             const related = e.relatedTarget;
-            if (!wrapper.contains(related) && !panel.contains(related) && !hoverZone.contains(related)) {
+            if (!logoWrapper.contains(related) && !panel.contains(related) && !hoverZone.contains(related)) {
                 closePanelWithDelay();
             }
         });
 
-        // Las fotos ahora están dentro del hoverZone, así que al pasar por ellas
-        // el panel se mantiene abierto. No hace falta hacer nada más.
+    }
+
+    if (isMobile) {
+
+        logoWrapper.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            logoWrapper.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (logoWrapper.classList.contains('active') && !logoWrapper.contains(e.target)) {
+                logoWrapper.classList.remove('active');
+            }
+        });
+
+        logoWrapper.addEventListener('touchstart', function(e) {
+            e.stopPropagation();
+        }, { passive: true });
 
     }
 
     // ========================================== */
-    // MÓVIL - CLICK                             */
+    // CONTACTO - HOVER / CLICK                  */
     // ========================================== */
 
-    if (isMobile) {
+    const contactoWrapper = document.getElementById('contactoWrapper');
+    let contactoTimeout = null;
 
-        wrapper.addEventListener('click', function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            wrapper.classList.toggle('active');
-        });
+    if (!isMobile) {
 
-        document.addEventListener('click', function(e) {
-            if (wrapper.classList.contains('active') && !wrapper.contains(e.target)) {
-                wrapper.classList.remove('active');
+        function openContacto() {
+            clearTimeout(contactoTimeout);
+            contactoWrapper.classList.add('active');
+        }
+
+        function closeContactoWithDelay() {
+            clearTimeout(contactoTimeout);
+            contactoTimeout = setTimeout(function() {
+                contactoWrapper.classList.remove('active');
+            }, 400);
+        }
+
+        contactoWrapper.addEventListener('mouseenter', openContacto);
+        contactoWrapper.addEventListener('mouseleave', function(e) {
+            const related = e.relatedTarget;
+            if (!contactoWrapper.contains(related)) {
+                closeContactoWithDelay();
             }
         });
 
-        wrapper.addEventListener('touchstart', function(e) {
+        // El panel de contacto también mantiene abierto
+        const contactoPanel = contactoWrapper.querySelector('.contacto-panel');
+        if (contactoPanel) {
+            contactoPanel.addEventListener('mouseenter', openContacto);
+            contactoPanel.addEventListener('mouseleave', function(e) {
+                const related = e.relatedTarget;
+                if (!contactoWrapper.contains(related)) {
+                    closeContactoWithDelay();
+                }
+            });
+        }
+
+    }
+
+    if (isMobile) {
+
+        contactoWrapper.addEventListener('click', function(e) {
             e.stopPropagation();
-        }, { passive: true });
+            e.preventDefault();
+            contactoWrapper.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (contactoWrapper.classList.contains('active') && !contactoWrapper.contains(e.target)) {
+                contactoWrapper.classList.remove('active');
+            }
+        });
 
     }
 
@@ -636,7 +762,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
-            wrapper.classList.remove('active');
+            logoWrapper.classList.remove('active');
+            contactoWrapper.classList.remove('active');
         }
     });
 
