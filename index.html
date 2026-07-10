@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SAVE THE F***ING RABBITS</title>
-
-<link rel="icon" type="image/png" href="favicon.png">
+@@ -10,6 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html, body {
-    overflow-x: hidden;
-}
+@@ -22,71 +25,83 @@
 
 body{
     background:#000;
     color:white;
+    color:#fff;
     font-family:'Inter',sans-serif;
+    overflow-x:auto;
 }
 
 .container{
-    width:100%;
-    max-width:1400px; /* ← Reducido para que no se vea tan disperso */
+    width:99.5%;
+    max-width:1900px;
     margin:15px auto 40px;
-    padding:0 15px;
+    width:1850px;
+    margin:18px auto 50px;
 }
 
 .logo{
@@ -42,132 +37,115 @@ body{
     max-width:860px;
     display:block;
     margin:0 auto 25px;
+    width:860px;
+    margin:0 auto 45px;
 }
 
 .proyectos{
+
     display:grid;
-    grid-template-columns:1fr 1fr; /* ← Siempre dos columnas */
-    column-gap:60px; /* ← Gap más razonable */
+    grid-template-columns:1fr 1fr;
+    column-gap:220px;
+    column-gap:170px;
     align-items:start;
 }
 
 /* IZQUIERDA */
+}
 
 .columna-izquierda{
+
     display:flex;
     flex-direction:column;
     gap:90px;
 }
+    gap:95px;
 
 /* DERECHA */
+}
 
 .columna-derecha{
+
     display:flex;
     flex-direction:column;
     gap:90px;
-    margin-top:145px; /* ← Mantengo el desfase que tienes en tu diseño */
-}
+    margin-top:145px;
+    gap:95px;
+    padding-top:145px;
 
-.proyecto {
-    position: relative;
-    overflow: hidden;
 }
 
 .proyecto img{
+    width:104%;
+
     width:100%;
     display:block;
+
 }
 
 /* TÍTULOS */
+/* ---------- TÍTULOS ---------- */
 
 .titulo{
+
+    margin-top:14px;
+
     color:#F4DE65;
+
     font-size:11px;
+
     font-weight:300;
     letter-spacing:1.8px;
+
+    letter-spacing:2px;
+
     text-transform:uppercase;
     margin-top:12px;
-    padding-left:10px; /* ← Pequeño padding para que no toque el borde */
 }
 
-/* --- RESPONSIVE: MÓVIL --- */
-@media (max-width: 768px) {
-
-    .container{
-        padding:0;
-        max-width:100%;
-    }
-
-    .logo{
-        padding:0 10px;
-        max-width:100%;
-    }
-
-    .proyectos{
-        grid-template-columns:1fr 1fr; /* ← MANTENEMOS DOS COLUMNAS */
-        column-gap:10px; /* ← Gap pequeño en móvil */
-    }
-
-    .columna-izquierda{
-        gap:50px;
-    }
-
-    .columna-derecha{
-        gap:50px;
-        margin-top:80px; /* ← Reducido para móvil */
-    }
-
-    .proyecto img{
-        width:100%;
-        border-radius:0;
-    }
-
-    .columna-izquierda .titulo,
-    .columna-derecha .titulo{
-        padding-left:8px;
-        padding-right:8px;
-    }
-
-    .titulo{
-        font-size:9px; /* ← Más pequeño en móvil para que quepa */
-        letter-spacing:1.2px;
-        margin-top:8px;
-    }
+/* Los dos bloques miran hacia el centro */
 }
 
-/* --- Para pantallas muy grandes (ajuste fino) --- */
-@media (min-width: 1400px) {
-    .proyectos{
-        column-gap:100px; /* ← Más separación en pantallas enormes */
-    }
+.columna-izquierda .titulo{
+    margin-left:180px;
+
+    text-align:right;
+
+}
+
+.columna-derecha .titulo{
+    margin-left:45px;
+
+    text-align:left;
+
 }
 
 </style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<img class="logo" src="logo.png" alt="SAVE THE F***ING RABBITS">
-
-<div class="proyectos">
-
+@@ -104,35 +119,55 @@
 <div class="columna-izquierda">
 
 <div class="proyecto">
+
 <img src="sucré.jpg" alt="Sucré">
+
 <div class="titulo">
+
 SUCRÉ
+
 </div>
+
 </div>
 
 <div class="proyecto">
+
 <img src="madriguera.png" alt="SAVE THE F***ING RABBITS">
+
 <div class="titulo">
+
 SAVE THE F***ING RABBITS
+
 </div>
+
 </div>
 
 </div>
@@ -175,24 +153,33 @@ SAVE THE F***ING RABBITS
 <div class="columna-derecha">
 
 <div class="proyecto">
+
 <img src="hours.png" alt="The Hours">
+
 <div class="titulo">
+
 THE HOURS
+
 </div>
+
 </div>
 
 <div class="proyecto">
+
 <img src="pisapapeles.jpg" alt="Pisapapeles">
+
 <div class="titulo">
+
 PISAPAPELES
-</div>
-</div>
 
 </div>
 
 </div>
 
+</div>
+@@ -142,4 +177,5 @@
 </div>
 
 </body>
+
 </html>
