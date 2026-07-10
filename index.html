@@ -306,6 +306,8 @@ body{
     transition:color 0.3s ease;
     font-family:'Inter',sans-serif;
     font-weight:300;
+    display:inline-block;
+    padding:2px 0;
 }
 
 .contacto-panel a:hover{
@@ -665,21 +667,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (isMobile) {
 
+        // Toggle del logo: se abre y se cierra al hacer click
         logoWrapper.addEventListener('click', function(e) {
+            // Si el click fue en un enlace dentro del panel, no hacemos toggle
+            if (e.target.closest('a')) return;
+            
             e.stopPropagation();
-            e.preventDefault();
             logoWrapper.classList.toggle('active');
         });
 
+        // Click fuera del wrapper: cierra
         document.addEventListener('click', function(e) {
             if (logoWrapper.classList.contains('active') && !logoWrapper.contains(e.target)) {
                 logoWrapper.classList.remove('active');
             }
         });
-
-        logoWrapper.addEventListener('touchstart', function(e) {
-            e.stopPropagation();
-        }, { passive: true });
 
     }
 
@@ -728,8 +730,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isMobile) {
 
         contactoWrapper.addEventListener('click', function(e) {
+            // Si el click fue en un enlace dentro del panel, no hacemos toggle
+            if (e.target.closest('a')) return;
+            
             e.stopPropagation();
-            e.preventDefault();
             contactoWrapper.classList.toggle('active');
         });
 
