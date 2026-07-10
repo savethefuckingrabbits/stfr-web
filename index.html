@@ -68,6 +68,7 @@ body{
     position:relative;
     cursor:pointer;
     border-radius: 4px;
+    overflow:hidden;
 }
 
 .proyecto img{
@@ -79,13 +80,37 @@ body{
 }
 
 /* ============================================ */
+/* OVERLAY AMARILLO SOLO EN ZONAS BLANCAS      */
+/* ============================================ */
+
+.proyecto::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F5F5F5;
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    mix-blend-mode: hard-light;
+    border-radius: 4px;
+}
+
+/* ============================================ */
 /* ESCRITORIO - EFECTOS                        */
 /* ============================================ */
 
 @media (min-width: 769px) {
     
+    .proyecto:hover::after{
+        opacity: 1;
+    }
+
     .proyecto:hover img{
-        filter: brightness(1.25) saturate(1.1);
+        filter: contrast(1.2) brightness(1.1);
     }
 
     .proyecto:hover .titulo{
@@ -100,8 +125,13 @@ body{
 
 @media (max-width: 768px) {
     
+    .proyecto:active::after{
+        opacity: 1;
+        transition: opacity 0.15s ease;
+    }
+
     .proyecto:active img{
-        filter: brightness(1.3) saturate(1.1);
+        filter: contrast(1.2) brightness(1.1);
         transition: filter 0.15s ease;
     }
 
@@ -124,7 +154,7 @@ body{
     text-align: center;
     transition: all 0.4s ease;
     position:relative;
-    z-index:2;
+    z-index:3;
 }
 
 /* ============================================ */
@@ -169,6 +199,7 @@ body{
         display:flex;
         flex-direction:column;
         align-items:center;
+        overflow:hidden;
     }
 
     .proyecto img{
