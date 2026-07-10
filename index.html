@@ -233,7 +233,7 @@ body{
 }
 
 /* ============================================ */
-/* CONTACTO - DESPLEGABLE CON BORDE AMARILLO   */
+/* CONTACTO - DESPLEGABLE HACIA ARRIBA         */
 /* ============================================ */
 
 .contacto-wrapper{
@@ -242,6 +242,7 @@ body{
     align-items:center;
     cursor:pointer;
     position:relative;
+    margin-bottom:80px;
 }
 
 .contacto-text{
@@ -251,22 +252,23 @@ body{
     letter-spacing:2.5px;
     text-transform:uppercase;
     transition:color 0.3s ease;
-    margin-bottom:80px;
     cursor:pointer;
     user-select:none;
+    position:relative;
+    z-index:2;
 }
 
 .contacto-text:hover{
     color:#ffffff;
 }
 
-/* PANEL DE CONTACTO - PEQUEÑO CON BORDE */
+/* PANEL DE CONTACTO - SE DESPLIEGA HACIA ARRIBA */
 .contacto-panel{
     max-height:0;
     opacity:0;
     overflow:hidden;
-    transition: max-height 0.6s ease, opacity 0.6s ease, margin-top 0.6s ease, padding 0.6s ease;
-    margin-top:0;
+    transition: max-height 0.6s ease, opacity 0.6s ease, margin-bottom 0.6s ease, padding 0.6s ease;
+    margin-bottom:0;
     padding:0 25px;
     background:#000;
     width:auto;
@@ -274,14 +276,14 @@ body{
     border:1px solid transparent;
     border-radius:8px;
     pointer-events:none;
-    margin-bottom:0;
+    order:-1; /* Esto hace que el panel aparezca ANTES que "CONTACTO" */
 }
 
 .contacto-wrapper.active .contacto-panel,
 .contacto-wrapper:hover .contacto-panel{
     max-height:300px;
     opacity:1;
-    margin-top:-60px;
+    margin-bottom:15px;
     padding:20px 30px;
     border-color:#F4DE65;
     pointer-events:auto;
@@ -455,17 +457,20 @@ body{
         margin:100px auto 20px;
     }
 
+    .contacto-wrapper{
+        margin-bottom:60px;
+    }
+
     .contacto-text{
         font-size:9px;
         letter-spacing:2px;
-        margin-bottom:60px;
     }
 
     .contacto-wrapper.active .contacto-panel,
     .contacto-wrapper:hover .contacto-panel{
-        margin-top:-50px;
         padding:15px 20px;
         min-width:200px;
+        margin-bottom:12px;
     }
 
     .contacto-panel p{
@@ -586,17 +591,17 @@ body{
 
     <div class="footer-logos">
 
-        <!-- CONTACTO DESPLEGABLE -->
+        <!-- CONTACTO DESPLEGABLE HACIA ARRIBA -->
         <div class="contacto-wrapper" id="contactoWrapper">
 
-            <span class="contacto-text">CONTACTO</span>
-
-            <!-- PANEL DE CONTACTO - PEQUEÑO CON BORDE -->
+            <!-- El panel se muestra ANTES que "CONTACTO" gracias a order:-1 -->
             <div class="contacto-panel">
                 <p>📧 <a href="mailto:savethefvckingrabbits@gmail.com">savethefvckingrabbits@gmail.com</a></p>
                 <p>📞 <a href="tel:+34644606210">+34 644606210</a></p>
                 <p>📷 <a href="https://www.instagram.com/savethefuckingrabbits/?hl=zh-cn" target="_blank">@savethefuckingrabbits</a></p>
             </div>
+
+            <span class="contacto-text">CONTACTO</span>
 
         </div>
 
@@ -726,7 +731,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // El panel de contacto también mantiene abierto
         const contactoPanel = contactoWrapper.querySelector('.contacto-panel');
         if (contactoPanel) {
             contactoPanel.addEventListener('mouseenter', openContacto);
