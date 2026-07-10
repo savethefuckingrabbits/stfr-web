@@ -60,7 +60,7 @@ body{
     display:flex;
     flex-direction:column;
     gap:90px;
-    margin-top:145px; /* Ajustado para que coincida mejor con el PDF */
+    margin-top:145px;
 }
 
 .proyecto img{
@@ -77,10 +77,63 @@ body{
     letter-spacing:1.8px;
     text-transform:uppercase;
     margin-top:12px;
-    text-align: center; /* Cambio clave: centra el texto en su contenedor */
+    text-align: center;
 }
 
-/* Los márgenes específicos ya no son necesarios, el texto se centra automáticamente */
+/* ============================================ */
+/* SOLO PARA MÓVIL - NO AFECTA A ESCRITORIO     */
+/* ============================================ */
+
+@media (max-width: 768px) {
+
+    .container{
+        width:95%;
+        margin:10px auto 30px;
+    }
+
+    .logo{
+        max-width:100%;
+        margin:0 auto 20px;
+    }
+
+    .proyectos{
+        display:flex;
+        flex-direction:column;
+        gap:50px;
+        align-items:center;
+    }
+
+    .columna-izquierda,
+    .columna-derecha{
+        display:flex;
+        flex-direction:column;
+        gap:50px;
+        width:100%;
+        max-width:500px;
+        margin:0;
+    }
+
+    .columna-derecha{
+        margin-top:0;
+    }
+
+    .proyecto{
+        width:100%;
+    }
+
+    .proyecto img{
+        width:100%;
+        display:block;
+    }
+
+    .titulo{
+        font-size:10px;
+        letter-spacing:1.5px;
+        margin-top:10px;
+        text-align:center;
+    }
+
+}
 
 </style>
 
