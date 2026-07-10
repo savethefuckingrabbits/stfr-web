@@ -32,7 +32,7 @@ body{
 .container{
     width:99.5%;
     max-width:1900px;
-    margin:15px auto 40px;
+    margin:15px auto 0;
     flex:1;
 }
 
@@ -132,43 +132,27 @@ body{
 }
 
 /* ============================================ */
-/* FOOTER                                      */
+/* FOOTER - CENTRADO Y CON MARGEN              */
 /* ============================================ */
 
 .footer{
     width:99.5%;
     max-width:1900px;
-    margin:0 auto 30px;
-    padding-top:20px;
-    border-top:1px solid rgba(244, 222, 101, 0.15);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:10px;
+    margin:80px auto 30px;
+    text-align:center;
 }
 
 .footer-text{
-    color:#F4DE65;
+    color:#F5E98D;
     font-size:10px;
     font-weight:300;
-    letter-spacing:1.5px;
+    letter-spacing:1.8px;
     text-transform:uppercase;
-    opacity:0.7;
-    transition: opacity 0.3s ease;
+    display:inline-block;
 }
 
-.footer-text:hover{
-    opacity:1;
-}
-
-.footer-text.amarillo-claro{
-    color:#F5E98D;
-    opacity:1;
-}
-
-.footer-text.amarillo-claro:hover{
-    opacity:0.7;
+.footer-text:not(:last-child)::after{
+    content: ' ';
 }
 
 /* ============================================ */
@@ -179,7 +163,7 @@ body{
 
     .container{
         width:92%;
-        margin:10px auto 30px;
+        margin:10px auto 0;
     }
 
     .logo{
@@ -231,11 +215,7 @@ body{
 
     .footer{
         width:92%;
-        flex-direction:column;
-        text-align:center;
-        gap:6px;
-        padding-top:15px;
-        margin-bottom:20px;
+        margin:60px auto 20px;
     }
 
     .footer-text{
@@ -299,13 +279,11 @@ body{
 </div>
 
 <!-- ============================================ -->
-<!-- FOOTER                                       -->
+<!-- FOOTER - TODO JUNTO, CENTRADO               -->
 <!-- ============================================ -->
 
 <div class="footer">
-    <span class="footer-text amarillo-claro">SAVE THE F***ING RABBITS</span>
-    <span class="footer-text">.prod</span>
-    <span class="footer-text">© 2026</span>
+    <span class="footer-text">SAVE THE F***ING RABBITS .prod © 2026</span>
 </div>
 
 </body>
