@@ -262,7 +262,7 @@ body{
     color:#ffffff;
 }
 
-/* PANEL DE CONTACTO - SE DESPLIEGA HACIA ARRIBA */
+/* PANEL DE CONTACTO - CON TEXTO EN NEGRITA */
 .contacto-panel{
     max-height:0;
     opacity:0;
@@ -276,7 +276,7 @@ body{
     border:1px solid transparent;
     border-radius:8px;
     pointer-events:none;
-    order:-1; /* Esto hace que el panel aparezca ANTES que "CONTACTO" */
+    order:-1;
 }
 
 .contacto-wrapper.active .contacto-panel,
@@ -294,24 +294,27 @@ body{
     font-family:'Inter',sans-serif;
     font-weight:300;
     font-size:11px;
-    line-height:2;
+    line-height:2.2;
     letter-spacing:0.5px;
     margin:0;
     text-align:center;
+}
+
+.contacto-panel .label{
+    font-weight:600;
+    color:#F4DE65;
+    letter-spacing:1px;
 }
 
 .contacto-panel a{
     color:#F4DE65;
     text-decoration:none;
     transition:color 0.3s ease;
+    font-weight:300;
 }
 
 .contacto-panel a:hover{
     color:#ffffff;
-}
-
-.contacto-panel .icono{
-    margin-right:8px;
 }
 
 /* ============================================ */
@@ -475,7 +478,7 @@ body{
 
     .contacto-panel p{
         font-size:10px;
-        line-height:1.8;
+        line-height:2;
     }
 
     .logo-inaem{
@@ -594,11 +597,11 @@ body{
         <!-- CONTACTO DESPLEGABLE HACIA ARRIBA -->
         <div class="contacto-wrapper" id="contactoWrapper">
 
-            <!-- El panel se muestra ANTES que "CONTACTO" gracias a order:-1 -->
+            <!-- PANEL DE CONTACTO CON TEXTO EN NEGRITA -->
             <div class="contacto-panel">
-                <p>📧 <a href="mailto:savethefvckingrabbits@gmail.com">savethefvckingrabbits@gmail.com</a></p>
-                <p>📞 <a href="tel:+34644606210">+34 644606210</a></p>
-                <p>📷 <a href="https://www.instagram.com/savethefuckingrabbits/?hl=zh-cn" target="_blank">@savethefuckingrabbits</a></p>
+                <p><span class="label">Mail</span>  <a href="mailto:savethefvckingrabbits@gmail.com">savethefvckingrabbits@gmail.com</a></p>
+                <p><span class="label">Teléfono</span>  <a href="tel:+34644606210">+34 644606210</a></p>
+                <p><span class="label">Instagram</span>  <a href="https://www.instagram.com/savethefuckingrabbits/?hl=zh-cn" target="_blank">@savethefuckingrabbits</a></p>
             </div>
 
             <span class="contacto-text">CONTACTO</span>
