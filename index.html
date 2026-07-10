@@ -21,7 +21,7 @@
 }
 
 html, body {
-    overflow-x: hidden; /* ← Evita el scroll horizontal */
+    overflow-x: hidden;
 }
 
 body{
@@ -31,10 +31,10 @@ body{
 }
 
 .container{
-    width:100%; /* ← Ahora ocupa todo el ancho */
-    max-width:1900px;
+    width:100%;
+    max-width:1400px; /* ← Reducido para que no se vea tan disperso */
     margin:15px auto 40px;
-    padding:0 10px; /* ← Pequeño padding para que no toque el borde en móviles muy pequeños */
+    padding:0 15px;
 }
 
 .logo{
@@ -46,8 +46,8 @@ body{
 
 .proyectos{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    column-gap:220px;
+    grid-template-columns:1fr 1fr; /* ← Siempre dos columnas */
+    column-gap:60px; /* ← Gap más razonable */
     align-items:start;
 }
 
@@ -65,16 +65,16 @@ body{
     display:flex;
     flex-direction:column;
     gap:90px;
-    margin-top:145px;
+    margin-top:145px; /* ← Mantengo el desfase que tienes en tu diseño */
 }
 
 .proyecto {
     position: relative;
-    overflow: hidden; /* ← Para que las imágenes no se salgan */
+    overflow: hidden;
 }
 
 .proyecto img{
-    width:100%; /* ← Antes era 104%, ahora 100% para que no desborde */
+    width:100%;
     display:block;
 }
 
@@ -87,75 +87,58 @@ body{
     letter-spacing:1.8px;
     text-transform:uppercase;
     margin-top:12px;
-}
-
-/* Los dos bloques miran hacia el centro */
-/* Ajustados para que los títulos queden alineados con el borde de las imágenes */
-
-.columna-izquierda .titulo{
-    margin-left:0; /* ← Lo quitamos porque ahora las imágenes llegan al borde */
-}
-
-.columna-derecha .titulo{
-    margin-left:0; /* ← Lo quitamos porque ahora las imágenes llegan al borde */
+    padding-left:10px; /* ← Pequeño padding para que no toque el borde */
 }
 
 /* --- RESPONSIVE: MÓVIL --- */
 @media (max-width: 768px) {
 
     .container{
-        padding:0; /* ← Sin padding en móvil para que las fotos toquen el borde */
-        margin:10px auto 30px;
+        padding:0;
+        max-width:100%;
     }
 
     .logo{
-        padding:0 10px; /* ← Solo el logo tiene un poco de margen */
+        padding:0 10px;
         max-width:100%;
     }
 
     .proyectos{
-        grid-template-columns:1fr; /* ← Una sola columna en móvil */
-        column-gap:0;
+        grid-template-columns:1fr 1fr; /* ← MANTENEMOS DOS COLUMNAS */
+        column-gap:10px; /* ← Gap pequeño en móvil */
     }
 
     .columna-izquierda{
-        gap:60px;
+        gap:50px;
     }
 
     .columna-derecha{
-        gap:60px;
-        margin-top:60px; /* ← Menos margen en móvil */
+        gap:50px;
+        margin-top:80px; /* ← Reducido para móvil */
     }
 
     .proyecto img{
-        width:100%; /* ← Ocupa todo el ancho, tocando los bordes */
+        width:100%;
         border-radius:0;
     }
 
     .columna-izquierda .titulo,
     .columna-derecha .titulo{
-        margin-left:10px; /* ← Solo un pequeño margen para que no toque el borde */
-        margin-right:10px;
+        padding-left:8px;
+        padding-right:8px;
     }
 
     .titulo{
-        font-size:10px;
-        letter-spacing:1.5px;
+        font-size:9px; /* ← Más pequeño en móvil para que quepa */
+        letter-spacing:1.2px;
+        margin-top:8px;
     }
 }
 
-/* --- Para pantallas muy grandes (opcional) --- */
+/* --- Para pantallas muy grandes (ajuste fino) --- */
 @media (min-width: 1400px) {
     .proyectos{
-        column-gap:280px; /* ← Más separación en pantallas enormes */
-    }
-
-    .columna-izquierda .titulo{
-        margin-left:0;
-    }
-
-    .columna-derecha .titulo{
-        margin-left:0;
+        column-gap:100px; /* ← Más separación en pantallas enormes */
     }
 }
 
