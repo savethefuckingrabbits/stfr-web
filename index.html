@@ -604,194 +604,84 @@ body{
 </div>
 
 <!-- ============================================ -->
-<!-- JAVASCRIPT                                   -->
+<!-- JAVASCRIPT - SIMPLIFICADO                   -->
 <!-- ============================================ -->
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-    // ========================================== */
-    // LOGO - HOVER / CLICK                      */
-    // ========================================== */
-
     const logoWrapper = document.getElementById('logoWrapper');
-    const hoverZone = document.getElementById('hoverZone');
-    const panel = document.querySelector('.info-panel');
+    const contactoWrapper = document.getElementById('contactoWrapper');
     let closeTimeout = null;
 
-    const isMobile = window.matchMedia('(max-width: 768px)').matches || 
-                     'ontouchstart' in window || 
-                     navigator.maxTouchPoints > 0;
+    const isMobile = window.innerWidth <= 768;
+
+    // ========================================== */
+    // ESCRITORIO - HOVER                        */
+    // ========================================== */
 
     if (!isMobile) {
 
-        function openPanel() {
+        // LOGO
+        logoWrapper.addEventListener('mouseenter', function() {
             clearTimeout(closeTimeout);
             logoWrapper.classList.add('active');
-        }
-
-        function closePanelWithDelay() {
-            clearTimeout(closeTimeout);
-            closeTimeout = setTimeout(function() {
-                logoWrapper.classList.remove('active');
-            }, 300);
-        }
-
-        logoWrapper.addEventListener('mouseenter', openPanel);
-        panel.addEventListener('mouseenter', openPanel);
+        });
 
         logoWrapper.addEventListener('mouseleave', function(e) {
             const related = e.relatedTarget;
-            if (!panel.contains(related) && !hoverZone.contains(related) && !logoWrapper.contains(related)) {
-                closePanelWithDelay();
+            if (!logoWrapper.contains(related)) {
+                closeTimeout = setTimeout(function() {
+                    logoWrapper.classList.remove('active');
+                }, 300);
             }
         });
 
-        panel.addEventListener('mouseleave', function(e) {
-            const related = e.relatedTarget;
-            if (!logoWrapper.contains(related) && !panel.contains(related) && !hoverZone.contains(related)) {
-                closePanelWithDelay();
-            }
-        });
-
-        hoverZone.addEventListener('mouseenter', openPanel);
-
-        hoverZone.addEventListener('mouseleave', function(e) {
-            const related = e.relatedTarget;
-            if (!logoWrapper.contains(related) && !panel.contains(related) && !hoverZone.contains(related)) {
-                closePanelWithDelay();
-            }
-        });
-
-    }
-
-    // ========================================== */
-    // MÓVIL - TOGGLE CON touchstart             */
-    // ========================================== */
-
-    if (isMobile) {
-
-        let isLogoOpen = false;
-
-        function toggleLogo(e) {
-            // Si el click fue en un enlace, no hacemos nada
-            if (e.target.closest('a')) return;
-            
-            e.preventDefault();
-            e.stopPropagation();
-            
-            isLogoOpen = !isLogoOpen;
-            if (isLogoOpen) {
-                logoWrapper.classList.add('active');
-            } else {
-                logoWrapper.classList.remove('active');
-            }
-        }
-
-        // touchstart para móvil (más fiable que click)
-        logoWrapper.addEventListener('touchstart', toggleLogo, { passive: false });
-        
-        // También click por si acaso
-        logoWrapper.addEventListener('click', toggleLogo);
-
-        // Click fuera: cierra
-        document.addEventListener('click', function(e) {
-            if (logoWrapper.classList.contains('active') && !logoWrapper.contains(e.target)) {
-                logoWrapper.classList.remove('active');
-                isLogoOpen = false;
-            }
-        });
-
-        // touchstart fuera: cierra
-        document.addEventListener('touchstart', function(e) {
-            if (logoWrapper.classList.contains('active') && !logoWrapper.contains(e.target)) {
-                logoWrapper.classList.remove('active');
-                isLogoOpen = false;
-            }
-        }, { passive: true });
-
-    }
-
-    // ========================================== */
-    // CONTACTO - HOVER / CLICK                  */
-    // ========================================== */
-
-    const contactoWrapper = document.getElementById('contactoWrapper');
-    let contactoTimeout = null;
-
-    if (!isMobile) {
-
-        function openContacto() {
-            clearTimeout(contactoTimeout);
+        // CONTACTO
+        contactoWrapper.addEventListener('mouseenter', function() {
+            clearTimeout(closeTimeout);
             contactoWrapper.classList.add('active');
-        }
+        });
 
-        function closeContactoWithDelay() {
-            clearTimeout(contactoTimeout);
-            contactoTimeout = setTimeout(function() {
-                contactoWrapper.classList.remove('active');
-            }, 250);
-        }
-
-        contactoWrapper.addEventListener('mouseenter', openContacto);
         contactoWrapper.addEventListener('mouseleave', function(e) {
             const related = e.relatedTarget;
             if (!contactoWrapper.contains(related)) {
-                closeContactoWithDelay();
+                closeTimeout = setTimeout(function() {
+                    contactoWrapper.classList.remove('active');
+                }, 250);
             }
         });
-
-        const contactoPanel = contactoWrapper.querySelector('.contacto-panel');
-        if (contactoPanel) {
-            contactoPanel.addEventListener('mouseenter', openContacto);
-            contactoPanel.addEventListener('mouseleave', function(e) {
-                const related = e.relatedTarget;
-                if (!contactoWrapper.contains(related)) {
-                    closeContactoWithDelay();
-                }
-            });
-        }
 
     }
 
     // ========================================== */
-    // CONTACTO MÓVIL                            */
+    // MÓVIL - CLICK SIMPLE                      */
     // ========================================== */
 
     if (isMobile) {
 
-        let isContactoOpen = false;
-
-        function toggleContacto(e) {
+        // LOGO - toggle con click
+        logoWrapper.addEventListener('click', function(e) {
+            // Si el click fue en un enlace, no hacemos toggle
             if (e.target.closest('a')) return;
-            
-            e.preventDefault();
-            e.stopPropagation();
-            
-            isContactoOpen = !isContactoOpen;
-            if (isContactoOpen) {
-                contactoWrapper.classList.add('active');
-            } else {
-                contactoWrapper.classList.remove('active');
-            }
-        }
-
-        contactoWrapper.addEventListener('touchstart', toggleContacto, { passive: false });
-        contactoWrapper.addEventListener('click', toggleContacto);
-
-        document.addEventListener('click', function(e) {
-            if (contactoWrapper.classList.contains('active') && !contactoWrapper.contains(e.target)) {
-                contactoWrapper.classList.remove('active');
-                isContactoOpen = false;
-            }
+            logoWrapper.classList.toggle('active');
         });
 
-        document.addEventListener('touchstart', function(e) {
+        // CONTACTO - toggle con click
+        contactoWrapper.addEventListener('click', function(e) {
+            if (e.target.closest('a')) return;
+            contactoWrapper.classList.toggle('active');
+        });
+
+        // Cerrar al hacer click fuera
+        document.addEventListener('click', function(e) {
+            if (logoWrapper.classList.contains('active') && !logoWrapper.contains(e.target)) {
+                logoWrapper.classList.remove('active');
+            }
             if (contactoWrapper.classList.contains('active') && !contactoWrapper.contains(e.target)) {
                 contactoWrapper.classList.remove('active');
-                isContactoOpen = false;
             }
-        }, { passive: true });
+        });
 
     }
 
