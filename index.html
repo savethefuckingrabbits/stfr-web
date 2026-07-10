@@ -665,23 +665,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
+    // ========================================== */
+    // MÓVIL - TOGGLE CON touchstart             */
+    // ========================================== */
+
     if (isMobile) {
 
-        // Toggle del logo: se abre y se cierra al hacer click
-        logoWrapper.addEventListener('click', function(e) {
-            // Si el click fue en un enlace dentro del panel, no hacemos toggle
+        let isLogoOpen = false;
+
+        function toggleLogo(e) {
+            // Si el click fue en un enlace, no hacemos nada
             if (e.target.closest('a')) return;
             
+            e.preventDefault();
             e.stopPropagation();
-            logoWrapper.classList.toggle('active');
-        });
+            
+            isLogoOpen = !isLogoOpen;
+            if (isLogoOpen) {
+                logoWrapper.classList.add('active');
+            } else {
+                logoWrapper.classList.remove('active');
+            }
+        }
 
-        // Click fuera del wrapper: cierra
+        // touchstart para móvil (más fiable que click)
+        logoWrapper.addEventListener('touchstart', toggleLogo, { passive: false });
+        
+        // También click por si acaso
+        logoWrapper.addEventListener('click', toggleLogo);
+
+        // Click fuera: cierra
         document.addEventListener('click', function(e) {
             if (logoWrapper.classList.contains('active') && !logoWrapper.contains(e.target)) {
                 logoWrapper.classList.remove('active');
+                isLogoOpen = false;
             }
         });
+
+        // touchstart fuera: cierra
+        document.addEventListener('touchstart', function(e) {
+            if (logoWrapper.classList.contains('active') && !logoWrapper.contains(e.target)) {
+                logoWrapper.classList.remove('active');
+                isLogoOpen = false;
+            }
+        }, { passive: true });
 
     }
 
@@ -727,21 +754,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
+    // ========================================== */
+    // CONTACTO MÓVIL                            */
+    // ========================================== */
+
     if (isMobile) {
 
-        contactoWrapper.addEventListener('click', function(e) {
-            // Si el click fue en un enlace dentro del panel, no hacemos toggle
+        let isContactoOpen = false;
+
+        function toggleContacto(e) {
             if (e.target.closest('a')) return;
             
+            e.preventDefault();
             e.stopPropagation();
-            contactoWrapper.classList.toggle('active');
-        });
+            
+            isContactoOpen = !isContactoOpen;
+            if (isContactoOpen) {
+                contactoWrapper.classList.add('active');
+            } else {
+                contactoWrapper.classList.remove('active');
+            }
+        }
+
+        contactoWrapper.addEventListener('touchstart', toggleContacto, { passive: false });
+        contactoWrapper.addEventListener('click', toggleContacto);
 
         document.addEventListener('click', function(e) {
             if (contactoWrapper.classList.contains('active') && !contactoWrapper.contains(e.target)) {
                 contactoWrapper.classList.remove('active');
+                isContactoOpen = false;
             }
         });
+
+        document.addEventListener('touchstart', function(e) {
+            if (contactoWrapper.classList.contains('active') && !contactoWrapper.contains(e.target)) {
+                contactoWrapper.classList.remove('active');
+                isContactoOpen = false;
+            }
+        }, { passive: true });
 
     }
 
