@@ -60,7 +60,6 @@ body{
     filter: brightness(1);
 }
 
-/* EFECTO: SE ACLARA EN VEZ DE OSCURECERSE */
 .logo-img:hover{
     filter: brightness(1.15);
     opacity:0.9;
@@ -225,16 +224,6 @@ body{
     margin-bottom:30px;
 }
 
-.footer-logos img{
-    display:block;
-    opacity:0.8;
-    transition:opacity 0.3s ease;
-}
-
-.footer-logos img:hover{
-    opacity:1;
-}
-
 /* ============================================ */
 /* CONTACTO - DESPLEGABLE HACIA ARRIBA         */
 /* ============================================ */
@@ -265,7 +254,7 @@ body{
     color:#ffffff;
 }
 
-/* PANEL DE CONTACTO - ICONOS DISCRETOS, TIPOGRAFÍA DISTINTA */
+/* PANEL DE CONTACTO */
 .contacto-panel{
     max-height:0;
     opacity:0;
@@ -292,7 +281,6 @@ body{
     pointer-events:auto;
 }
 
-/* TIPOGRAFÍA MÁS LIGERA PARA CONTACTO */
 .contacto-panel p{
     color:#F4DE65;
     font-family:'Georgia', 'Times New Roman', serif;
@@ -326,43 +314,22 @@ body{
 }
 
 /* ============================================ */
-/* INAEM - TEXTO SIEMPRE VISIBLE               */
+/* TEXTO INAEM - SIN LOGO, DOS LÍNEAS          */
 /* ============================================ */
 
-.logo-inaem-wrapper{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    position:relative;
-}
-
-.logo-inaem{
-    height:55px;
-    width:auto;
-    transition: opacity 0.3s ease;
-    display:block;
-    opacity:0.8;
-}
-
-.logo-inaem:hover{
-    opacity:1;
-}
-
-/* TEXTO SIEMPRE VISIBLE - SIN HOVER */
-.compania-info{
-    color:rgba(255,255,255,0.5);
+.inaem-text{
+    color:rgba(255,255,255,0.4);
     font-size:9px;
     font-weight:300;
     letter-spacing:1.2px;
     text-transform:uppercase;
     line-height:1.8;
-    margin-top:15px;
-    display:block;
-    transition: color 0.3s ease;
+    margin-bottom:20px;
+    text-align:center;
 }
 
-.logo-inaem-wrapper:hover .compania-info{
-    color:rgba(255,255,255,0.8);
+.inaem-text span{
+    display:block;
 }
 
 .footer-text{
@@ -486,15 +453,11 @@ body{
         font-size:11px;
     }
 
-    .logo-inaem{
-        height:40px;
-    }
-
-    .compania-info{
+    .inaem-text{
         font-size:8px;
         letter-spacing:1px;
         line-height:1.6;
-        margin-top:12px;
+        margin-bottom:15px;
     }
 
     .footer-text{
@@ -605,10 +568,10 @@ body{
 
         </div>
 
-        <!-- INAEM - TEXTO SIEMPRE VISIBLE -->
-        <div class="logo-inaem-wrapper">
-            <img class="logo-inaem" src="logo-blanco-inaem-1200x212.png" alt="INAEM">
-            <span class="compania-info">COMPAÑÍA DE TEATRO · FUNDADA EN 2020 · MADRID</span>
+        <!-- TEXTO INAEM SIN LOGO - DOS LÍNEAS -->
+        <div class="inaem-text">
+            <span>COMPAÑÍA DE TEATRO</span>
+            <span>FUNDADA EN 2020 · MADRID</span>
         </div>
 
     </div>
