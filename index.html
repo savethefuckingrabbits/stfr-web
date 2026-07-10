@@ -14,10 +14,6 @@
 
 <style>
 
-/* ============================================ */
-/* RESET Y BASE                                */
-/* ============================================ */
-
 *{
     margin:0;
     padding:0;
@@ -64,19 +60,17 @@ body{
 }
 
 /* ============================================ */
-/* VENTANA DESPLEGABLE - BORDE AMARILLO        */
+/* PANEL DESPLEGABLE - SIN BORDE, FONDO NEGRO  */
 /* ============================================ */
 
 .info-panel{
     max-height:0;
     opacity:0;
     overflow:hidden;
-    transition: all 0.6s ease;
+    transition: max-height 0.9s ease, opacity 0.9s ease, margin-top 0.9s ease, padding 0.9s ease;
     margin-top:0;
-    border:1px solid transparent;
-    border-radius:8px;
-    padding:0 25px;
-    background:rgba(10,10,10,0.95);
+    padding:0 0;
+    background:#000;
     pointer-events:none;
 }
 
@@ -85,20 +79,20 @@ body{
 .logo-wrapper:hover .info-panel{
     max-height:1200px;
     opacity:1;
-    margin-top:20px;
-    border-color:#F4DE65;
-    padding:30px 30px 35px;
+    margin-top:15px;
+    padding:20px 0 25px;
     pointer-events:auto;
 }
 
 /* ============================================ */
-/* TEXTO DE LA VENTANA                         */
+/* TEXTO DEL PANEL - SIN ANIMACIÓN DE ENTRADA   */
 /* ============================================ */
 
 .info-panel p{
     color:rgba(255,255,255,0.8);
-    font-size:13px;
+    font-family:'Inter',sans-serif;
     font-weight:300;
+    font-size:13px;
     line-height:1.8;
     letter-spacing:0.3px;
     margin-bottom:18px;
@@ -123,7 +117,7 @@ body{
     grid-template-columns:1fr 1fr;
     column-gap:220px;
     align-items:start;
-    transition: margin-top 0.6s ease;
+    transition: margin-top 0.9s ease;
 }
 
 .logo-wrapper.active .proyectos,
@@ -157,10 +151,6 @@ body{
     position:relative;
     z-index:1;
 }
-
-/* ============================================ */
-/* TÍTULOS DE PROYECTOS                        */
-/* ============================================ */
 
 .titulo{
     color:#F4DE65;
@@ -364,7 +354,7 @@ body{
 
     .logo-wrapper.active .info-panel,
     .logo-wrapper:hover .info-panel{
-        padding:20px 20px 25px;
+        padding:15px 0 20px;
     }
 
     .footer{
@@ -419,7 +409,7 @@ body{
 
         <img class="logo-img" src="logo.png" alt="SAVE THE F***ING RABBITS">
 
-        <!-- VENTANA DESPLEGABLE -->
+        <!-- PANEL DESPLEGABLE - SIN BORDE -->
         <div class="info-panel">
             <p><span class="destacado">SAVE THE F***ING RABBITS .prod</span> es un colectivo de artes vivas fundado en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
 
@@ -509,47 +499,38 @@ body{
 <!-- ============================================ -->
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 
-        const wrapper = document.getElementById('logoWrapper');
-        const panel = wrapper.querySelector('.info-panel');
-        let isOpen = false;
+    const wrapper = document.getElementById('logoWrapper');
+    let isOpen = false;
 
-        // Detectar si es móvil (pantalla pequeña o touch)
-        const isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
+    const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
 
-        // Solo aplicamos el comportamiento de click en móvil
-        if (isMobile) {
+    if (isMobile) {
 
-            // Click en el logo: abre o cierra
-            wrapper.addEventListener('click', function(e) {
-                e.stopPropagation();
-                wrapper.classList.toggle('active');
-                isOpen = wrapper.classList.contains('active');
-            });
+        wrapper.addEventListener('click', function(e) {
+            e.stopPropagation();
+            wrapper.classList.toggle('active');
+            isOpen = wrapper.classList.contains('active');
+        });
 
-            // Click fuera del panel y del logo: cierra
-            document.addEventListener('click', function(e) {
-                if (isOpen && !wrapper.contains(e.target)) {
-                    wrapper.classList.remove('active');
-                    isOpen = false;
-                }
-            });
-
-            // En móvil, desactivamos el hover por CSS (lo dejamos solo para escritorio)
-            // pero como usamos la clase .active, el hover de CSS no molesta
-        }
-
-        // En escritorio, el hover funciona por CSS, no necesitamos JS
-        // Pero si el usuario redimensiona de móvil a escritorio, limpiamos
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
+        document.addEventListener('click', function(e) {
+            if (isOpen && !wrapper.contains(e.target)) {
                 wrapper.classList.remove('active');
                 isOpen = false;
             }
         });
 
+    }
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            wrapper.classList.remove('active');
+            isOpen = false;
+        }
     });
+
+});
 </script>
 
 </body>
