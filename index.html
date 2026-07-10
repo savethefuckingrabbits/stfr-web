@@ -1,91 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAVE THE F***ING RABBITS</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-            color: #f5f5f5;
-        }
-        .container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 40px;
-            background-color: #000000;
-            border-radius: 15px;
-            border: 2px solid #FFD700;
-        }
-        .logo {
-            width: 100%;
-            max-width: 900px;
-            display: block;
-            margin: 0 auto;
-        }
-        .subtitulo {
-            text-align: center;
-            font-size: 1.2em;
-            color: #FFD700;
-            margin-top: 5px;
-            border-bottom: 2px solid #FFD700;
-            padding-bottom: 20px;
-        }
-        p {
-            line-height: 1.8;
-            font-size: 1.05em;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #777;
-            font-size: 0.9em;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SAVE THE F***ING RABBITS</title>
+
+<link rel="icon" href="favicon.png">
+
+<style>
+
+body{
+    margin:0;
+    background:#000;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.container{
+    max-width:1200px;
+    margin:50px auto;
+    padding:40px;
+}
+
+.logo{
+    width:100%;
+    max-width:850px;
+    display:block;
+    margin:0 auto 80px;
+}
+
+.proyectos{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.proyecto img{
+    width:100%;
+    display:block;
+}
+
+.titulo{
+    color:#FFD700;
+    font-size:14px;
+    margin-top:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.footer{
+    margin-top:80px;
+    text-align:center;
+    color:#666;
+    font-size:12px;
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <img class="logo" src="logo.png" alt="SAVE THE F***ING RABBITS">
+<img class="logo" src="logo.png" alt="SAVE THE F***ING RABBITS">
 
-        <img src="hours.jpg" alt="The Hours">
-<img src="sucré.jpg" alt="Sucré">
-<img src="madriguera.jpg" alt="Save The F***ing Rabbits">
-<img src="pisapapeles.jpg" alt="Pisapapeles">
+<div class="proyectos">
 
-
-        <p>
-            SAVE THE F***ING RABBITS prod. es un colectivo de artes vivas fundado en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.
-        </p>
-
-        <p>
-            Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, donde diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.
-        </p>
-
-        <p>
-            La propuesta artística se distingue por su capacidad para generar sensaciones, gracias a su carácter experiencial, que no solo apela a la percepción visual y auditiva, sino también a otras formas de involucrar los sentidos, creando un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.
-        </p>
-
-        <p>
-            En términos de contenido, el colectivo explora la condición humana en relación con lo oscuro y el tabú, abordando temas complejos que se mueven entre lo político y lo filosófico, sirviéndose de paralelismos entre "lo humano" y "lo animal" para intentar comprender las complejidades que nos definen como especie.
-        </p>
-
-        <p>
-            En definitiva, SAVE THE F***ING RABBITS prod. invita al espectador a un viaje de introspección y descubrimiento, siendo un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.
-        </p>
-
-        <div class="footer">
-            <p>SAVE THE F***ING RABBITS PROD · 2026</p>
-        </div>
-
+    <div class="proyecto">
+        <img src="hours.png" alt="The Hours">
+        <div class="titulo">THE HOURS</div>
     </div>
+
+    <div class="proyecto">
+        <img src="sucré.jpg" alt="Sucré">
+        <div class="titulo">SUCRÉ, ZUCCHERATO, SWEETENED, AZUCARADO, GEZUCKERT</div>
+    </div>
+
+    <div class="proyecto">
+        <img src="madriguera.png" alt="Save The F***ING Rabbits">
+        <div class="titulo">SAVE THE F***ING RABBITS</div>
+    </div>
+
+    <div class="proyecto">
+        <img src="pisapapeles.jpg" alt="Pisapapeles">
+        <div class="titulo">PISAPAPELES</div>
+    </div>
+
+</div>
+
+<div class="footer">
+    SAVE THE F***ING RABBITS PROD · 2026
+</div>
+
+</div>
 
 </body>
 </html>
