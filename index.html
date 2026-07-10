@@ -50,7 +50,6 @@ body{
     align-items:center;
 }
 
-/* EL LOGO SE AJUSTA A SU CONTENIDO REAL */
 .logo-img{
     width:auto;
     max-width:100%;
@@ -65,7 +64,19 @@ body{
 }
 
 /* ============================================ */
-/* PANEL DESPLEGABLE - MUY PEGADO AL LOGO      */
+/* EXTENSIÓN DEL ÁREA DE HOVER HACIA ABAJO     */
+/* ============================================ */
+
+.hover-zone{
+    position:relative;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* ============================================ */
+/* PANEL DESPLEGABLE                           */
 /* ============================================ */
 
 .info-panel{
@@ -80,7 +91,6 @@ body{
     pointer-events:none;
 }
 
-/* ACTIVADO - CASI PEGADO AL LOGO */
 .logo-wrapper.active .info-panel,
 .logo-wrapper:hover .info-panel{
     max-height:1200px;
@@ -110,7 +120,7 @@ body{
 }
 
 /* ============================================ */
-/* PROYECTOS - SE DESPLAZAN CON EL TEXTO       */
+/* PROYECTOS                                    */
 /* ============================================ */
 
 .proyectos{
@@ -422,17 +432,22 @@ body{
 
         <img class="logo-img" src="logo.png" alt="SAVE THE F***ING RABBITS">
 
-        <!-- PANEL DESPLEGABLE -->
-        <div class="info-panel">
-            <p>SAVE THE F***ING RABBITS .prod es un colectivo de artes vivas fundado en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
+        <!-- HOVER ZONE - Área que mantiene el hover extendido -->
+        <div class="hover-zone" id="hoverZone">
 
-            <p>Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, donde diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.</p>
+            <!-- PANEL DESPLEGABLE -->
+            <div class="info-panel">
+                <p>SAVE THE F***ING RABBITS .prod es un colectivo de artes vivas fundado en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
 
-            <p>La propuesta artística se distingue por su capacidad para generar sensaciones, gracias a su carácter experiencial, que no solo apela a la percepción visual y auditiva, sino también a otras formas de involucrar los sentidos, creando un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.</p>
+                <p>Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, donde diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.</p>
 
-            <p>En términos de contenido, el colectivo explora la condición humana en relación con lo oscuro y el tabú, abordando temas complejos que se mueven entre lo político y lo filosófico, sirviéndose de paralelismos entre "lo humano" y "lo animal" para intentar comprender las complejidades que nos definen como especie.</p>
+                <p>La propuesta artística se distingue por su capacidad para generar sensaciones, gracias a su carácter experiencial, que no solo apela a la percepción visual y auditiva, sino también a otras formas de involucrar los sentidos, creando un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.</p>
 
-            <p>En definitiva, SAVE THE F***ING RABBITS .prod invita al espectador a un viaje de introspección y descubrimiento, siendo un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
+                <p>En términos de contenido, el colectivo explora la condición humana en relación con lo oscuro y el tabú, abordando temas complejos que se mueven entre lo político y lo filosófico, sirviéndose de paralelismos entre "lo humano" y "lo animal" para intentar comprender las complejidades que nos definen como especie.</p>
+
+                <p>En definitiva, SAVE THE F***ING RABBITS .prod invita al espectador a un viaje de introspección y descubrimiento, siendo un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
+            </div>
+
         </div>
 
     </div>
@@ -508,84 +523,119 @@ body{
 </div>
 
 <!-- ============================================ -->
-<!-- JAVASCRIPT PARA HOVER INTELIGENTE           -->
+<!-- JAVASCRIPT - HOVER ZONE EXTENDIDA + MÓVIL   -->
 <!-- ============================================ -->
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
     const wrapper = document.getElementById('logoWrapper');
-    const panel = wrapper.querySelector('.info-panel');
-    let isOpen = false;
+    const hoverZone = document.getElementById('hoverZone');
+    const panel = document.querySelector('.info-panel');
     let closeTimeout = null;
 
-    const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+    // ========================================== */
+    // DETECTAR MÓVIL DE FORMA FIABLE            */
+    // ========================================== */
 
-    // ============================================ */
-    // ESCRITORIO - HOVER CON RETARDO              */
-    // ============================================ */
+    const isMobile = window.matchMedia('(max-width: 768px)').matches || 
+                     'ontouchstart' in window || 
+                     navigator.maxTouchPoints > 0;
+
+    // ========================================== */
+    // ESCRITORIO - HOVER                        */
+    // ========================================== */
 
     if (!isMobile) {
 
-        // Abrir al entrar en el wrapper
-        wrapper.addEventListener('mouseenter', function() {
+        function openPanel() {
             clearTimeout(closeTimeout);
             wrapper.classList.add('active');
-            isOpen = true;
-        });
+        }
 
-        // Cerrar con retardo al salir del wrapper
-        wrapper.addEventListener('mouseleave', function() {
-            closeTimeout = setTimeout(function() {
-                wrapper.classList.remove('active');
-                isOpen = false;
-            }, 300); // 300ms de retardo para permitir movimientos suaves
-        });
-
-        // Si el cursor entra al panel, cancelamos el cierre
-        panel.addEventListener('mouseenter', function() {
+        function closePanelWithDelay() {
             clearTimeout(closeTimeout);
-        });
-
-        // Si el cursor sale del panel, empezamos el cierre
-        panel.addEventListener('mouseleave', function() {
             closeTimeout = setTimeout(function() {
                 wrapper.classList.remove('active');
-                isOpen = false;
-            }, 300);
-        });
+            }, 400);
+        }
 
-    }
-
-    // ============================================ */
-    // MÓVIL - CLICK                                */
-    // ============================================ */
-
-    if (isMobile) {
-
-        wrapper.addEventListener('click', function(e) {
-            e.stopPropagation();
-            wrapper.classList.toggle('active');
-            isOpen = wrapper.classList.contains('active');
-        });
-
-        document.addEventListener('click', function(e) {
-            if (isOpen && !wrapper.contains(e.target)) {
-                wrapper.classList.remove('active');
-                isOpen = false;
+        // Logo
+        wrapper.addEventListener('mouseenter', openPanel);
+        wrapper.addEventListener('mouseleave', function(e) {
+            const related = e.relatedTarget;
+            if (!hoverZone.contains(related) && !wrapper.contains(related)) {
+                closePanelWithDelay();
             }
         });
 
+        // Hover Zone
+        hoverZone.addEventListener('mouseenter', openPanel);
+        hoverZone.addEventListener('mouseleave', function(e) {
+            const related = e.relatedTarget;
+            if (!wrapper.contains(related)) {
+                closePanelWithDelay();
+            }
+        });
+
+        // Panel
+        panel.addEventListener('mouseenter', openPanel);
+        panel.addEventListener('mouseleave', function(e) {
+            const related = e.relatedTarget;
+            if (!hoverZone.contains(related) && !wrapper.contains(related)) {
+                closePanelWithDelay();
+            }
+        });
+
+        // Proyectos (imágenes)
+        document.querySelectorAll('.proyecto').forEach(function(proyecto) {
+            proyecto.addEventListener('mouseenter', openPanel);
+            proyecto.addEventListener('mouseleave', function(e) {
+                const related = e.relatedTarget;
+                if (!hoverZone.contains(related) && !wrapper.contains(related) && !proyecto.contains(related)) {
+                    closePanelWithDelay();
+                }
+            });
+        });
+
     }
 
-    // ============================================ */
-    // REDIMENSIONAR - RESET                        */
-    // ============================================ */
+    // ========================================== */
+    // MÓVIL - CLICK CON TOGGLE                  */
+    // ========================================== */
+
+    if (isMobile) {
+
+        // Click en el logo: toggle (abre/cierra)
+        wrapper.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            // Toggle: si tiene la clase active, la quita; si no, la pone
+            wrapper.classList.toggle('active');
+        });
+
+        // Click fuera del wrapper: cierra
+        document.addEventListener('click', function(e) {
+            if (wrapper.classList.contains('active') && !wrapper.contains(e.target)) {
+                wrapper.classList.remove('active');
+            }
+        });
+
+        // Prevenir que el click en el logo se propague al documento
+        wrapper.addEventListener('touchstart', function(e) {
+            e.stopPropagation();
+        }, { passive: true });
+
+    }
+
+    // ========================================== */
+    // REDIMENSIONAR                             */
+    // ========================================== */
 
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             wrapper.classList.remove('active');
-            isOpen = false;
         }
     });
 
