@@ -52,7 +52,6 @@
             margin-bottom: 30px;
         }
 
-        /* IMAGEN PRINCIPAL - TAMAÑO ORIGINAL SIN DEFORMAR */
         .imagen-principal {
             width: 100%;
             max-width: 600px;
@@ -106,7 +105,6 @@
             font-size: 13px;
         }
 
-        /* CARRUSEL SECUNDARIO - DEBAJO DE CRÉDITOS */
         .carrusel-container {
             position: relative;
             width: 100%;
@@ -114,15 +112,24 @@
             margin: 30px auto 0;
             overflow: hidden;
             border-radius: 4px;
+            background: #0a0a0a;
         }
         .carrusel-slides {
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
-        .carrusel-slides img {
+        .carrusel-slides .slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a;
+        }
+        .carrusel-slides .slide img {
             width: 100%;
             height: auto;
-            flex-shrink: 0;
+            max-height: 500px;
+            object-fit: contain;
             display: block;
         }
         .carrusel-btn {
@@ -162,7 +169,6 @@
             background: #F4DE65;
         }
 
-        /* ENLACES VÍDEOS */
         .enlaces-video {
             display: flex;
             flex-direction: column;
@@ -186,10 +192,86 @@
             color: #ffffff;
             border-color: rgba(244, 222, 101, 0.6);
         }
-        .enlaces-video .contraseña {
+
+        .bloque-contraseña {
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid rgba(244, 222, 101, 0.15);
+            border-radius: 4px;
+            background: rgba(255,255,255,0.02);
+        }
+        .bloque-contraseña input {
+            background: transparent;
+            border: 1px solid rgba(244, 222, 101, 0.3);
+            color: white;
+            padding: 10px 16px;
+            font-size: 14px;
+            border-radius: 4px;
+            width: 220px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .bloque-contraseña input:focus {
+            border-color: #F4DE65;
+        }
+        .bloque-contraseña input::placeholder {
             color: rgba(255,255,255,0.3);
-            font-size: 10px;
+        }
+        .bloque-contraseña button {
+            background: #F4DE65;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.3s;
+            margin-left: 8px;
+        }
+        .bloque-contraseña button:hover {
+            background: #ffffff;
+        }
+        .bloque-contraseña .mensaje-error {
+            color: #ff6b6b;
+            font-size: 12px;
+            margin-top: 8px;
+            display: none;
+        }
+        .bloque-contraseña .mensaje-error.visible {
+            display: block;
+        }
+        .bloque-contraseña .enlace-oculto {
+            display: none;
+            margin-top: 10px;
+        }
+        .bloque-contraseña .enlace-oculto.visible {
+            display: block;
+        }
+        .bloque-contraseña .enlace-oculto a {
+            color: #F4DE65;
+            text-decoration: none;
+            font-size: 13px;
             letter-spacing: 1px;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border: 1px solid rgba(244, 222, 101, 0.2);
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .bloque-contraseña .enlace-oculto a:hover {
+            color: #ffffff;
+            border-color: rgba(244, 222, 101, 0.6);
+        }
+        .bloque-contraseña .label-contraseña {
+            color: rgba(255,255,255,0.4);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
         }
 
         @media (max-width: 768px) {
@@ -198,6 +280,7 @@
             .contenido .cita { font-size: 14px; padding: 15px 0; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
             .carrusel-btn { padding: 8px 12px; font-size: 14px; }
+            .bloque-contraseña input { width: 150px; }
         }
     </style>
 </head>
@@ -209,7 +292,7 @@
         <h1>SUCRÉ</h1>
         <div class="subtitulo">2024 · Teatro Contemporáneo · 70 min</div>
 
-        <!-- IMAGEN PRINCIPAL: sucre p 2.jpg (tamaño original) -->
+        <!-- IMAGEN PRINCIPAL: sucre p 2.jpg -->
         <div class="imagen-principal">
             <img src="../../sucre p 2.jpg" alt="Sucré">
         </div>
@@ -242,13 +325,13 @@
             <div><span>Producción</span><strong>SAVE THE F***ING RABBITS Prod.</strong></div>
         </div>
 
-        <!-- CARRUSEL SECUNDARIO (sucre p 1, p 3, p 4, p 5) -->
+        <!-- CARRUSEL SECUNDARIO (sucre p 1.JPG, sucre p 3.jpg, sucre p 4.jpg, sucre p 5.jpg) -->
         <div class="carrusel-container">
             <div class="carrusel-slides" id="carruselSlides">
-                <img src="../../sucre p 1.jpg" alt="Sucré 1">
-                <img src="../../sucre p 3.jpg" alt="Sucré 3">
-                <img src="../../sucre p 4.jpg" alt="Sucré 4">
-                <img src="../../sucre p 5.jpg" alt="Sucré 5">
+                <div class="slide"><img src="../../sucre p 1.JPG" alt="Sucré 1"></div>
+                <div class="slide"><img src="../../sucre p 3.jpg" alt="Sucré 3"></div>
+                <div class="slide"><img src="../../sucre p 4.jpg" alt="Sucré 4"></div>
+                <div class="slide"><img src="../../sucre p 5.jpg" alt="Sucré 5"></div>
             </div>
             <button class="carrusel-btn izquierda" id="btnIzquierda">‹</button>
             <button class="carrusel-btn derecha" id="btnDerecha">›</button>
@@ -258,8 +341,16 @@
         <!-- ENLACES VÍDEOS -->
         <div class="enlaces-video">
             <a href="https://youtu.be/qj6Agie2Hn0?si=y02FVtZ1kl0-Q8Rh" target="_blank">▶ Ver teaser</a>
-            <a href="https://youtu.be/sHLSJH417n0" target="_blank">▶ Ver obra completa</a>
-            <span class="contraseña">🔒 Obra completa con contraseña</span>
+
+            <div class="bloque-contraseña">
+                <span class="label-contraseña">🔒 Obra completa con contraseña</span>
+                <input type="password" id="inputPass" placeholder="Introduce la contraseña">
+                <button id="btnPass">Acceder</button>
+                <div class="mensaje-error" id="mensajeError">Contraseña incorrecta</div>
+                <div class="enlace-oculto" id="enlaceOculto">
+                    <a href="https://youtu.be/sHLSJH417n0" target="_blank">▶ Ver obra completa</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -269,10 +360,9 @@
         const btnIzq = document.getElementById('btnIzquierda');
         const btnDer = document.getElementById('btnDerecha');
         const indicadores = document.getElementById('indicadores');
-        const totalSlides = document.querySelectorAll('.carrusel-slides img').length;
+        const totalSlides = document.querySelectorAll('.carrusel-slides .slide').length;
         let index = 0;
 
-        // Crear indicadores
         for (let i = 0; i < totalSlides; i++) {
             const dot = document.createElement('span');
             if (i === 0) dot.classList.add('activo');
@@ -303,7 +393,6 @@
             actualizarCarrusel();
         });
 
-        // Auto-play cada 5 segundos
         let autoPlay = setInterval(() => {
             index = (index + 1) % totalSlides;
             actualizarCarrusel();
@@ -317,6 +406,43 @@
                 index = (index + 1) % totalSlides;
                 actualizarCarrusel();
             }, 5000);
+        });
+
+        // SISTEMA DE CONTRASEÑA
+        const inputPass = document.getElementById('inputPass');
+        const btnPass = document.getElementById('btnPass');
+        const mensajeError = document.getElementById('mensajeError');
+        const enlaceOculto = document.getElementById('enlaceOculto');
+
+        const CONTRASENA_CORRECTA = 'sucre2024completa';
+
+        function verificarContraseña() {
+            const pass = inputPass.value.trim();
+            if (pass === CONTRASENA_CORRECTA) {
+                mensajeError.classList.remove('visible');
+                enlaceOculto.classList.add('visible');
+                inputPass.value = '';
+                inputPass.placeholder = '✅ ¡Acceso concedido!';
+                btnPass.textContent = '✔';
+                btnPass.style.background = '#4CAF50';
+                setTimeout(() => {
+                    inputPass.placeholder = 'Introduce la contraseña';
+                    btnPass.textContent = 'Acceder';
+                    btnPass.style.background = '#F4DE65';
+                }, 3000);
+            } else {
+                mensajeError.classList.add('visible');
+                inputPass.value = '';
+                inputPass.focus();
+            }
+        }
+
+        btnPass.addEventListener('click', verificarContraseña);
+
+        inputPass.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                verificarContraseña();
+            }
         });
     </script>
 
