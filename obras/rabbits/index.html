@@ -25,19 +25,21 @@
             position: fixed;
             top: 30px;
             left: 30px;
-            color: #F4DE65;
+            color: #F5E98D;
             font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 300;
+            z-index: 100;
         }
         .volver:hover { color: #ffffff; }
-        .contenido { max-width: 700px; text-align: center; }
+        .contenido { max-width: 700px; text-align: center; padding-bottom: 40px; }
         .contenido h1 {
-            color: #F4DE65;
-            font-size: 32px;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            color: #E8D44D;
+            font-size: 38px;
             font-weight: 400;
             letter-spacing: 4px;
             margin-bottom: 10px;
@@ -50,12 +52,20 @@
             text-transform: uppercase;
             margin-bottom: 30px;
         }
-        .contenido img {
+
+        .imagen-principal {
             width: 100%;
             max-width: 600px;
+            margin: 0 auto 30px;
             border-radius: 4px;
-            margin-bottom: 30px;
         }
+        .imagen-principal img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
         .contenido p {
             color: rgba(255,255,255,0.75);
             font-size: 14px;
@@ -64,32 +74,220 @@
             text-align: justify;
             margin-bottom: 16px;
         }
-        .contenido .ficha {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px 40px;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(244, 222, 101, 0.15);
+        .contenido .cita {
+            color: #F5E98D;
+            font-size: 16px;
+            line-height: 1.9;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            font-style: italic;
         }
-        .contenido .ficha span {
+
+        /* ============================================ */
+        /* FICHA ARTÍSTICA - BLOQUE                    */
+        /* ============================================ */
+
+        .ficha-bloque {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(245, 233, 141, 0.15);
+        }
+
+        .ficha-titulo {
+            color: #F5E98D;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .ficha-creditos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .ficha-creditos .credito {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .ficha-creditos .credito span {
             color: rgba(255,255,255,0.4);
             font-size: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
-        .contenido .ficha strong {
-            color: #F4DE65;
+
+        .ficha-creditos .credito strong {
+            color: #F5E98D;
             font-weight: 400;
-            display: block;
-            margin-top: 4px;
             font-size: 13px;
         }
+
+        .ficha-bloque .ficha-linea-cierre {
+            border-top: 1px solid rgba(245, 233, 141, 0.15);
+            padding-top: 0;
+        }
+
+        /* ============================================ */
+        /* COLLAGE                                     */
+        /* ============================================ */
+
+        .collage {
+            width: 100%;
+            max-width: 500px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .collage img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .enlaces-video {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(245, 233, 141, 0.15);
+        }
+        .enlaces-video a {
+            color: #F5E98D;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border: 1px solid rgba(245, 233, 141, 0.2);
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .enlaces-video a:hover {
+            color: #ffffff;
+            border-color: rgba(245, 233, 141, 0.6);
+        }
+
+        .bloque-contraseña {
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid rgba(245, 233, 141, 0.15);
+            border-radius: 4px;
+            background: rgba(255,255,255,0.02);
+        }
+        .bloque-contraseña input {
+            background: transparent;
+            border: 1px solid rgba(245, 233, 141, 0.3);
+            color: white;
+            padding: 10px 16px;
+            font-size: 14px;
+            border-radius: 4px;
+            width: 220px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .bloque-contraseña input:focus {
+            border-color: #F5E98D;
+        }
+        .bloque-contraseña input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+        .bloque-contraseña button {
+            background: #F5E98D;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.3s;
+            margin-left: 8px;
+        }
+        .bloque-contraseña button:hover {
+            background: #ffffff;
+        }
+        .bloque-contraseña .mensaje-error {
+            color: #ff6b6b;
+            font-size: 12px;
+            margin-top: 8px;
+            display: none;
+        }
+        .bloque-contraseña .mensaje-error.visible {
+            display: block;
+        }
+        .bloque-contraseña .enlace-oculto {
+            display: none;
+            margin-top: 10px;
+        }
+        .bloque-contraseña .enlace-oculto.visible {
+            display: block;
+        }
+        .bloque-contraseña .enlace-oculto a {
+            color: #F5E98D;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border: 1px solid rgba(245, 233, 141, 0.2);
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .bloque-contraseña .enlace-oculto a:hover {
+            color: #ffffff;
+            border-color: rgba(245, 233, 141, 0.6);
+        }
+        .bloque-contraseña .label-contraseña {
+            color: rgba(255,255,255,0.4);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .firma {
+            color: #F5E98D;
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-top: 60px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .espacio-pregunta {
+            margin-top: 48px;
+        }
+
         @media (max-width: 768px) {
-            .contenido h1 { font-size: 24px; }
+            .contenido h1 { font-size: 28px; letter-spacing: 3px; }
             .contenido p { font-size: 13px; }
+            .contenido .cita { font-size: 14px; padding: 15px 0; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
+            .bloque-contraseña input { width: 150px; }
+            .collage { max-width: 100%; }
+            .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
+            .espacio-pregunta { margin-top: 36px; }
+            .ficha-titulo { font-size: 14px; letter-spacing: 3px; }
+            .ficha-bloque { margin-top: 30px; padding-top: 15px; }
         }
     </style>
 </head>
@@ -99,21 +297,127 @@
 
     <div class="contenido">
         <h1>SAVE THE F***ING RABBITS</h1>
-        <div class="subtitulo">2022 · Performance</div>
+        <div class="subtitulo">2022 · Teatro Contemporáneo · 75 min</div>
 
-        <img src="../../madriguera.png" alt="SAVE THE F***ING RABBITS">
-
-        <p><strong style="color:#F4DE65;">SAVE THE F***ING RABBITS</strong> es una performance que aborda la relación entre el ser humano y el animal desde una perspectiva política y filosófica. A través de un lenguaje escénico visceral, la obra cuestiona los límites que hemos construido entre lo humano y lo animal, y las contradicciones que surgen de esa separación.</p>
-
-        <p>El montaje propone un viaje sensorial que interpela al espectador, confrontándolo con preguntas sobre la identidad, la especie y la fragilidad de la vida. Un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
-
-        <div class="ficha">
-            <div><span>Dirección</span><strong>Pablo Velasco</strong></div>
-            <div><span>Año</span><strong>2022</strong></div>
-            <div><span>Duración</span><strong>60 min</strong></div>
-            <div><span>Colaboradores</span><strong>Colectivo escénico</strong></div>
+        <!-- IMAGEN PRINCIPAL -->
+        <div class="imagen-principal">
+            <img src="../../stfr4.jpg" alt="SAVE THE F***ING RABBITS">
         </div>
+
+        <!-- CITA -->
+        <div class="cita">
+            "Un conejo es un conejo.<br>
+            Nuestro conejo no es un conejo.<br>
+            Nuestro conejo son dos conejos.<br>
+            Conejo 1 lleva 3 empastes en su boca:<br>
+            4.6 Tercer premolar inferior izquierdo, 3.3. Canino inferior derecho y 2.7 Segundo molar superior izquierdo.<br>
+            Conejo 2 nunca ha pensado en invertir en Bitcoin.<br>
+            Cuándo Conejo 2 tiene frío, se cobija entre la frondosidad de un campo de helechos.<br>
+            Desde el sofá, Conejo 1 alarga el brazo y enciende una estufa eléctrica que compró en Aliexpress.com por 19,43€.<br>
+            A lo largo de su vida, Conejo 1 ha vivido en 3 casas diferentes: en la de sus padres, en un piso compartido con 7 Erasmus y en un ático pequeño pero cuco en Malasaña.<br>
+            Conejo 2 no hiberna. Porque los conejos no hibernan y Conejo 2 es un conejo."
+        </div>
+
+        <p style="color:#F5E98D; font-style:italic; text-align:center; margin-bottom: 30px;">"Hoy reniego del pensamiento, hoy quiero ser un conejo"</p>
+
+        <!-- SINOPSIS -->
+        <p><strong style="color:#F5E98D; font-weight:400;">SAVE THE F***ING RABBITS</strong> es una pieza distópica de teatro posdramático que plantea al espectador un debate político y filosófico acerca de la sociedad de consumo y las estructuras jerarquizadas imperantes en cualquier. Sirviéndose de paralelismos entre lo humano y lo animal, la pieza aborda cuestiones relativas a la insatisfacción crónica como secuela de las expectativas y los deseos inalcanzables, el amor y las relaciones o el valor de la vida.</p>
+
+        <!-- PREGUNTA -->
+        <p class="espacio-pregunta" style="color:#F5E98D; font-style:italic; text-align:center;">"¿Imaginas poder adentrarte 30 metros bajo tierra? En SAVE THE F***ING RABBITS, el espectador tendrá la oportunidad de sumergirse en las profundidades de la tierra durante una hora para observar lo que sucede dentro de una madriguera habitada por dos conejos que ven la televisión y reflexionan sobre cuestiones extremadamente humanas."</p>
+
+        <!-- ============================================ -->
+        <!-- FICHA ARTÍSTICA - BLOQUE                    -->
+        <!-- ============================================ -->
+
+        <div class="ficha-bloque">
+
+            <!-- LÍNEA SUPERIOR + TÍTULO -->
+            <div class="ficha-titulo">Ficha artística</div>
+
+            <!-- CRÉDITOS -->
+            <div class="ficha-creditos">
+                <div class="credito"><span>Dirección y dramaturgia</span><strong>Pablo Velasco</strong></div>
+                <div class="credito"><span>Ayudantía de dirección</span><strong>Po Ruiz</strong></div>
+                <div class="credito"><span>Cuerpos en escena</span><strong>Po Ruiz · Pablo Velasco · Intérprete Invitado</strong></div>
+                <div class="credito"><span>Diseño de sonido</span><strong>Ale Iodice</strong></div>
+                <div class="credito"><span>Diseño escénico e iluminación</span><strong>Pablo Velasco</strong></div>
+                <div class="credito"><span>Producción</span><strong>SAVE THE F***ING RABBITS prod. · Ángela Aguilar</strong></div>
+            </div>
+
+            <!-- LÍNEA INFERIOR (CIERRE) -->
+            <div class="ficha-linea-cierre"></div>
+
+        </div>
+
+        <!-- ============================================ -->
+        <!-- COLLAGE                                     -->
+        <!-- ============================================ -->
+
+        <div class="collage">
+            <img src="../../stfr6.png" alt="STFR 6">
+            <img src="../../stfr5.png" alt="STFR 5">
+            <img src="../../stfr2.png" alt="STFR 2">
+            <img src="../../stfr1.png" alt="STFR 1">
+            <img src="../../stfr3.png" alt="STFR 3">
+        </div>
+
+        <!-- ENLACES VÍDEOS -->
+        <div class="enlaces-video">
+            <a href="https://vimeo.com/704850488" target="_blank">▶ Ver teaser</a>
+
+            <div class="bloque-contraseña">
+                <span class="label-contraseña">🔒 Obra completa con contraseña</span>
+                <input type="password" id="inputPass" placeholder="Introduce la contraseña">
+                <button id="btnPass">Acceder</button>
+                <div class="mensaje-error" id="mensajeError">Contraseña incorrecta</div>
+                <div class="enlace-oculto" id="enlaceOculto">
+                    <a href="https://www.youtube.com/watch?v=qf5tfBNuBhM" target="_blank">▶ Ver obra completa</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FIRMA -->
+        <div class="firma">SAVE THE F***ING RABBITS .prod © 2026</div>
     </div>
+
+    <script>
+        const inputPass = document.getElementById('inputPass');
+        const btnPass = document.getElementById('btnPass');
+        const mensajeError = document.getElementById('mensajeError');
+        const enlaceOculto = document.getElementById('enlaceOculto');
+
+        const CONTRASENA_CORRECTA = 'stfr2022completa';
+
+        function verificarContraseña() {
+            const pass = inputPass.value.trim();
+            if (pass === CONTRASENA_CORRECTA) {
+                mensajeError.classList.remove('visible');
+                enlaceOculto.classList.add('visible');
+                inputPass.value = '';
+                inputPass.placeholder = '✅ ¡Acceso concedido!';
+                btnPass.textContent = '✔';
+                btnPass.style.background = '#4CAF50';
+                setTimeout(() => {
+                    inputPass.placeholder = 'Introduce la contraseña';
+                    btnPass.textContent = 'Acceder';
+                    btnPass.style.background = '#F5E98D';
+                }, 3000);
+            } else {
+                mensajeError.classList.add('visible');
+                inputPass.value = '';
+                inputPass.focus();
+            }
+        }
+
+        btnPass.addEventListener('click', verificarContraseña);
+
+        inputPass.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                verificarContraseña();
+            }
+        });
+    </script>
 
 </body>
 </html>
