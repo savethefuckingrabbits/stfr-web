@@ -37,7 +37,7 @@
         .volver:hover { color: #ffffff; }
         .contenido { max-width: 700px; text-align: center; padding-bottom: 40px; }
         .contenido h1 {
-            color: #F5E98D;
+            color: #FFD700;
             font-size: 32px;
             font-weight: 400;
             letter-spacing: 4px;
@@ -238,6 +238,11 @@
             display: inline-block;
         }
 
+        /* MÁS ESPACIO ENTRE EL ÚLTIMO PÁRRAFO Y LA PREGUNTA */
+        .espacio-pregunta {
+            margin-top: 32px; /* ~20% más de espacio (16px base + 16px extra) */
+        }
+
         @media (max-width: 768px) {
             .contenido h1 { font-size: 24px; }
             .contenido p { font-size: 13px; }
@@ -246,6 +251,7 @@
             .bloque-contraseña input { width: 150px; }
             .collage { max-width: 100%; }
             .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
+            .espacio-pregunta { margin-top: 24px; }
         }
     </style>
 </head>
@@ -274,7 +280,8 @@
 
         <p>No hay moralejas aquí. Los cuerpos no enseñan. Sucumben. Un recordatorio de que, aunque la violencia pueda parecer parte del paisaje, nunca deja de estar ahí.</p>
 
-        <p style="color:#F5E98D; font-style:italic; text-align:center;">"¿Hasta qué punto la violencia no es una anomalía, sino el lenguaje oculto de un sistema que la reproduce?"</p>
+        <!-- PREGUNTA CON MÁS ESPACIO ENCIMA -->
+        <p class="espacio-pregunta" style="color:#F5E98D; font-style:italic; text-align:center;">"¿Hasta qué punto la violencia no es una anomalía, sino el lenguaje oculto de un sistema que la reproduce?"</p>
 
         <!-- FICHA ARTÍSTICA -->
         <div class="ficha" style="flex-direction:column; align-items:center; gap:8px;">
