@@ -32,6 +32,7 @@
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 300;
+            z-index: 100;
         }
         .volver:hover { color: #ffffff; }
         .contenido { max-width: 700px; text-align: center; }
@@ -50,12 +51,62 @@
             text-transform: uppercase;
             margin-bottom: 30px;
         }
-        .contenido img {
+
+        /* CARRUSEL */
+        .carrusel-container {
+            position: relative;
             width: 100%;
             max-width: 600px;
+            margin: 0 auto 30px;
+            overflow: hidden;
             border-radius: 4px;
-            margin-bottom: 30px;
         }
+        .carrusel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carrusel-slides img {
+            width: 100%;
+            flex-shrink: 0;
+            display: block;
+        }
+        .carrusel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: #F4DE65;
+            border: 1px solid rgba(244, 222, 101, 0.3);
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+        .carrusel-btn:hover {
+            background: rgba(244, 222, 101, 0.2);
+        }
+        .carrusel-btn.izquierda { left: 10px; }
+        .carrusel-btn.derecha { right: 10px; }
+        .carrusel-indicadores {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .carrusel-indicadores span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .carrusel-indicadores span.activo {
+            background: #F4DE65;
+        }
+
         .contenido p {
             color: rgba(255,255,255,0.75);
             font-size: 14px;
@@ -71,10 +122,7 @@
             font-weight: 400;
             text-align: center;
             margin-bottom: 30px;
-            padding: 20px;
-            border-left: 2px solid rgba(244, 222, 101, 0.3);
-            border-right: 2px solid rgba(244, 222, 101, 0.3);
-            font-style: italic;
+            padding: 20px 0;
         }
         .contenido .ficha {
             display: flex;
@@ -98,11 +146,43 @@
             margin-top: 4px;
             font-size: 13px;
         }
+
+        /* ENLACES VÍDEOS */
+        .enlaces-video {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(244, 222, 101, 0.15);
+        }
+        .enlaces-video a {
+            color: #F4DE65;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border: 1px solid rgba(244, 222, 101, 0.2);
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .enlaces-video a:hover {
+            color: #ffffff;
+            border-color: rgba(244, 222, 101, 0.6);
+        }
+        .enlaces-video .contraseña {
+            color: rgba(255,255,255,0.3);
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
         @media (max-width: 768px) {
             .contenido h1 { font-size: 24px; }
             .contenido p { font-size: 13px; }
-            .contenido .cita { font-size: 14px; padding: 15px; }
+            .contenido .cita { font-size: 14px; padding: 15px 0; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
+            .carrusel-btn { padding: 8px 12px; font-size: 14px; }
         }
     </style>
 </head>
@@ -114,10 +194,21 @@
         <h1>SUCRÉ</h1>
         <div class="subtitulo">2024 · Teatro Contemporáneo · 70 min</div>
 
-        <!-- CAMBIA EL NOMBRE DE LA IMAGEN POR EL QUE QUIERAS USAR -->
-        <img src="../../sucré.jpg" alt="Sucré">
+        <!-- CARRUSEL -->
+        <div class="carrusel-container">
+            <div class="carrusel-slides" id="carruselSlides">
+                <img src="../../sucre p 2.jpg" alt="Sucré 2">
+                <img src="../../sucre p 1.jpg" alt="Sucré 1">
+                <img src="../../sucre p 3.jpg" alt="Sucré 3">
+                <img src="../../sucre p 4.jpg" alt="Sucré 4">
+                <img src="../../sucre p 5.jpg" alt="Sucré 5">
+            </div>
+            <button class="carrusel-btn izquierda" id="btnIzquierda">‹</button>
+            <button class="carrusel-btn derecha" id="btnDerecha">›</button>
+            <div class="carrusel-indicadores" id="indicadores"></div>
+        </div>
 
-        <!-- CITA EN NEGRITA -->
+        <!-- CITA -->
         <div class="cita">
             <strong>"El sol saldrá en apenas unos minutos y ya no se volverá a esconder. Una promesa de calor que avivará los nauseabundos olores que emanan de las entrañas de este lugar. Agudizará el olor de las ratas en las cloacas, de los cerdos en el lodo. Por suerte los machos no se huelen entre sí, porque todos comparten el mismo aroma."</strong>
         </div>
@@ -131,7 +222,7 @@
 
         <p style="color:#F4DE65; font-style:italic; text-align:center;">"¿Hasta qué punto la violencia no es una anomalía, sino el lenguaje oculto de un sistema que la reproduce?"</p>
 
-        <!-- FICHA ARTÍSTICA COMPLETA -->
+        <!-- FICHA ARTÍSTICA -->
         <div class="ficha" style="flex-direction:column; align-items:center; gap:8px;">
             <div><span>Dirección</span><strong>Pablo Velasco</strong></div>
             <div><span>Ayudantía de dirección</span><strong>Ángela Aguilar</strong></div>
@@ -144,7 +235,72 @@
             <div><span>Miradas amigas</span><strong>Candela Caballero · Paula Lloret</strong></div>
             <div><span>Producción</span><strong>SAVE THE F***ING RABBITS Prod.</strong></div>
         </div>
+
+        <!-- ENLACES VÍDEOS (debajo de los créditos) -->
+        <div class="enlaces-video">
+            <a href="https://youtu.be/qj6Agie2Hn0?si=y02FVtZ1kl0-Q8Rh" target="_blank">▶ Ver teaser</a>
+            <a href="https://youtu.be/sHLSJH417n0" target="_blank">▶ Ver obra completa</a>
+            <span class="contraseña">🔒 Obra completa con contraseña</span>
+        </div>
     </div>
+
+    <script>
+        // CARRUSEL
+        const slides = document.getElementById('carruselSlides');
+        const btnIzq = document.getElementById('btnIzquierda');
+        const btnDer = document.getElementById('btnDerecha');
+        const indicadores = document.getElementById('indicadores');
+        const totalSlides = document.querySelectorAll('.carrusel-slides img').length;
+        let index = 0;
+
+        // Crear indicadores
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('activo');
+            dot.dataset.index = i;
+            dot.addEventListener('click', () => irASlide(i));
+            indicadores.appendChild(dot);
+        }
+
+        function actualizarCarrusel() {
+            slides.style.transform = `translateX(-${index * 100}%)`;
+            document.querySelectorAll('.carrusel-indicadores span').forEach((dot, i) => {
+                dot.classList.toggle('activo', i === index);
+            });
+        }
+
+        function irASlide(i) {
+            index = i;
+            actualizarCarrusel();
+        }
+
+        btnDer.addEventListener('click', () => {
+            index = (index + 1) % totalSlides;
+            actualizarCarrusel();
+        });
+
+        btnIzq.addEventListener('click', () => {
+            index = (index - 1 + totalSlides) % totalSlides;
+            actualizarCarrusel();
+        });
+
+        // Auto-play cada 5 segundos
+        let autoPlay = setInterval(() => {
+            index = (index + 1) % totalSlides;
+            actualizarCarrusel();
+        }, 5000);
+
+        // Pausar auto-play al interactuar
+        document.querySelector('.carrusel-container').addEventListener('mouseenter', () => {
+            clearInterval(autoPlay);
+        });
+        document.querySelector('.carrusel-container').addEventListener('mouseleave', () => {
+            autoPlay = setInterval(() => {
+                index = (index + 1) % totalSlides;
+                actualizarCarrusel();
+            }, 5000);
+        });
+    </script>
 
 </body>
 </html>
