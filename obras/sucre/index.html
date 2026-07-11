@@ -35,7 +35,11 @@
             z-index: 100;
         }
         .volver:hover { color: #ffffff; }
-        .contenido { max-width: 700px; text-align: center; padding-bottom: 40px; }
+        .contenido {
+            max-width: 550px;
+            text-align: center;
+            padding-bottom: 40px;
+        }
         .contenido h1 {
             font-family: 'Impact', 'Arial Black', sans-serif;
             color: #E8D44D;
@@ -277,18 +281,19 @@
             margin-top: 48px;
         }
 
-        /* FRASE DESTACADA - NEGRITA Y MÁS GRANDE */
+        /* FRASE DESTACADA - MUCHO MÁS GRANDE, AMARILLA Y CENTRADA */
         .frase-destacada {
             color: #F5E98D;
-            font-size: 20px;
+            font-size: 28px;
             font-weight: 700;
             text-align: center;
             font-style: italic;
-            margin-bottom: 30px;
-            line-height: 1.5;
+            margin: 40px 0 30px;
+            line-height: 1.4;
         }
 
         @media (max-width: 768px) {
+            .contenido { max-width: 100%; }
             .contenido h1 { font-size: 28px; letter-spacing: 3px; }
             .contenido p { font-size: 13px; }
             .contenido .cita { font-size: 12px; padding: 15px 0; }
@@ -299,7 +304,7 @@
             .espacio-pregunta { margin-top: 36px; }
             .ficha-titulo { font-size: 14px; letter-spacing: 3px; }
             .ficha-bloque { margin-top: 30px; padding-top: 15px; }
-            .frase-destacada { font-size: 17px; }
+            .frase-destacada { font-size: 22px; margin: 30px 0 20px; }
         }
     </style>
 </head>
@@ -330,14 +335,14 @@
             Conejo 2 no hiberna. Porque los conejos no hibernan y Conejo 2 es un conejo."
         </div>
 
-        <!-- SINOPSIS - TEXTO COMPLETO EN BLANCO -->
+        <!-- FRASE DESTACADA - MUCHO MÁS GRANDE, AMARILLA Y CENTRADA -->
+        <p class="frase-destacada">"Hoy reniego del pensamiento,<br>hoy quiero ser un conejo"</p>
+
+        <!-- SINOPSIS -->
         <p style="color:rgba(255,255,255,0.75); font-weight:400;">SAVE THE F***ING RABBITS es una pieza distópica de teatro posdramático que plantea al espectador un debate político y filosófico acerca de la sociedad de consumo y las estructuras jerarquizadas imperantes en cualquier sistema colectivo. Sirviéndose de paralelismos entre lo humano y lo animal, la pieza aborda cuestiones relativas a la insatisfacción crónica como secuela de las expectativas y los deseos inalcanzables, el amor y las relaciones o el valor de la vida.</p>
 
         <!-- PREGUNTA -->
         <p class="espacio-pregunta" style="color:rgba(255,255,255,0.75); font-style:italic; text-align:center;">¿Imaginas poder adentrarte 30 metros bajo tierra? Aquí, el espectador tendrá la oportunidad de sumergirse en las profundidades de la tierra durante una hora para observar lo que sucede dentro de una madriguera habitada por dos conejos que ven la televisión y reflexionan sobre cuestiones extremadamente humanas.</p>
-
-        <!-- FRASE DESTACADA - NEGRITA Y MÁS GRANDE -->
-        <p class="frase-destacada">"Hoy reniego del pensamiento, hoy quiero ser un conejo"</p>
 
         <!-- ============================================ -->
         <!-- FICHA ARTÍSTICA - BLOQUE                    -->
@@ -369,10 +374,10 @@
 
         <div class="collage">
             <img src="../../stfr6.png" alt="STFR 6">
-            <img src="../../stfr5.png" alt="STFR 5">
             <img src="../../stfr2.png" alt="STFR 2">
-            <img src="../../stfr1.png" alt="STFR 1">
-            <img src="../../stfr3.png" alt="STFR 3">
+            <img src="../../stfr5.jpg" alt="STFR 5">
+            <img src="../../stfr1.jpg" alt="STFR 1">
+            <img src="../../stfr3.jpg" alt="STFR 3">
         </div>
 
         <!-- ENLACES VÍDEOS -->
@@ -380,7 +385,7 @@
             <a href="https://vimeo.com/704850488" target="_blank"> Ver teaser</a>
 
             <div class="bloque-contraseña">
-                <span class="label-contraseña">🔒 Obra completa</span>
+                <span class="label-contraseña">🔒 Obra completa </span>
                 <input type="password" id="inputPass" placeholder="Introduce la contraseña">
                 <button id="btnPass">Acceder</button>
                 <div class="mensaje-error" id="mensajeError">Contraseña incorrecta</div>
