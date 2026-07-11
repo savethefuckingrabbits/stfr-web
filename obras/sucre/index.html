@@ -85,37 +85,62 @@
             font-style: italic;
         }
 
-        .ficha-titulo {
-            color: rgba(255,255,255,0.4);
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+        /* ============================================ */
+        /* FICHA ARTÍSTICA - BLOQUE                    */
+        /* ============================================ */
 
-        .contenido .ficha {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px 40px;
+        .ficha-bloque {
+            margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid rgba(245, 233, 141, 0.15);
         }
-        .contenido .ficha span {
+
+        .ficha-titulo {
+            color: #F5E98D;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .ficha-creditos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .ficha-creditos .credito {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .ficha-creditos .credito span {
             color: rgba(255,255,255,0.4);
             font-size: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
-        .contenido .ficha strong {
+
+        .ficha-creditos .credito strong {
             color: #F5E98D;
             font-weight: 400;
-            display: block;
-            margin-top: 4px;
             font-size: 13px;
         }
+
+        .ficha-bloque .ficha-linea-cierre {
+            border-top: 1px solid rgba(245, 233, 141, 0.15);
+            padding-top: 0;
+        }
+
+        /* ============================================ */
+        /* COLLAGE                                     */
+        /* ============================================ */
 
         .collage {
             width: 100%;
@@ -261,7 +286,8 @@
             .collage { max-width: 100%; }
             .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
             .espacio-pregunta { margin-top: 36px; }
-            .ficha-titulo { font-size: 9px; margin-top: 30px; margin-bottom: 15px; }
+            .ficha-titulo { font-size: 16px; letter-spacing: 3px; }
+            .ficha-bloque { margin-top: 30px; padding-top: 15px; }
         }
     </style>
 </head>
@@ -273,12 +299,12 @@
         <h1>SUCRÉ</h1>
         <div class="subtitulo">2024 · Teatro Contemporáneo · 70 min</div>
 
-        <!-- IMAGEN PRINCIPAL: sucre p 8.jpg -->
+        <!-- IMAGEN PRINCIPAL -->
         <div class="imagen-principal">
             <img src="../../sucre p 8.jpg" alt="Sucré">
         </div>
 
-        <!-- CITA EN CURSIVA -->
+        <!-- CITA -->
         <div class="cita">
             "El sol saldrá en apenas unos minutos y ya no se volverá a esconder. Una promesa de calor que avivará los nauseabundos olores que emanan de las entrañas de este lugar. Agudizará el olor de las ratas en las cloacas, de los cerdos en el lodo. Por suerte los machos no se huelen entre sí, porque todos comparten el mismo aroma."
         </div>
@@ -290,27 +316,41 @@
 
         <p>No hay moralejas aquí. Los cuerpos no enseñan. Sucumben. Un recordatorio de que, aunque la violencia pueda parecer parte del paisaje, nunca deja de estar ahí.</p>
 
-        <!-- PREGUNTA CON MÁS ESPACIO ENCIMA -->
+        <!-- PREGUNTA -->
         <p class="espacio-pregunta" style="color:#F5E98D; font-style:italic; text-align:center;">"¿Hasta qué punto la violencia no es una anomalía, sino el lenguaje oculto de un sistema que la reproduce?"</p>
 
-        <!-- FICHA ARTÍSTICA - TÍTULO -->
-        <div class="ficha-titulo">Ficha artística</div>
+        <!-- ============================================ -->
+        <!-- FICHA ARTÍSTICA - BLOQUE                    -->
+        <!-- ============================================ -->
 
-        <!-- FICHA ARTÍSTICA -->
-        <div class="ficha" style="flex-direction:column; align-items:center; gap:8px;">
-            <div><span>Dirección</span><strong>Pablo Velasco</strong></div>
-            <div><span>Ayudantía de dirección</span><strong>Ángela Aguilar</strong></div>
-            <div><span>Dramaturgia</span><strong>Pablo Velasco · Bernard-Marie Koltès · Textos de David Foster Wallace</strong></div>
-            <div><span>Cuerpos en escena</span><strong>Ángela Aguilar · Pablo Velasco</strong></div>
-            <div><span>Asistencia coreográfica</span><strong>Paula Barragán</strong></div>
-            <div><span>Diseño de utilería</span><strong>Alejandro Castro Sánchez</strong></div>
-            <div><span>Diseño de vestuario</span><strong>Celina Fernández Ponte</strong></div>
-            <div><span>Diseño de sonido e iluminación</span><strong>Pablo Velasco</strong></div>
-            <div><span>Miradas amigas</span><strong>Candela Caballero · Paula Lloret</strong></div>
-            <div><span>Producción</span><strong>SAVE THE F***ING RABBITS Prod.</strong></div>
+        <div class="ficha-bloque">
+
+            <!-- LÍNEA SUPERIOR + TÍTULO -->
+            <div class="ficha-titulo">Ficha artística</div>
+
+            <!-- CRÉDITOS -->
+            <div class="ficha-creditos">
+                <div class="credito"><span>Dirección</span><strong>Pablo Velasco</strong></div>
+                <div class="credito"><span>Ayudantía de dirección</span><strong>Ángela Aguilar</strong></div>
+                <div class="credito"><span>Dramaturgia</span><strong>Pablo Velasco · Bernard-Marie Koltès · Textos de David Foster Wallace</strong></div>
+                <div class="credito"><span>Cuerpos en escena</span><strong>Ángela Aguilar · Pablo Velasco</strong></div>
+                <div class="credito"><span>Asistencia coreográfica</span><strong>Paula Barragán</strong></div>
+                <div class="credito"><span>Diseño de utilería</span><strong>Alejandro Castro Sánchez</strong></div>
+                <div class="credito"><span>Diseño de vestuario</span><strong>Celina Fernández Ponte</strong></div>
+                <div class="credito"><span>Diseño de sonido e iluminación</span><strong>Pablo Velasco</strong></div>
+                <div class="credito"><span>Miradas amigas</span><strong>Candela Caballero · Paula Lloret</strong></div>
+                <div class="credito"><span>Producción</span><strong>SAVE THE F***ING RABBITS Prod.</strong></div>
+            </div>
+
+            <!-- LÍNEA INFERIOR (CIERRE) -->
+            <div class="ficha-linea-cierre"></div>
+
         </div>
 
-        <!-- COLLAGE DE FOTOS (sucre p 11, p 9, p 12, p 10) -->
+        <!-- ============================================ -->
+        <!-- COLLAGE                                     -->
+        <!-- ============================================ -->
+
         <div class="collage">
             <img src="../../sucre p 11.jpg" alt="Sucré 11">
             <img src="../../sucre p 9.jpg" alt="Sucré 9">
@@ -338,7 +378,6 @@
     </div>
 
     <script>
-        // SISTEMA DE CONTRASEÑA
         const inputPass = document.getElementById('inputPass');
         const btnPass = document.getElementById('btnPass');
         const mensajeError = document.getElementById('mensajeError');
