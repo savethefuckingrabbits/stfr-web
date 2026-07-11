@@ -35,7 +35,11 @@
             z-index: 100;
         }
         .volver:hover { color: #ffffff; }
-        .contenido { max-width: 700px; text-align: center; padding-bottom: 40px; }
+        .contenido {
+            max-width: 550px;
+            text-align: center;
+            padding-bottom: 40px;
+        }
         .contenido h1 {
             font-family: 'Impact', 'Arial Black', sans-serif;
             color: #E8D44D;
@@ -66,6 +70,7 @@
             border-radius: 4px;
         }
 
+        /* TEXTO ESTÁNDAR - JUSTIFICADO */
         .contenido p {
             color: rgba(255,255,255,0.75);
             font-size: 14px;
@@ -74,9 +79,11 @@
             text-align: justify;
             margin-bottom: 16px;
         }
+
+        /* CITA */
         .contenido .cita {
             color: #F5E98D;
-            font-size: 16px;
+            font-size: 14px;
             line-height: 1.9;
             font-weight: 300;
             text-align: center;
@@ -273,21 +280,34 @@
             display: inline-block;
         }
 
-        .espacio-pregunta {
-            margin-top: 48px;
+        /* ESPACIO EXTRA ENTRE TEXTOS */
+        .espacio-extra {
+            margin-top: 30px;
+        }
+
+        /* FRASE DESTACADA - AMARILLA, GRANDE, UNA LÍNEA */
+        .frase-destacada {
+            color: #F5E98D;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            font-style: italic;
+            margin: 40px 0 30px;
+            line-height: 1.3;
         }
 
         @media (max-width: 768px) {
+            .contenido { max-width: 100%; }
             .contenido h1 { font-size: 28px; letter-spacing: 3px; }
             .contenido p { font-size: 13px; }
-            .contenido .cita { font-size: 14px; padding: 15px 0; }
+            .contenido .cita { font-size: 12px; padding: 15px 0; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
             .bloque-contraseña input { width: 150px; }
             .collage { max-width: 100%; }
             .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
-            .espacio-pregunta { margin-top: 36px; }
             .ficha-titulo { font-size: 14px; letter-spacing: 3px; }
             .ficha-bloque { margin-top: 30px; padding-top: 15px; }
+            .frase-destacada { font-size: 22px; margin: 30px 0 20px; }
         }
     </style>
 </head>
@@ -301,7 +321,7 @@
 
         <!-- IMAGEN PRINCIPAL -->
         <div class="imagen-principal">
-            <img src="../../stfr4.png" alt="SAVE THE F***ING RABBITS">
+            <img src="../../stfr4.jpg" alt="SAVE THE F***ING RABBITS">
         </div>
 
         <!-- CITA -->
@@ -318,13 +338,19 @@
             Conejo 2 no hiberna. Porque los conejos no hibernan y Conejo 2 es un conejo."
         </div>
 
-        <p style="color:#F5E98D; font-style:italic; text-align:center; margin-bottom: 30px;">"Hoy reniego del pensamiento, hoy quiero ser un conejo"</p>
+        <!-- ============================================ -->
+        <!-- SINOPSIS Y PREGUNTA - MISMO FORMATO          -->
+        <!-- ============================================ -->
 
-        <!-- SINOPSIS -->
-        <p><strong style="color:#F5E98D; font-weight:400;">SAVE THE F***ING RABBITS</strong> es una pieza distópica de teatro posdramático que plantea al espectador un debate político y filosófico acerca de la sociedad de consumo y las estructuras jerarquizadas imperantes en cualquier. Sirviéndose de paralelismos entre lo humano y lo animal, la pieza aborda cuestiones relativas a la insatisfacción crónica como secuela de las expectativas y los deseos inalcanzables, el amor y las relaciones o el valor de la vida.</p>
+        <p>SAVE THE F***ING RABBITS es una pieza distópica de teatro posdramático que plantea al espectador un debate político y filosófico acerca de la sociedad de consumo y las estructuras jerarquizadas imperantes en cualquier sistema colectivo. Sirviéndose de paralelismos entre lo humano y lo animal, la pieza aborda cuestiones relativas a la insatisfacción crónica como secuela de las expectativas y los deseos inalcanzables, el amor y las relaciones o el valor de la vida.</p>
 
-        <!-- PREGUNTA -->
-        <p class="espacio-pregunta" style="color:#F5E98D; font-style:italic; text-align:center;">"¿Imaginas poder adentrarte 30 metros bajo tierra? En SAVE THE F***ING RABBITS, el espectador tendrá la oportunidad de sumergirse en las profundidades de la tierra durante una hora para observar lo que sucede dentro de una madriguera habitada por dos conejos que ven la televisión y reflexionan sobre cuestiones extremadamente humanas."</p>
+        <p class="espacio-extra">¿Imaginas poder adentrarte 30 metros bajo tierra? Aquí, el espectador tendrá la oportunidad de sumergirse en las profundidades de la tierra durante una hora para observar lo que sucede dentro de una madriguera habitada por dos conejos que ven la televisión y reflexionan sobre cuestiones extremadamente humanas.</p>
+
+        <!-- ============================================ -->
+        <!-- FRASE DESTACADA - ANTES DE FICHA ARTÍSTICA   -->
+        <!-- ============================================ -->
+
+        <p class="frase-destacada">"Hoy reniego del pensamiento, hoy quiero ser un conejo"</p>
 
         <!-- ============================================ -->
         <!-- FICHA ARTÍSTICA - BLOQUE                    -->
@@ -356,18 +382,18 @@
 
         <div class="collage">
             <img src="../../stfr6.png" alt="STFR 6">
-            <img src="../../stfr5.jpg" alt="STFR 5">
+            <img src="../../stfr5.png" alt="STFR 5">
             <img src="../../stfr2.png" alt="STFR 2">
-            <img src="../../stfr1.jpg" alt="STFR 1">
-            <img src="../../stfr3.jpg" alt="STFR 3">
+            <img src="../../stfr1.png" alt="STFR 1">
+            <img src="../../stfr3.png" alt="STFR 3">
         </div>
 
         <!-- ENLACES VÍDEOS -->
         <div class="enlaces-video">
-            <a href="https://vimeo.com/704850488" target="_blank"> Ver teaser</a>
+            <a href="https://vimeo.com/704850488" target="_blank">▶ Ver teaser</a>
 
             <div class="bloque-contraseña">
-                <span class="label-contraseña">🔒 Obra completa </span>
+                <span class="label-contraseña">🔒 Obra completa con contraseña</span>
                 <input type="password" id="inputPass" placeholder="Introduce la contraseña">
                 <button id="btnPass">Acceder</button>
                 <div class="mensaje-error" id="mensajeError">Contraseña incorrecta</div>
