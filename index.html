@@ -10,7 +10,7 @@
     <link rel="canonical" href="https://savethefuckingrabbits.com">
 
     <!-- ✅ META DESCRIPCIÓN (para que Google muestre este texto en los resultados) -->
-    <meta name="description" content="Compañía de teatro contemporáneo fundada en 2020 por Pablo Velasco. Nuevos lenguajes y animalidad. ">
+    <meta name="description" content="Compañía de teatro contemporánea fundada en 2020 por Pablo Velasco. Nuevos lenguajes y animalidad. ">
 
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="shortcut icon" href="favicon.png">
@@ -74,14 +74,14 @@ body{
 }
 
 /* ============================================ */
-/* PANEL DESPLEGABLE - INFO COMPAÑÍA           */
+/* PANEL DESPLEGABLE - SOLO ENLACE             */
 /* ============================================ */
 
 .info-panel{
     max-height:0;
     opacity:0;
     overflow:hidden;
-    transition: max-height 0.7s ease, opacity 0.7s ease, margin-top 0.7s ease, padding 0.7s ease;
+    transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease, padding 0.5s ease;
     margin-top:0;
     padding:0 0;
     background:#000;
@@ -91,35 +91,32 @@ body{
 }
 
 .logo-wrapper.active .info-panel{
-    max-height:1400px;
+    max-height:200px;
     opacity:1;
     margin-top:10px;
     padding:20px 0 25px;
     pointer-events:auto;
 }
 
-/* ============================================ */
-/* TEXTO DEL PANEL - INTER MÁS GRUESA Y GRANDE */
-/* ============================================ */
-
-.info-panel p{
-    color:#F4DE65;
-    font-family:'Inter',sans-serif;
-    font-weight:400;
-    font-size:15px;
-    line-height:1.9;
-    letter-spacing:0.3px;
-    margin-bottom:18px;
-    text-align:justify;
+/* ENLACE "SOBRE NOSOTROS" EN BLANCO */
+.info-panel .enlace-sobre{
+    display:inline-block;
+    color:#ffffff;
+    text-decoration:none;
+    font-weight:300;
+    font-size:16px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    transition:color 0.3s ease, letter-spacing 0.3s ease;
+    padding:8px 20px;
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:4px;
 }
 
-.info-panel p:last-child{
-    margin-bottom:0;
-}
-
-.info-panel .destacado{
-    font-weight:600;
+.info-panel .enlace-sobre:hover{
     color:#F4DE65;
+    letter-spacing:4px;
+    border-color:rgba(244,222,101,0.3);
 }
 
 /* ============================================ */
@@ -238,7 +235,7 @@ body{
 }
 
 /* ============================================ */
-/* SOBRE NOSOTROS - ENLACE                      */
+/* SOBRE NOSOTROS - ENLACE EN FOOTER           */
 /* ============================================ */
 
 .sobre-nosotros-link{
@@ -456,20 +453,20 @@ body{
         width:100%;
     }
 
-    .info-panel p{
-        font-size:14px;
-        line-height:1.8;
-        text-align:left;
-        font-weight:400;
-    }
-
     .logo-wrapper.active .info-panel{
+        max-height:200px;
         margin-top:8px;
         padding:15px 0 20px;
     }
 
     .logo-wrapper.active .proyectos{
         margin-top:15px;
+    }
+
+    .info-panel .enlace-sobre{
+        font-size:14px;
+        letter-spacing:2.5px;
+        padding:6px 16px;
     }
 
     .footer{
@@ -531,7 +528,7 @@ body{
 <div class="container">
 
     <!-- ============================================ -->
-    <!-- LOGO CON DESPLEGABLE                         -->
+    <!-- LOGO CON DESPLEGABLE - SOLO ENLACE           -->
     <!-- ============================================ -->
 
     <div class="logo-wrapper" id="logoWrapper">
@@ -539,15 +536,9 @@ body{
         <img class="logo-img" id="logoImg" src="logo.png" alt="SAVE THE F***ING RABBITS">
 
         <div class="info-panel">
-            <p><span class="destacado">SAVE THE F***ING RABBITS</span> es una compañía de teatro contemporáneo fundada en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
-
-            <p>Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, en el que diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.</p>
-
-            <p>En términos de contenido, la compañía investiga la condición humana, abordando temas complejos que se mueven entre lo político y lo filosófico. El animal atraviesa las creaciones como un recurso poético y conceptual desde el que pensar al ser humano. A través de esta relación, se explora la distancia que hemos construido entre lo humano y lo animal y las contradicciones que surgen de esa separación, preguntándonos por aquello que nos define como especie.</p>
-
-            <p>La propuesta artística se distingue por su capacidad para generar sensaciones: no solo apela a la percepción visual y auditiva, sino que involucra otros sentidos para crear un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.</p>
-
-            <p>El proyecto busca situar al espectador ante una experiencia que lo interpele, convirtiéndolo en un sujeto activo dentro de la propuesta. Es un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
+            <p style="text-align:center; margin:0;">
+                <a href="sobre-nosotros/index.html" class="enlace-sobre">Sobre nosotros</a>
+            </p>
         </div>
 
     </div>
@@ -610,7 +601,7 @@ body{
 
     <div class="footer-logos">
 
-        <!-- SOBRE NOSOTROS - ENLACE -->
+        <!-- SOBRE NOSOTROS - ENLACE EN FOOTER -->
         <a href="sobre-nosotros/index.html" class="sobre-nosotros-link">SOBRE NOSOTROS</a>
 
         <!-- CONTACTO DESPLEGABLE HACIA ARRIBA -->
