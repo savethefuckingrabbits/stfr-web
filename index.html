@@ -61,8 +61,8 @@ body{
 }
 
 .logo-img{
-    width:50%;
-    max-width:500px;
+    width:100%;
+    max-width:1000px;
     height:auto;
     display:block;
     transition: opacity 0.3s ease;
@@ -256,7 +256,7 @@ body{
 }
 
 /* ============================================ */
-/* CONTACTO - DESPLEGABLE HACIA ARRIBA         */
+/* CONTACTO - DESPLEGABLE HACIA ABAJO          */
 /* ============================================ */
 
 .contacto-wrapper{
@@ -285,13 +285,13 @@ body{
     color:#ffffff;
 }
 
-/* PANEL DE CONTACTO - SIN ICONOS */
+/* PANEL DE CONTACTO - AHORA HACIA ABAJO */
 .contacto-panel{
     max-height:0;
     opacity:0;
     overflow:hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease, margin-bottom 0.3s ease, padding 0.3s ease;
-    margin-bottom:0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease, padding 0.3s ease;
+    margin-top:0;
     padding:0 25px;
     background:#000;
     width:auto;
@@ -299,14 +299,14 @@ body{
     border:1px solid transparent;
     border-radius:8px;
     pointer-events:none;
-    order:-1;
+    order:1;
 }
 
 .contacto-wrapper.active .contacto-panel,
 .contacto-wrapper:hover .contacto-panel{
     max-height:300px;
     opacity:1;
-    margin-bottom:15px;
+    margin-top:15px;
     padding:20px 30px;
     border-color:#F4DE65;
     pointer-events:auto;
@@ -403,8 +403,8 @@ body{
     }
 
     .logo-img{
-        width:70%;
-        max-width:300px;
+        width:90%;
+        max-width:500px;
     }
 
     .proyectos{
@@ -493,7 +493,7 @@ body{
     .contacto-wrapper:hover .contacto-panel{
         padding:15px 20px;
         min-width:200px;
-        margin-bottom:12px;
+        margin-top:12px;
     }
 
     .contacto-panel p{
@@ -604,16 +604,16 @@ body{
         <!-- SOBRE NOSOTROS - ENLACE EN FOOTER -->
         <a href="sobre-nosotros/index.html" class="sobre-nosotros-link">SOBRE NOSOTROS</a>
 
-        <!-- CONTACTO DESPLEGABLE HACIA ARRIBA -->
+        <!-- CONTACTO DESPLEGABLE HACIA ABAJO -->
         <div class="contacto-wrapper" id="contactoWrapper">
+
+            <span class="contacto-text">CONTACTO</span>
 
             <div class="contacto-panel">
                 <p><a href="mailto:savethefvckingrabbits@gmail.com">savethefvckingrabbits@gmail.com</a></p>
                 <p><a href="tel:+34644606210">+34 644606210</a></p>
                 <p><a href="https://www.instagram.com/savethefuckingrabbits/?hl=zh-cn" target="_blank">@savethefuckingrabbits</a></p>
             </div>
-
-            <span class="contacto-text">CONTACTO</span>
 
         </div>
 
