@@ -52,59 +52,18 @@
             margin-bottom: 30px;
         }
 
-        /* CARRUSEL */
-        .carrusel-container {
-            position: relative;
+        /* IMAGEN PRINCIPAL - TAMAÑO ORIGINAL SIN DEFORMAR */
+        .imagen-principal {
             width: 100%;
             max-width: 600px;
             margin: 0 auto 30px;
-            overflow: hidden;
             border-radius: 4px;
         }
-        .carrusel-slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carrusel-slides img {
+        .imagen-principal img {
             width: 100%;
-            flex-shrink: 0;
+            height: auto;
             display: block;
-        }
-        .carrusel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.6);
-            color: #F4DE65;
-            border: 1px solid rgba(244, 222, 101, 0.3);
-            padding: 12px 16px;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 50%;
-            transition: background 0.3s;
-            z-index: 10;
-        }
-        .carrusel-btn:hover {
-            background: rgba(244, 222, 101, 0.2);
-        }
-        .carrusel-btn.izquierda { left: 10px; }
-        .carrusel-btn.derecha { right: 10px; }
-        .carrusel-indicadores {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 12px;
-        }
-        .carrusel-indicadores span {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .carrusel-indicadores span.activo {
-            background: #F4DE65;
+            border-radius: 4px;
         }
 
         .contenido p {
@@ -147,12 +106,68 @@
             font-size: 13px;
         }
 
+        /* CARRUSEL SECUNDARIO - DEBAJO DE CRÉDITOS */
+        .carrusel-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto 0;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        .carrusel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carrusel-slides img {
+            width: 100%;
+            height: auto;
+            flex-shrink: 0;
+            display: block;
+        }
+        .carrusel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: #F4DE65;
+            border: 1px solid rgba(244, 222, 101, 0.3);
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+        .carrusel-btn:hover {
+            background: rgba(244, 222, 101, 0.2);
+        }
+        .carrusel-btn.izquierda { left: 10px; }
+        .carrusel-btn.derecha { right: 10px; }
+        .carrusel-indicadores {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .carrusel-indicadores span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .carrusel-indicadores span.activo {
+            background: #F4DE65;
+        }
+
         /* ENLACES VÍDEOS */
         .enlaces-video {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-top: 30px;
+            margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid rgba(244, 222, 101, 0.15);
         }
@@ -194,18 +209,9 @@
         <h1>SUCRÉ</h1>
         <div class="subtitulo">2024 · Teatro Contemporáneo · 70 min</div>
 
-        <!-- CARRUSEL -->
-        <div class="carrusel-container">
-            <div class="carrusel-slides" id="carruselSlides">
-                <img src="../../sucre p 2.jpg" alt="Sucré 2">
-                <img src="../../sucre p 1.jpg" alt="Sucré 1">
-                <img src="../../sucre p 3.jpg" alt="Sucré 3">
-                <img src="../../sucre p 4.jpg" alt="Sucré 4">
-                <img src="../../sucre p 5.jpg" alt="Sucré 5">
-            </div>
-            <button class="carrusel-btn izquierda" id="btnIzquierda">‹</button>
-            <button class="carrusel-btn derecha" id="btnDerecha">›</button>
-            <div class="carrusel-indicadores" id="indicadores"></div>
+        <!-- IMAGEN PRINCIPAL: sucre p 2.jpg (tamaño original) -->
+        <div class="imagen-principal">
+            <img src="../../sucre p 2.jpg" alt="Sucré">
         </div>
 
         <!-- CITA -->
@@ -236,7 +242,20 @@
             <div><span>Producción</span><strong>SAVE THE F***ING RABBITS Prod.</strong></div>
         </div>
 
-        <!-- ENLACES VÍDEOS (debajo de los créditos) -->
+        <!-- CARRUSEL SECUNDARIO (sucre p 1, p 3, p 4, p 5) -->
+        <div class="carrusel-container">
+            <div class="carrusel-slides" id="carruselSlides">
+                <img src="../../sucre p 1.jpg" alt="Sucré 1">
+                <img src="../../sucre p 3.jpg" alt="Sucré 3">
+                <img src="../../sucre p 4.jpg" alt="Sucré 4">
+                <img src="../../sucre p 5.jpg" alt="Sucré 5">
+            </div>
+            <button class="carrusel-btn izquierda" id="btnIzquierda">‹</button>
+            <button class="carrusel-btn derecha" id="btnDerecha">›</button>
+            <div class="carrusel-indicadores" id="indicadores"></div>
+        </div>
+
+        <!-- ENLACES VÍDEOS -->
         <div class="enlaces-video">
             <a href="https://youtu.be/qj6Agie2Hn0?si=y02FVtZ1kl0-Q8Rh" target="_blank">▶ Ver teaser</a>
             <a href="https://youtu.be/sHLSJH417n0" target="_blank">▶ Ver obra completa</a>
@@ -245,7 +264,7 @@
     </div>
 
     <script>
-        // CARRUSEL
+        // CARRUSEL SECUNDARIO
         const slides = document.getElementById('carruselSlides');
         const btnIzq = document.getElementById('btnIzquierda');
         const btnDer = document.getElementById('btnDerecha');
@@ -290,7 +309,6 @@
             actualizarCarrusel();
         }, 5000);
 
-        // Pausar auto-play al interactuar
         document.querySelector('.carrusel-container').addEventListener('mouseenter', () => {
             clearInterval(autoPlay);
         });
