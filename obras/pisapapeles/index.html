@@ -35,7 +35,14 @@
             z-index: 100;
         }
         .volver:hover { color: #ffffff; }
-        .contenido { max-width: 700px; text-align: center; padding-bottom: 40px; }
+        .contenido {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 40px;
+            padding-left: 0;
+            padding-right: 0;
+        }
         .contenido h1 {
             font-family: 'Impact', 'Arial Black', sans-serif;
             color: #E8D44D;
@@ -73,6 +80,7 @@
             font-weight: 400;
             text-align: justify;
             margin-bottom: 16px;
+            word-wrap: break-word;
         }
 
         /* TEXTO AMARILLO */
@@ -102,6 +110,7 @@
             margin-bottom: 10px;
             display: block;
             text-align: left;
+            word-wrap: break-word;
         }
 
         .contenido .separador {
@@ -111,6 +120,7 @@
             margin: 20px 0;
             display: block;
             letter-spacing: 4px;
+            word-break: break-all;
         }
 
         /* ============================================ */
@@ -191,9 +201,17 @@
         }
 
         @media (max-width: 768px) {
-            .contenido h1 { font-size: 32px; letter-spacing: 3px; }
+            body {
+                padding: 20px 16px;
+            }
+            .contenido {
+                max-width: 100%;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            .contenido h1 { font-size: 28px; letter-spacing: 3px; }
             .contenido p { font-size: 13px; }
-            .volver { top: 20px; left: 20px; font-size: 10px; }
+            .volver { top: 16px; left: 16px; font-size: 10px; }
             .collage { max-width: 100%; }
             .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
             .creditos-especiales .logo-creacion img { height: 22px; }
@@ -201,6 +219,20 @@
             .creditos-especiales .logo-creacion .conector { font-size: 14px; }
             .contenido .fecha { font-size: 14px; }
             .contenido .cronologia-titulo { font-size: 14px; margin-top: 40px; }
+            .contenido .separador { font-size: 11px; letter-spacing: 2px; }
+            .imagen-principal { max-width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .contenido h1 { font-size: 24px; letter-spacing: 2px; }
+            .contenido p { font-size: 12px; line-height: 1.8; }
+            .contenido .fecha { font-size: 13px; }
+            .contenido .cronologia-titulo { font-size: 13px; }
+            .creditos-especiales .logo-creacion img { height: 20px; }
+            .creditos-especiales .logo-creacion .texto-omnivoros { font-size: 11px; }
+            .creditos-especiales .logo-creacion .conector { font-size: 12px; }
+            .creditos-especiales .logo-creacion { gap: 8px; }
+            .creditos-especiales { padding: 15px 0; }
         }
     </style>
 </head>
