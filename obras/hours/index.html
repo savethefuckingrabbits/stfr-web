@@ -70,19 +70,25 @@
             color: rgba(255,255,255,0.75);
             font-size: 14px;
             line-height: 1.9;
-            font-weight: 300;
+            font-weight: 400;
             text-align: justify;
             margin-bottom: 16px;
         }
-        .contenido .cita {
+
+        /* CARTA - JUSTIFICADA A LA IZQUIERDA, MÁS GRUESA */
+        .contenido .carta {
             color: #F5E98D;
-            font-size: 16px;
-            line-height: 1.9;
-            font-weight: 300;
-            text-align: center;
+            font-size: 14px;
+            line-height: 2;
+            font-weight: 500;
+            text-align: left;
             margin-bottom: 30px;
             padding: 20px 0;
-            font-style: italic;
+        }
+
+        .contenido .carta .espacio {
+            display: block;
+            height: 16px;
         }
 
         /* ============================================ */
@@ -196,18 +202,19 @@
             margin-top: 48px;
         }
 
-        /* FRASE DESTACADA - AMARILLA, GRANDE */
-        .frase-destacada {
+        /* PREGUNTA FINAL - MÁS GRANDE Y EN NEGRITA */
+        .pregunta-final {
             color: #F5E98D;
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
-            text-align: center;
             font-style: italic;
-            margin: 40px 0 30px;
+            text-align: center;
+            margin-top: 48px;
+            margin-bottom: 16px;
             line-height: 1.4;
         }
 
-        /* CRÉDITOS ESPECIALES (sin ficha artística) */
+        /* CRÉDITOS ESPECIALES - SOLO LOGO */
         .creditos-especiales {
             margin-top: 30px;
             padding-top: 20px;
@@ -221,27 +228,19 @@
             font-size: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .creditos-especiales .logo-creacion {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 12px;
         }
 
         .creditos-especiales .logo-creacion img {
-            height: 24px;
+            height: 28px;
             width: auto;
             display: block;
-        }
-
-        .creditos-especiales .logo-creacion span {
-            color: #F5E98D;
-            font-size: 14px;
-            font-weight: 400;
         }
 
         .creditos-especiales .performer {
@@ -249,7 +248,7 @@
             font-size: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         .creditos-especiales .performer strong {
@@ -257,19 +256,18 @@
             font-weight: 400;
             font-size: 13px;
             display: block;
-            margin-top: 2px;
+            margin-top: 6px;
         }
 
         @media (max-width: 768px) {
             .contenido h1 { font-size: 32px; letter-spacing: 3px; }
             .contenido p { font-size: 13px; }
-            .contenido .cita { font-size: 14px; padding: 15px 0; }
+            .contenido .carta { font-size: 13px; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
             .collage { max-width: 100%; }
             .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
-            .espacio-pregunta { margin-top: 36px; }
-            .frase-destacada { font-size: 22px; margin: 30px 0 20px; }
-            .creditos-especiales .logo-creacion img { height: 20px; }
+            .pregunta-final { font-size: 18px; margin-top: 36px; }
+            .creditos-especiales .logo-creacion img { height: 24px; }
         }
     </style>
 </head>
@@ -286,19 +284,21 @@
             <img src="../../th1.jpg" alt="THE HOURS">
         </div>
 
-        <!-- CITA / CARTA EN AMARILLO -->
-        <div class="cita">
-            "Queridos espectadores:<br>
-            Os invitamos a observarnos, a sumergiros en nuestra intimidad.<br>
-            Pero no esperéis de nosotros más de lo que veis.<br>
-            To be.<br>
-            Ser, estar."
+        <!-- CARTA - JUSTIFICADA A LA IZQUIERDA, MÁS GRUESA -->
+        <div class="carta">
+            Queridos espectadores:
+            <span class="espacio"></span>
+            Os invitamos a observarnos, a sumergiros en nuestra intimidad.
+            Pero no esperéis de nosotros más de lo que veis.
+            <span class="espacio"></span>
+            To be.
+            Ser, estar.
         </div>
 
         <!-- SINOPSIS - TEXTO EN BLANCO -->
         <p>THE HOURS es una performance duracional que surge a raíz de la necesidad de expandir y diversificar el universo creado en la pieza de teatro SAVE THE F***ING RABBITS.</p>
 
-        <p>En continuidad con la pieza original —que explora la insatisfacción crónica como secuela de las expectativas impuestas por la sociedad neoliberal—, esta propuesta se adentra en los límites del aburrimiento, el agotamiento físico y el desgaste psicológico a través de una premisa de acción inenturrimpida durante 24 horas. Dos performers, a partir de ahora Conejo 1 y Conejo 2, equipados con sus característicos atuendos, convivirán durante un día y una noche en un espacio cerrado con llave, equipado únicamente con un sofá, un reloj y una televisión encendida las veinticuatro horas.</p>
+        <p>En continuidad con la pieza original —que explora la insatisfacción crónica como secuela de las expectativas impuestas por la sociedad neoliberal—, esta propuesta se adentra en los límites del aburrimiento, el agotamiento físico y el desgaste psicológico a través de una premisa de acción ininterrumpida durante 24 horas. Dos performers, a partir de ahora Conejo 1 y Conejo 2, equipados con sus característicos atuendos, convivirán durante un día y una noche en un espacio cerrado con llave, equipado únicamente con un sofá, un reloj y una televisión encendida las veinticuatro horas.</p>
 
         <p>La propuesta busca radicalizar la experiencia del presente. No habrá más estímulos que los de un animal privado de su entorno, reducido a su propia jaula.</p>
 
@@ -306,11 +306,11 @@
 
         <p>Los espectadores dispondrán de un código QR adherido al escaparate desde el que podrán acceder a una retransmisión en directo de lo que sucede en el interior, así como a contenido adicional del proyecto.</p>
 
-        <!-- PREGUNTA EN AMARILLO -->
-        <p class="espacio-pregunta" style="color:#F5E98D; font-style:italic; text-align:center;">"¿Cuánto tiempo de nuestras vidas estamos dispuestos a invertir en algo que no estaba previsto?"</p>
+        <!-- PREGUNTA FINAL - MÁS GRANDE Y NEGRITA -->
+        <p class="pregunta-final">"¿Cuánto tiempo de nuestras vidas estamos dispuestos a invertir en algo que no estaba previsto?"</p>
 
         <!-- ============================================ -->
-        <!-- CRÉDITOS ESPECIALES (SIN FICHA ARTÍSTICA)   -->
+        <!-- CRÉDITOS ESPECIALES - SOLO LOGO             -->
         <!-- ============================================ -->
 
         <div class="creditos-especiales">
@@ -319,7 +319,6 @@
 
             <div class="logo-creacion">
                 <img src="../../logo.png" alt="SAVE THE F***ING RABBITS">
-                <span>SAVE THE F***ING RABBITS</span>
             </div>
 
             <div class="performer">
@@ -343,7 +342,7 @@
         <!-- ENLACES VÍDEOS -->
         <div class="enlaces-video">
             <a href="https://youtu.be/9DO4gq0bS6c?si=cqxAPXZhf_cqAwre" target="_blank"> Ver teaser</a>
-            <a href="https://youtu.be/aFSJgB9Zlpc?si=RCuiGjR6Cb7NLDzQ" target="_blank"> Ver video resumen TVE</a>
+            <a href="https://youtu.be/aFSJgB9Zlpc?si=RCuiGjR6Cb7NLDzQ" target="_blank"> Ver resumen TVE</a>
         </div>
 
         <!-- FIRMA -->
