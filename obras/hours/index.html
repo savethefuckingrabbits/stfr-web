@@ -25,19 +25,21 @@
             position: fixed;
             top: 30px;
             left: 30px;
-            color: #F4DE65;
+            color: #F5E98D;
             font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 300;
+            z-index: 100;
         }
         .volver:hover { color: #ffffff; }
-        .contenido { max-width: 700px; text-align: center; }
+        .contenido { max-width: 700px; text-align: center; padding-bottom: 40px; }
         .contenido h1 {
-            color: #F4DE65;
-            font-size: 32px;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            color: #E8D44D;
+            font-size: 42px;
             font-weight: 400;
             letter-spacing: 4px;
             margin-bottom: 10px;
@@ -50,12 +52,20 @@
             text-transform: uppercase;
             margin-bottom: 30px;
         }
-        .contenido img {
+
+        .imagen-principal {
             width: 100%;
             max-width: 600px;
+            margin: 0 auto 30px;
             border-radius: 4px;
-            margin-bottom: 30px;
         }
+        .imagen-principal img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
         .contenido p {
             color: rgba(255,255,255,0.75);
             font-size: 14px;
@@ -64,32 +74,202 @@
             text-align: justify;
             margin-bottom: 16px;
         }
-        .contenido .ficha {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px 40px;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(244, 222, 101, 0.15);
+        .contenido .cita {
+            color: #F5E98D;
+            font-size: 16px;
+            line-height: 1.9;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            font-style: italic;
         }
-        .contenido .ficha span {
+
+        /* ============================================ */
+        /* FICHA ARTÍSTICA - BLOQUE                    */
+        /* ============================================ */
+
+        .ficha-bloque {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(245, 233, 141, 0.15);
+        }
+
+        .ficha-titulo {
+            color: #F5E98D;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .ficha-creditos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .ficha-creditos .credito {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .ficha-creditos .credito span {
             color: rgba(255,255,255,0.4);
             font-size: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
-        .contenido .ficha strong {
-            color: #F4DE65;
+
+        .ficha-creditos .credito strong {
+            color: #F5E98D;
             font-weight: 400;
-            display: block;
-            margin-top: 4px;
             font-size: 13px;
         }
+
+        .ficha-bloque .ficha-linea-cierre {
+            border-top: 1px solid rgba(245, 233, 141, 0.15);
+            padding-top: 0;
+        }
+
+        /* ============================================ */
+        /* COLLAGE                                     */
+        /* ============================================ */
+
+        .collage {
+            width: 100%;
+            max-width: 500px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .collage img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .enlaces-video {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(245, 233, 141, 0.15);
+        }
+        .enlaces-video a {
+            color: #F5E98D;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border: 1px solid rgba(245, 233, 141, 0.2);
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .enlaces-video a:hover {
+            color: #ffffff;
+            border-color: rgba(245, 233, 141, 0.6);
+        }
+
+        .firma {
+            color: #F5E98D;
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-top: 60px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .espacio-pregunta {
+            margin-top: 48px;
+        }
+
+        /* FRASE DESTACADA - AMARILLA, GRANDE */
+        .frase-destacada {
+            color: #F5E98D;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            font-style: italic;
+            margin: 40px 0 30px;
+            line-height: 1.4;
+        }
+
+        /* CRÉDITOS ESPECIALES (sin ficha artística) */
+        .creditos-especiales {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(245, 233, 141, 0.15);
+            border-bottom: 1px solid rgba(245, 233, 141, 0.15);
+            padding-bottom: 25px;
+        }
+
+        .creditos-especiales .creacion {
+            color: rgba(255,255,255,0.4);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .creditos-especiales .logo-creacion {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .creditos-especiales .logo-creacion img {
+            height: 24px;
+            width: auto;
+            display: block;
+        }
+
+        .creditos-especiales .logo-creacion span {
+            color: #F5E98D;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .creditos-especiales .performer {
+            color: rgba(255,255,255,0.4);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .creditos-especiales .performer strong {
+            color: #F5E98D;
+            font-weight: 400;
+            font-size: 13px;
+            display: block;
+            margin-top: 2px;
+        }
+
         @media (max-width: 768px) {
-            .contenido h1 { font-size: 24px; }
+            .contenido h1 { font-size: 32px; letter-spacing: 3px; }
             .contenido p { font-size: 13px; }
+            .contenido .cita { font-size: 14px; padding: 15px 0; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
+            .collage { max-width: 100%; }
+            .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
+            .espacio-pregunta { margin-top: 36px; }
+            .frase-destacada { font-size: 22px; margin: 30px 0 20px; }
+            .creditos-especiales .logo-creacion img { height: 20px; }
         }
     </style>
 </head>
@@ -99,20 +279,75 @@
 
     <div class="contenido">
         <h1>THE HOURS</h1>
-        <div class="subtitulo">2023 · Instalación sonora</div>
+        <div class="subtitulo">2024 · Performance · 24 horas</div>
 
-        <img src="../../hours.png" alt="The Hours">
-
-        <p><strong style="color:#F4DE65;">The Hours</strong> es una instalación sonora que indaga en la percepción del tiempo a través del cuerpo y el movimiento. La obra propone un espacio de escucha colectiva donde el sonido, el silencio y el ritmo construyen una experiencia que desdibuja los límites entre lo real y lo imaginado.</p>
-
-        <p>El espectador se convierte en parte activa de la pieza, transitando un paisaje sonoro que muta y se transforma con cada paso. Una reflexión sobre la memoria, la espera y la fugacidad de los instantes.</p>
-
-        <div class="ficha">
-            <div><span>Dirección</span><strong>Pablo Velasco</strong></div>
-            <div><span>Año</span><strong>2023</strong></div>
-            <div><span>Duración</span><strong>45 min</strong></div>
-            <div><span>Colaboradores</span><strong>Lucía Lozano · David Hernández</strong></div>
+        <!-- IMAGEN PRINCIPAL -->
+        <div class="imagen-principal">
+            <img src="../../th1.jpg" alt="THE HOURS">
         </div>
+
+        <!-- CITA / CARTA EN AMARILLO -->
+        <div class="cita">
+            "Queridos espectadores:<br>
+            Os invitamos a observarnos, a sumergiros en nuestra intimidad.<br>
+            Pero no esperéis de nosotros más de lo que veis.<br>
+            To be.<br>
+            Ser, estar."
+        </div>
+
+        <!-- SINOPSIS - TEXTO EN BLANCO -->
+        <p>THE HOURS es una performance duracional que surge a raíz de la necesidad de expandir y diversificar el universo creado en la pieza de teatro SAVE THE F***ING RABBITS.</p>
+
+        <p>En continuidad con la pieza original —que explora la insatisfacción crónica como secuela de las expectativas impuestas por la sociedad neoliberal—, esta propuesta se adentra en los límites del aburrimiento, el agotamiento físico y el desgaste psicológico a través de una premisa de acción inenturrimpida durante 24 horas. Dos performers, a partir de ahora Conejo 1 y Conejo 2, equipados con sus característicos atuendos, convivirán durante un día y una noche en un espacio cerrado con llave, equipado únicamente con un sofá, un reloj y una televisión encendida las veinticuatro horas.</p>
+
+        <p>La propuesta busca radicalizar la experiencia del presente. No habrá más estímulos que los de un animal privado de su entorno, reducido a su propia jaula.</p>
+
+        <p>La pieza se lleva a cabo en un escaparate acristalado, a la vista de cualquier transeúnte que pase por el lugar. Sin convocatoria previa, cualquier persona puede convertirse en un espectador espontáneo de esta experiencia.</p>
+
+        <p>Los espectadores dispondrán de un código QR adherido al escaparate desde el que podrán acceder a una retransmisión en directo de lo que sucede en el interior, así como a contenido adicional del proyecto.</p>
+
+        <!-- PREGUNTA EN AMARILLO -->
+        <p class="espacio-pregunta" style="color:#F5E98D; font-style:italic; text-align:center;">"¿Cuánto tiempo de nuestras vidas estamos dispuestos a invertir en algo que no estaba previsto?"</p>
+
+        <!-- ============================================ -->
+        <!-- CRÉDITOS ESPECIALES (SIN FICHA ARTÍSTICA)   -->
+        <!-- ============================================ -->
+
+        <div class="creditos-especiales">
+
+            <div class="creacion">Una creación de</div>
+
+            <div class="logo-creacion">
+                <img src="../../logo.png" alt="SAVE THE F***ING RABBITS">
+                <span>SAVE THE F***ING RABBITS</span>
+            </div>
+
+            <div class="performer">
+                Performers
+                <strong>Celina Fernández Ponte · Pablo Velasco</strong>
+            </div>
+
+        </div>
+
+        <!-- ============================================ -->
+        <!-- COLLAGE                                     -->
+        <!-- ============================================ -->
+
+        <div class="collage">
+            <img src="../../th2.jpg" alt="THE HOURS 2">
+            <img src="../../th3.jpg" alt="THE HOURS 3">
+            <img src="../../th4.jpg" alt="THE HOURS 4">
+            <img src="../../th5.jpg" alt="THE HOURS 5">
+        </div>
+
+        <!-- ENLACES VÍDEOS -->
+        <div class="enlaces-video">
+            <a href="https://youtu.be/9DO4gq0bS6c?si=cqxAPXZhf_cqAwre" target="_blank"> Ver teaser</a>
+            <a href="https://youtu.be/aFSJgB9Zlpc?si=RCuiGjR6Cb7NLDzQ" target="_blank"> Ver video resumen TVE</a>
+        </div>
+
+        <!-- FIRMA -->
+        <div class="firma">SAVE THE F***ING RABBITS .prod © 2026</div>
     </div>
 
 </body>
