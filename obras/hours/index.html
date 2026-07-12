@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="../../favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -80,10 +80,14 @@
             color: #F5E98D;
             font-size: 14px;
             line-height: 2;
-            font-weight: 500;
+            font-weight: 400;
             text-align: left;
             margin-bottom: 30px;
             padding: 20px 0;
+        }
+
+        .contenido .carta .destacado {
+            font-weight: 700;
         }
 
         .contenido .carta .espacio {
@@ -202,12 +206,11 @@
             margin-top: 48px;
         }
 
-        /* PREGUNTA FINAL - MÁS GRANDE Y EN NEGRITA */
+        /* PREGUNTA FINAL - AMARILLA, NEGRITA, CENTRADA, SIN COMILLAS */
         .pregunta-final {
             color: #F5E98D;
             font-size: 22px;
             font-weight: 700;
-            font-style: italic;
             text-align: center;
             margin-top: 48px;
             margin-bottom: 16px;
@@ -284,14 +287,14 @@
             <img src="../../th1.jpg" alt="THE HOURS">
         </div>
 
-        <!-- CARTA - JUSTIFICADA A LA IZQUIERDA, MÁS GRUESA -->
+        <!-- CARTA - JUSTIFICADA A LA IZQUIERDA -->
         <div class="carta">
-            Queridos espectadores:
+            <span class="destacado">Queridos espectadores:</span>
             <span class="espacio"></span>
             Os invitamos a observarnos, a sumergiros en nuestra intimidad.
             Pero no esperéis de nosotros más de lo que veis.
             <span class="espacio"></span>
-            To be.
+            To be.<br>
             Ser, estar.
         </div>
 
@@ -306,8 +309,8 @@
 
         <p>Los espectadores dispondrán de un código QR adherido al escaparate desde el que podrán acceder a una retransmisión en directo de lo que sucede en el interior, así como a contenido adicional del proyecto.</p>
 
-        <!-- PREGUNTA FINAL - MÁS GRANDE Y NEGRITA -->
-        <p class="pregunta-final">"¿Cuánto tiempo de nuestras vidas estamos dispuestos a invertir en algo que no estaba previsto?"</p>
+        <!-- PREGUNTA FINAL - AMARILLA, NEGRITA, CENTRADA, SIN COMILLAS -->
+        <p class="pregunta-final">¿Cuánto tiempo de nuestras vidas estamos dispuestos a invertir en algo que no estaba previsto?</p>
 
         <!-- ============================================ -->
         <!-- CRÉDITOS ESPECIALES - SOLO LOGO             -->
