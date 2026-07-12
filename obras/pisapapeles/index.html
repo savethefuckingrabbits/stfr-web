@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="../../favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -25,19 +25,21 @@
             position: fixed;
             top: 30px;
             left: 30px;
-            color: #F4DE65;
+            color: #F5E98D;
             font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 300;
+            z-index: 100;
         }
         .volver:hover { color: #ffffff; }
-        .contenido { max-width: 700px; text-align: center; }
+        .contenido { max-width: 700px; text-align: center; padding-bottom: 40px; }
         .contenido h1 {
-            color: #F4DE65;
-            font-size: 32px;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            color: #E8D44D;
+            font-size: 42px;
             font-weight: 400;
             letter-spacing: 4px;
             margin-bottom: 10px;
@@ -50,46 +52,138 @@
             text-transform: uppercase;
             margin-bottom: 30px;
         }
-        .contenido img {
+
+        .imagen-principal {
             width: 100%;
             max-width: 600px;
+            margin: 0 auto 30px;
             border-radius: 4px;
-            margin-bottom: 30px;
         }
+        .imagen-principal img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
         .contenido p {
             color: rgba(255,255,255,0.75);
             font-size: 14px;
             line-height: 1.9;
-            font-weight: 300;
+            font-weight: 400;
             text-align: justify;
             margin-bottom: 16px;
         }
-        .contenido .ficha {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px 40px;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(244, 222, 101, 0.15);
+
+        /* TEXTO AMARILLO - PARA CRONOLOGÍA */
+        .contenido .amarillo {
+            color: #F5E98D;
+            font-weight: 700;
         }
-        .contenido .ficha span {
+
+        .contenido .fecha {
+            color: #F5E98D;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .contenido .separador {
+            color: rgba(255,255,255,0.15);
+            font-size: 14px;
+            text-align: center;
+            margin: 20px 0;
+            display: block;
+            letter-spacing: 4px;
+        }
+
+        /* ============================================ */
+        /* CRÉDITOS ESPECIALES - LOGO + OMNÍVOROS      */
+        /* ============================================ */
+
+        .creditos-especiales {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(245, 233, 141, 0.15);
+            border-bottom: 1px solid rgba(245, 233, 141, 0.15);
+            padding-bottom: 25px;
+        }
+
+        .creditos-especiales .creacion {
             color: rgba(255,255,255,0.4);
             font-size: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+            margin-bottom: 12px;
         }
-        .contenido .ficha strong {
-            color: #F4DE65;
-            font-weight: 400;
+
+        .creditos-especiales .logo-creacion {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .creditos-especiales .logo-creacion img {
+            height: 28px;
+            width: auto;
             display: block;
-            margin-top: 4px;
-            font-size: 13px;
         }
+
+        .creditos-especiales .logo-creacion .conector {
+            color: rgba(255,255,255,0.3);
+            font-size: 14px;
+        }
+
+        .creditos-especiales .logo-creacion .texto-omnivoros {
+            color: #F5E98D;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        /* ============================================ */
+        /* COLLAGE                                     */
+        /* ============================================ */
+
+        .collage {
+            width: 100%;
+            max-width: 500px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .collage img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .firma {
+            color: #F5E98D;
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-top: 60px;
+            text-align: center;
+            display: inline-block;
+        }
+
         @media (max-width: 768px) {
-            .contenido h1 { font-size: 24px; }
+            .contenido h1 { font-size: 32px; letter-spacing: 3px; }
             .contenido p { font-size: 13px; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
+            .collage { max-width: 100%; }
+            .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
+            .creditos-especiales .logo-creacion img { height: 22px; }
+            .creditos-especiales .logo-creacion .texto-omnivoros { font-size: 12px; }
+            .contenido .fecha { font-size: 14px; }
         }
     </style>
 </head>
@@ -99,20 +193,77 @@
 
     <div class="contenido">
         <h1>PISAPAPELES</h1>
-        <div class="subtitulo">2024 · Instalación</div>
+        <div class="subtitulo">2023 · Instalación / Performance Site-specific</div>
 
-        <img src="../../pisapapeles.jpg" alt="Pisapapeles">
-
-        <p><strong style="color:#F4DE65;">Pisapapeles</strong> es una instalación que reflexiona sobre el peso de las palabras y la fragilidad de los archivos. La obra construye un paisaje de papel, texto y memoria donde el espectador transita entre lo efímero y lo perdurable.</p>
-
-        <p>A través de un dispositivo escénico que combina objetos, texto y espacio, la pieza propone una experiencia que interpela la relación entre el lenguaje y el cuerpo. Un viaje por la materialidad de los archivos, los ecos del pasado y la posibilidad de reescribir lo que hemos sido.</p>
-
-        <div class="ficha">
-            <div><span>Dirección</span><strong>Pablo Velasco</strong></div>
-            <div><span>Año</span><strong>2024</strong></div>
-            <div><span>Duración</span><strong>50 min</strong></div>
-            <div><span>Colaboradores</span><strong>Sofía Martín · Javier Ruiz</strong></div>
+        <!-- IMAGEN PRINCIPAL -->
+        <div class="imagen-principal">
+            <img src="../../pp1.jpg" alt="PISAPAPELES">
         </div>
+
+        <!-- ============================================ -->
+        <!-- CRONOLOGÍA DE LOS HECHOS                     -->
+        <!-- ============================================ -->
+
+        <span class="fecha">CRONOLOGÍA DE LOS HECHOS:</span>
+
+        <span class="fecha">25/02/2023</span>
+        <p><span class="amarillo">@centrocentrocibeles dice:</span><br>
+        TODO LO DEMÁS<br>
+        Exposición<br>
+        25.02 - 28.05.2023<br>
+        Martes - domingo, 10:00 a 20:00 h<br>
+        Planta 4</p>
+
+        <span class="separador">-####################################################-</span>
+
+        <span class="fecha">05/05/2023</span>
+        <p><span class="amarillo">@omnivoros dice:</span> INSTALACIÓN INHABILITADA</p>
+
+        <p>Taller omnívoros es un espacio de creación contemporánea con once años de trayectoria, y que existe a pesar de la insuficiencia de apoyos institucionales a este tipo de proyectos. Así que cuando Centro Centro Cibeles nos invitó a participar en esta exposición tuvimos nuestras reticencias porque, ¿Es posible y tiene sentido trasladar lo que somos a un lugar en el que no podemos serlo? Finalmente decidimos participar con una instalación conceptual en la que se reflejaba nuestra fortaleza en contraste con la fragilidad del apoyo que nos presta la institución.</p>
+
+        <p>Vigas de hierro sujetas con sargentos, una construcción robusta que podría desmoronarse en cualquier momento. La concepción de esta obra giraba en torno a qué es lo que pasa en nuestro espacio, y por ello dedicamos meses a grabar los ruidos de taller y editar una suerte de paisaje sonoro.</p>
+
+        <p>Desde el día siguiente a la inauguración el audio de nuestra instalación ha permanecido desactivado porque según la institución, "resultaba molesto y desagradable", y después de recibir dudas continuas sobre el evento que íbamos a realizar esta tarde, nos han sugerido cancelarlo. Nos han dicho que TODO LO DEMÁS no es una exposición, sino un experimento sobre qué tipo de interacciones se pueden establecer entre espacios independientes institución, por nuestra parte ya se pueden empezar a extraer conclusiones.</p>
+
+        <span class="separador">-####################################################-</span>
+
+        <span class="fecha">25/05/2023</span>
+        <p><span class="amarillo">@savethefuckingrabbits dice:</span><br>
+        INTERVENCIÓN HABITADA, RE-INAUGURADA Y RE-NOMBRADA.</p>
+
+        <!-- ============================================ -->
+        <!-- CRÉDITOS ESPECIALES - LOGO + OMNÍVOROS      -->
+        <!-- ============================================ -->
+
+        <div class="creditos-especiales">
+
+            <div class="creacion">Una creación de</div>
+
+            <div class="logo-creacion">
+                <img src="../../logo.png" alt="SAVE THE F***ING RABBITS">
+                <span class="conector">x</span>
+                <span class="texto-omnivoros">omnívoros</span>
+            </div>
+
+        </div>
+
+        <!-- ============================================ -->
+        <!-- COLLAGE                                     -->
+        <!-- ============================================ -->
+
+        <div class="collage">
+            <img src="../../pp2.jpg" alt="PISAPAPELES 2">
+            <img src="../../pp3.jpg" alt="PISAPAPELES 3">
+            <img src="../../pp4.jpg" alt="PISAPAPELES 4">
+            <img src="../../pp5.jpg" alt="PISAPAPELES 5">
+            <img src="../../pp6.jpg" alt="PISAPAPELES 6">
+            <img src="../../pp7.jpg" alt="PISAPAPELES 7">
+            <img src="../../pp8.jpg" alt="PISAPAPELES 8">
+            <img src="../../pp9.jpg" alt="PISAPAPELES 9">
+        </div>
+
+        <!-- FIRMA -->
+        <div class="firma">SAVE THE F***ING RABBITS .prod © 2026</div>
     </div>
 
 </body>
