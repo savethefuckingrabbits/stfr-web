@@ -35,6 +35,37 @@
             z-index: 100;
         }
         .volver:hover { color: #ffffff; }
+
+        /* ============================================ */
+        /* CONMUTADOR DE IDIOMA                          */
+        /* ============================================ */
+        .lang-switcher {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 100;
+            font-family: 'Inter', sans-serif;
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 4px 6px;
+            transition: color 0.3s ease;
+        }
+        .lang-btn:hover { color: #F5E98D; }
+        .lang-btn.active { color: #F5E98D; font-weight: 600; }
+        .lang-sep { color: rgba(255,255,255,0.25); font-size: 11px; }
+
         .contenido { max-width: 700px; text-align: center; padding-bottom: 40px; }
         .contenido h1 {
             font-family: 'Impact', 'Arial Black', sans-serif;
@@ -75,7 +106,7 @@
             margin-bottom: 16px;
         }
 
-        /* CARTA - JUSTIFICADA A LA IZQUIERDA - ESPACIO INTERMEDIO */
+        /* CARTA */
         .contenido .carta {
             color: #F5E98D;
             font-size: 15px;
@@ -86,25 +117,15 @@
             padding: 20px 0 10px 0;
         }
 
-        .contenido .carta .destacado {
-            font-weight: 700;
-        }
+        .contenido .carta .destacado { font-weight: 700; }
+        .contenido .carta .espacio { display: block; height: 16px; }
 
-        .contenido .carta .espacio {
-            display: block;
-            height: 16px;
-        }
-
-        /* ============================================ */
-        /* FICHA ARTÍSTICA - BLOQUE                    */
-        /* ============================================ */
-
+        /* FICHA ARTÍSTICA */
         .ficha-bloque {
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid rgba(245, 233, 141, 0.15);
         }
-
         .ficha-titulo {
             color: #F5E98D;
             font-family: 'Inter', sans-serif;
@@ -114,7 +135,6 @@
             text-transform: uppercase;
             margin-bottom: 25px;
         }
-
         .ficha-creditos {
             display: flex;
             flex-direction: column;
@@ -122,36 +142,29 @@
             gap: 10px;
             margin-bottom: 25px;
         }
-
         .ficha-creditos .credito {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 2px;
         }
-
         .ficha-creditos .credito span {
             color: rgba(255,255,255,0.4);
             font-size: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
-
         .ficha-creditos .credito strong {
             color: #F5E98D;
             font-weight: 400;
             font-size: 13px;
         }
-
         .ficha-bloque .ficha-linea-cierre {
             border-top: 1px solid rgba(245, 233, 141, 0.15);
             padding-top: 0;
         }
 
-        /* ============================================ */
-        /* COLLAGE                                     */
-        /* ============================================ */
-
+        /* COLLAGE */
         .collage {
             width: 100%;
             max-width: 500px;
@@ -202,11 +215,8 @@
             display: inline-block;
         }
 
-        .espacio-pregunta {
-            margin-top: 48px;
-        }
+        .espacio-pregunta { margin-top: 48px; }
 
-        /* PREGUNTA FINAL */
         .pregunta-final {
             color: #F5E98D !important;
             font-size: 20px !important;
@@ -217,7 +227,6 @@
             line-height: 1.4;
         }
 
-        /* CRÉDITOS ESPECIALES - SOLO LOGO */
         .creditos-especiales {
             margin-top: 30px;
             padding-top: 20px;
@@ -225,7 +234,6 @@
             border-bottom: 1px solid rgba(245, 233, 141, 0.15);
             padding-bottom: 25px;
         }
-
         .creditos-especiales .creacion {
             color: rgba(255,255,255,0.4);
             font-size: 10px;
@@ -233,19 +241,16 @@
             text-transform: uppercase;
             margin-bottom: 12px;
         }
-
         .creditos-especiales .logo-creacion {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .creditos-especiales .logo-creacion img {
             height: 28px;
             width: auto;
             display: block;
         }
-
         .creditos-especiales .performer {
             color: rgba(255,255,255,0.4);
             font-size: 10px;
@@ -253,7 +258,6 @@
             text-transform: uppercase;
             margin-top: 20px;
         }
-
         .creditos-especiales .performer strong {
             color: #F5E98D;
             font-weight: 400;
@@ -267,6 +271,8 @@
             .contenido p { font-size: 13px; }
             .contenido .carta { font-size: 14px; margin-bottom: 16px; padding: 15px 0 8px 0; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
+            .lang-switcher { top: 20px; right: 20px; }
+            .lang-btn { font-size: 10px; letter-spacing: 2px; }
             .collage { max-width: 100%; }
             .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
             .pregunta-final { font-size: 17px !important; margin-top: 36px; }
@@ -276,69 +282,108 @@
 </head>
 <body>
 
-    <a class="volver" href="../../index.html">← Volver</a>
+    <a class="volver" href="../../index.html"
+       data-es="← Volver"
+       data-en="← Back">← Volver</a>
+
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
 
     <div class="contenido">
         <h1>THE HOURS</h1>
-        <div class="subtitulo">2024 · Performance / Instalación escénica· 24 horas</div>
+        <div class="subtitulo"
+             data-es="2024 · Performance / Instalación escénica · 24 horas"
+             data-en="2024 · Performance / Stage installation · 24 hours">
+             2024 · Performance / Instalación escénica · 24 horas
+        </div>
 
         <!-- IMAGEN PRINCIPAL -->
         <div class="imagen-principal">
             <img src="../../th1.jpg" alt="THE HOURS">
         </div>
 
-        <!-- CARTA - JUSTIFICADA A LA IZQUIERDA -->
+        <!-- CARTA -->
         <div class="carta">
-            <span class="destacado">Queridos espectadores:</span>
+            <span class="destacado"
+                  data-es="Queridos espectadores:"
+                  data-en="Dear audience:">Queridos espectadores:</span>
             <span class="espacio"></span>
-            Os invitamos a observarnos, a sumergiros en nuestra intimidad.
-            Pero no esperéis de nosotros más de lo que veis.
+
+            <span data-es="Os invitamos a observarnos, a sumergiros en nuestra intimidad. Pero no esperéis de nosotros más de lo que veis."
+                  data-en="We invite you to watch us, to immerse yourselves in our private world. But don't expect more from us than what you see.">
+                  Os invitamos a observarnos, a sumergiros en nuestra intimidad. Pero no esperéis de nosotros más de lo que veis.
+            </span>
             <span class="espacio"></span>
-            To be.<br>
-            Ser, estar.
+
+            <span data-es="To be. Ser, estar."
+                  data-en="To be. Ser, estar.">To be. Ser, estar.</span>
         </div>
 
-        <!-- SINOPSIS - TEXTO EN BLANCO -->
-        <p>THE HOURS es una instalación escéncica y performance duracional que surge a raíz de la necesidad de expandir y diversificar el universo creado en la pieza de teatro SAVE THE F***ING RABBITS.</p>
+        <!-- SINOPSIS -->
+        <p data-es="THE HOURS es una instalación escénica y performance duracional que surge a raíz de la necesidad de expandir y diversificar el universo creado en la pieza de teatro SAVE THE F***ING RABBITS."
+           data-en="THE HOURS is a stage installation and durational performance that emerged from the need to expand and diversify the universe created in the play SAVE THE F***ING RABBITS.">
+           THE HOURS es una instalación escénica y performance duracional que surge a raíz de la necesidad de expandir y diversificar el universo creado en la pieza de teatro SAVE THE F***ING RABBITS.
+        </p>
 
-        <p>En continuidad con la pieza original —que explora la insatisfacción crónica como secuela de las expectativas impuestas por la sociedad neoliberal—, esta propuesta se adentra en los límites del aburrimiento, el agotamiento físico y el desgaste psicológico a través de una premisa de acción ininterrumpida durante 24 horas. Dos performers, a partir de ahora Conejo 1 y Conejo 2, equipados con sus característicos atuendos, convivirán durante un día y una noche en un espacio cerrado con llave, equipado únicamente con un sofá, un reloj y una televisión encendida las veinticuatro horas.</p>
+        <p data-es="En continuidad con la pieza original —que explora la insatisfacción crónica como secuela de las expectativas impuestas por la sociedad neoliberal—, esta propuesta se adentra en los límites del aburrimiento, el agotamiento físico y el desgaste psicológico a través de una premisa de acción ininterrumpida durante 24 horas. Dos performers, a partir de ahora Conejo 1 y Conejo 2, equipados con sus característicos atuendos, convivirán durante un día y una noche en un espacio cerrado con llave, equipado únicamente con un sofá, un reloj y una televisión encendida las veinticuatro horas."
+           data-en="In continuity with the original play—which explores chronic dissatisfaction as a consequence of the expectations imposed by neoliberal society—this project delves into the limits of boredom, physical exhaustion, and psychological wear and tear through a premise of uninterrupted action over 24 hours. Two performers—hereinafter referred to as Rabbit 1 and Rabbit 2—dressed in their characteristic costumes, will spend a day and a night together in a locked, enclosed space equipped only with a sofa, a clock, and a television that remains on twenty-four hours a day.">
+           En continuidad con la pieza original —que explora la insatisfacción crónica como secuela de las expectativas impuestas por la sociedad neoliberal—, esta propuesta se adentra en los límites del aburrimiento, el agotamiento físico y el desgaste psicológico a través de una premisa de acción ininterrumpida durante 24 horas. Dos performers, a partir de ahora Conejo 1 y Conejo 2, equipados con sus característicos atuendos, convivirán durante un día y una noche en un espacio cerrado con llave, equipado únicamente con un sofá, un reloj y una televisión encendida las veinticuatro horas.
+        </p>
 
-        <p>La propuesta busca radicalizar la experiencia del presente. No habrá más estímulos que los de un animal privado de su entorno, reducido a su propia jaula.</p>
+        <p data-es="La propuesta busca radicalizar la experiencia del presente. No habrá más estímulos que los de un animal privado de su entorno, reducido a su propia jaula."
+           data-en="The project seeks to radicalize the experience of the present. There will be no stimuli other than those of an animal deprived of its environment, confined to its own cage.">
+           La propuesta busca radicalizar la experiencia del presente. No habrá más estímulos que los de un animal privado de su entorno, reducido a su propia jaula.
+        </p>
 
-        <p>La pieza se lleva a cabo en un escaparate acristalado, a la vista de cualquier transeúnte que pase por el lugar. Sin convocatoria previa, cualquier persona puede convertirse en un espectador espontáneo de esta experiencia.</p>
+        <p data-es="La pieza se lleva a cabo en un escaparate acristalado, a la vista de cualquier transeúnte que pase por el lugar. Sin convocatoria previa, cualquier persona puede convertirse en un espectador espontáneo de esta experiencia."
+           data-en="The piece takes place in a glass-enclosed display window, in full view of any passerby walking by. Without prior announcement, anyone can become a spontaneous spectator of this experience.">
+           La pieza se lleva a cabo en un escaparate acristalado, a la vista de cualquier transeúnte que pase por el lugar. Sin convocatoria previa, cualquier persona puede convertirse en un espectador espontáneo de esta experiencia.
+        </p>
 
-        <p>Aunque esté concebida para desarrollarse en un cubículo acristalado, esta estructura puede desaparecer y trasladarse al propio suelo, delimitando el área de acción sin necesidad de paredes. De este modo, THE HOURS puede adaptarse a diferentes espacios, desde museos y espacios escénicos hasta lugares no convencionales, y presentarse tanto en festivales como en otros contextos de programación. La duración, planteada inicialmente para 24 horas, también puede modificarse en función de las características y horarios de cada lugar.</p>
+        <p data-es="Aunque esté concebida para desarrollarse en un cubículo acristalado, esta estructura puede desaparecer y trasladarse al propio suelo, delimitando el área de acción sin necesidad de paredes. De este modo, THE HOURS puede adaptarse a diferentes espacios, desde museos y espacios escénicos hasta lugares no convencionales, y presentarse tanto en festivales como en otros contextos de programación. La duración, planteada inicialmente para 24 horas, también puede modificarse en función de las características y horarios de cada lugar."
+           data-en="Although designed to take place in a glass-enclosed cubicle, this structure can be dismantled and moved directly onto the floor, defining the performance area without the need for walls. In this way, THE HOURS can adapt to different spaces—from museums and performance venues to unconventional locations—and be presented at festivals as well as in other programming contexts. The duration, initially planned for 24 hours, can also be adjusted based on the characteristics and schedules of each venue.">
+           Aunque esté concebida para desarrollarse en un cubículo acristalado, esta estructura puede desaparecer y trasladarse al propio suelo, delimitando el área de acción sin necesidad de paredes. De este modo, THE HOURS puede adaptarse a diferentes espacios, desde museos y espacios escénicos hasta lugares no convencionales, y presentarse tanto en festivales como en otros contextos de programación. La duración, planteada inicialmente para 24 horas, también puede modificarse en función de las características y horarios de cada lugar.
+        </p>
 
-        <p>Los rastros y transformaciones que surgen durante la experiencia no son únicamente consecuencia de la acción, sino que forman parte de la propia pieza y pueden permanecer en el espacio una vez finalizada, configurando una instalación escénica como huella de lo acontecido. </p>
+        <p data-es="Los rastros y transformaciones que surgen durante la experiencia no son únicamente consecuencia de la acción, sino que forman parte de la propia pieza y pueden permanecer en el espacio una vez finalizada, configurando una instalación escénica como huella de lo acontecido."
+           data-en="The traces and transformations that emerge during the experience are not merely a consequence of the action; rather, they form part of the piece itself and may remain in the space once it has ended, creating a scenic installation that serves as a record of what took place.">
+           Los rastros y transformaciones que surgen durante la experiencia no son únicamente consecuencia de la acción, sino que forman parte de la propia pieza y pueden permanecer en el espacio una vez finalizada, configurando una instalación escénica como huella de lo acontecido.
+        </p>
 
-        <p>Los espectadores dispondrán de un código QR adherido al escaparate desde el que podrán acceder a una retransmisión en directo de lo que sucede en el interior, así como a contenido adicional del proyecto.</p>
+        <p data-es="Los espectadores dispondrán de un código QR adherido al escaparate desde el que podrán acceder a una retransmisión en directo de lo que sucede en el interior, así como a contenido adicional del proyecto."
+           data-en="Audience members will have access to a QR code affixed to the storefront, which they can use to view a live stream of what is happening inside, as well as additional content related to the project.">
+           Los espectadores dispondrán de un código QR adherido al escaparate desde el que podrán acceder a una retransmisión en directo de lo que sucede en el interior, así como a contenido adicional del proyecto.
+        </p>
 
         <!-- PREGUNTA FINAL -->
-        <p class="pregunta-final">¿Cuánto tiempo de nuestras vidas estamos dispuestos a invertir en algo que no estaba previsto?</p>
+        <p class="pregunta-final"
+           data-es="¿Cuánto tiempo de nuestras vidas estamos dispuestos a invertir en algo que no estaba previsto?"
+           data-en="How much of our lives are we willing to invest in something that wasn't planned?">
+           ¿Cuánto tiempo de nuestras vidas estamos dispuestos a invertir en algo que no estaba previsto?
+        </p>
 
-        <!-- ============================================ -->
-        <!-- CRÉDITOS ESPECIALES - SOLO LOGO             -->
-        <!-- ============================================ -->
-
+        <!-- CRÉDITOS ESPECIALES -->
         <div class="creditos-especiales">
 
-            <div class="creacion">Una creación de</div>
+            <div class="creacion"
+                 data-es="Una creación de"
+                 data-en="A creation by">Una creación de</div>
 
             <div class="logo-creacion">
                 <img src="../../logo.png" alt="SAVE THE F***ING RABBITS">
             </div>
 
             <div class="performer">
-                Performers
+                <span data-es="Performers" data-en="Performers">Performers</span>
                 <strong>Celina Fernández Ponte · Pablo Velasco</strong>
             </div>
 
         </div>
 
-        <!-- ============================================ -->
-        <!-- COLLAGE                                     -->
-        <!-- ============================================ -->
-
+        <!-- COLLAGE -->
         <div class="collage">
             <img src="../../th2.jpg" alt="THE HOURS 2">
             <img src="../../th3.jpg" alt="THE HOURS 3">
@@ -356,6 +401,49 @@
         <div class="firma">SAVE THE F***ING RABBITS .prod © 2026</div>
     </div>
 
+    <!-- SISTEMA DE IDIOMA INTEGRADO -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const DEFAULT_LANG = 'es';
+
+        const TITLES = {
+            es: 'THE HOURS — SAVE THE F***ING RABBITS',
+            en: 'THE HOURS — SAVE THE F***ING RABBITS'
+        };
+
+        function applyLang(lang) {
+            document.querySelectorAll('[data-es][data-en]').forEach(function(el) {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+
+            document.querySelectorAll('[data-alt-es][data-alt-en]').forEach(function(el) {
+                el.setAttribute('alt', el.getAttribute('data-alt-' + lang));
+            });
+
+            if (TITLES[lang]) document.title = TITLES[lang];
+
+            document.documentElement.setAttribute('lang', lang);
+
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            try { localStorage.setItem('lang', lang); } catch(e) {}
+        }
+
+        let savedLang = DEFAULT_LANG;
+        try { savedLang = localStorage.getItem('lang') || DEFAULT_LANG; } catch(e) {}
+        applyLang(savedLang);
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                applyLang(this.dataset.lang);
+            });
+        });
+
+    });
+    </script>
+
 </body>
 </html>
-https://youtu.be/aFSJgB9Zlpc?si=RCuiGjR6Cb7NLDzQ
