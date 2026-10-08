@@ -35,6 +35,35 @@
             z-index: 100;
         }
         .volver:hover { color: #ffffff; }
+
+        /* CONMUTADOR DE IDIOMA */
+        .lang-switcher {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 100;
+            font-family: 'Inter', sans-serif;
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 4px 6px;
+            transition: color 0.3s ease;
+        }
+        .lang-btn:hover { color: #F5E98D; }
+        .lang-btn.active { color: #F5E98D; font-weight: 600; }
+        .lang-sep { color: rgba(255,255,255,0.25); font-size: 11px; }
+
         .contenido {
             max-width: 550px;
             text-align: center;
@@ -70,7 +99,6 @@
             border-radius: 4px;
         }
 
-        /* TEXTO ESTÁNDAR - JUSTIFICADO */
         .contenido p {
             color: rgba(255,255,255,0.75);
             font-size: 14px;
@@ -80,7 +108,6 @@
             margin-bottom: 16px;
         }
 
-        /* FRASE DESTACADA - 20% MÁS PEQUEÑA (25px → 20px) */
         .contenido .frase-destacada {
             color: #F5E98D !important;
             font-size: 20px !important;
@@ -93,7 +120,6 @@
             display: block;
         }
 
-        /* CITA */
         .contenido .cita {
             color: #F5E98D;
             font-size: 14px;
@@ -109,10 +135,6 @@
             color: #F5E98D;
             font-weight: 700;
         }
-
-        /* ============================================ */
-        /* FICHA ARTÍSTICA - BLOQUE                    */
-        /* ============================================ */
 
         .ficha-bloque {
             margin-top: 40px;
@@ -162,10 +184,6 @@
             border-top: 1px solid rgba(245, 233, 141, 0.15);
             padding-top: 0;
         }
-
-        /* ============================================ */
-        /* COLLAGE                                     */
-        /* ============================================ */
 
         .collage {
             width: 100%;
@@ -298,7 +316,6 @@
             display: inline-block;
         }
 
-        /* ESPACIO EXTRA ENTRE TEXTOS */
         .espacio-extra {
             margin-top: 30px;
         }
@@ -309,6 +326,8 @@
             .contenido p { font-size: 13px; }
             .contenido .cita { font-size: 12px; padding: 15px 0; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
+            .lang-switcher { top: 20px; right: 20px; }
+            .lang-btn { font-size: 10px; letter-spacing: 2px; }
             .bloque-contraseña input { width: 150px; }
             .collage { max-width: 100%; }
             .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
@@ -323,11 +342,23 @@
 </head>
 <body>
 
-    <a class="volver" href="../../index.html">← Volver</a>
+    <a class="volver" href="../../index.html"
+       data-es="← Volver"
+       data-en="← Back">← Volver</a>
+
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
 
     <div class="contenido">
         <h1>SAVE THE F***ING RABBITS</h1>
-        <div class="subtitulo">2022 · Teatro Contemporáneo · 60 min</div>
+        <div class="subtitulo"
+             data-es="2022 · Teatro Contemporáneo · 60 min"
+             data-en="2022 · Contemporary Theatre · 60 min">
+             2022 · Teatro Contemporáneo · 60 min
+        </div>
 
         <!-- IMAGEN PRINCIPAL -->
         <div class="imagen-principal">
@@ -335,8 +366,10 @@
         </div>
 
         <!-- CITA -->
-        <div class="cita">
-            "Un conejo es un conejo.<br>
+        <div class="cita"
+             data-es="&#8220;Un conejo es un conejo.<br>Nuestro conejo no es un conejo.<br>Nuestro conejo son dos conejos.<br><strong>Conejo 1</strong> lleva 3 empastes en su boca:<br>4.6 Tercer premolar inferior izquierdo, 3.3. Canino inferior derecho<br>y 2.7 Segundo molar superior izquierdo.<br><strong>Conejo 2</strong> nunca ha pensado en invertir en Bitcoin.<br>Cuándo <strong>Conejo 2</strong> tiene frío, se cobija entre la frondosidad de un campo de helechos.<br>Desde el sofá, <strong>Conejo 1</strong> alarga el brazo y enciende una estufa eléctrica que compró en Aliexpress.com por 19,43€.<br>A lo largo de su vida, <strong>Conejo 1</strong> ha vivido en 3 casas diferentes: en la de sus padres, en un piso compartido con 7 Erasmus y en un ático pequeño pero cuco en Malasaña.<br><strong>Conejo 2</strong> no hiberna. Porque los conejos no hibernan y <strong>Conejo 2</strong> es un conejo.&#8221;"
+             data-en="&#8220;A rabbit is a rabbit.<br>Our rabbit isn&#8217;t a rabbit.<br>Our rabbit is actually two rabbits.<br><strong>Rabbit 1</strong> has three fillings in its mouth:<br>4.6 Lower left third premolar, 3.3 Lower right canine,<br>and 2.7 Upper left second molar.<br><strong>Rabbit 2</strong> has never thought about investing in Bitcoin.<br>When <strong>Rabbit 2</strong> feels cold, he takes shelter among the lush foliage of a field of ferns.<br>From the couch, <strong>Rabbit 1</strong> reaches out and turns on an electric heater he bought on Aliexpress.com for &#8364;19.43.<br>Throughout his life, <strong>Rabbit 1</strong> has lived in three different homes: his parents&#8217; house, a shared apartment with seven Erasmus students, and a small but cute attic apartment in a bohemian neighborhood in the heart of the city.<br><strong>Rabbit 2</strong> doesn&#8217;t hibernate. Because rabbits don&#8217;t hibernate, and <strong>Rabbit 2</strong> is a rabbit.&#8221;">
+             &#8220;Un conejo es un conejo.<br>
             Nuestro conejo no es un conejo.<br>
             Nuestro conejo son dos conejos.<br>
             <strong>Conejo 1</strong> lleva 3 empastes en su boca:<br>
@@ -346,51 +379,67 @@
             Cuándo <strong>Conejo 2</strong> tiene frío, se cobija entre la frondosidad de un campo de helechos.<br>
             Desde el sofá, <strong>Conejo 1</strong> alarga el brazo y enciende una estufa eléctrica que compró en Aliexpress.com por 19,43€.<br>
             A lo largo de su vida, <strong>Conejo 1</strong> ha vivido en 3 casas diferentes: en la de sus padres, en un piso compartido con 7 Erasmus y en un ático pequeño pero cuco en Malasaña.<br>
-            <strong>Conejo 2</strong> no hiberna. Porque los conejos no hibernan y <strong>Conejo 2</strong> es un conejo."
+            <strong>Conejo 2</strong> no hiberna. Porque los conejos no hibernan y <strong>Conejo 2</strong> es un conejo.&#8221;
         </div>
 
-        <!-- ============================================ -->
-        <!-- SINOPSIS Y PREGUNTA - MISMO FORMATO          -->
-        <!-- ============================================ -->
+        <!-- SINOPSIS -->
+        <p data-es="SAVE THE F***ING RABBITS es una pieza distópica de teatro posdramático que plantea al espectador un debate político y filosófico acerca de la sociedad de consumo y las estructuras jerarquizadas imperantes en cualquier sistema colectivo. Sirviéndose de paralelismos entre lo humano y lo animal, la pieza aborda cuestiones relativas a la insatisfacción crónica como secuela de las expectativas y los deseos inalcanzables, el amor y las relaciones o el valor de la vida."
+           data-en="SAVE THE F***ING RABBITS is a dystopian post-dramatic theater piece that invites the audience to engage in a political and philosophical debate about consumer society and the hierarchical structures prevalent in any collective system. Drawing parallels between humans and animals, the play explores issues related to chronic dissatisfaction as a result of unattainable expectations and desires, love and relationships, and the value of life.">
+           SAVE THE F***ING RABBITS es una pieza distópica de teatro posdramático que plantea al espectador un debate político y filosófico acerca de la sociedad de consumo y las estructuras jerarquizadas imperantes en cualquier sistema colectivo. Sirviéndose de paralelismos entre lo humano y lo animal, la pieza aborda cuestiones relativas a la insatisfacción crónica como secuela de las expectativas y los deseos inalcanzables, el amor y las relaciones o el valor de la vida.
+        </p>
 
-        <p>SAVE THE F***ING RABBITS es una pieza distópica de teatro posdramático que plantea al espectador un debate político y filosófico acerca de la sociedad de consumo y las estructuras jerarquizadas imperantes en cualquier sistema colectivo. Sirviéndose de paralelismos entre lo humano y lo animal, la pieza aborda cuestiones relativas a la insatisfacción crónica como secuela de las expectativas y los deseos inalcanzables, el amor y las relaciones o el valor de la vida.</p>
+        <p class="espacio-extra"
+           data-es="¿Imaginas poder adentrarte 30 metros bajo tierra? Aquí, el espectador tendrá la oportunidad de sumergirse en las profundidades de la tierra durante una hora para observar lo que sucede dentro de una madriguera habitada por dos conejos que ven la televisión y reflexionan sobre cuestiones extremadamente humanas."
+           data-en="Can you imagine going 30 meters underground? Here, the audience will have the opportunity to plunge into the depths of the earth for an hour to observe what happens inside a burrow inhabited by two rabbits who watch television and reflect on deeply human issues.">
+           ¿Imaginas poder adentrarte 30 metros bajo tierra? Aquí, el espectador tendrá la oportunidad de sumergirse en las profundidades de la tierra durante una hora para observar lo que sucede dentro de una madriguera habitada por dos conejos que ven la televisión y reflexionan sobre cuestiones extremadamente humanas.
+        </p>
 
-        <p class="espacio-extra">¿Imaginas poder adentrarte 30 metros bajo tierra? Aquí, el espectador tendrá la oportunidad de sumergirse en las profundidades de la tierra durante una hora para observar lo que sucede dentro de una madriguera habitada por dos conejos que ven la televisión y reflexionan sobre cuestiones extremadamente humanas.</p>
+        <!-- FRASE DESTACADA -->
+        <p class="frase-destacada"
+           data-es="&#8220;Hoy reniego del pensamiento, hoy quiero ser un conejo&#8221;"
+           data-en="&#8220;Today I reject thought; today I want to be a rabbit&#8221;.">
+           &#8220;Hoy reniego del pensamiento, hoy quiero ser un conejo&#8221;
+        </p>
 
-        <!-- ============================================ -->
-        <!-- FRASE DESTACADA - 20% MÁS PEQUEÑA            -->
-        <!-- ============================================ -->
-
-        <p class="frase-destacada">"Hoy reniego del pensamiento, hoy quiero ser un conejo"</p>
-
-        <!-- ============================================ -->
-        <!-- FICHA ARTÍSTICA - BLOQUE                    -->
-        <!-- ============================================ -->
-
+        <!-- FICHA ARTÍSTICA -->
         <div class="ficha-bloque">
 
-            <!-- LÍNEA SUPERIOR + TÍTULO -->
-            <div class="ficha-titulo">Ficha artística</div>
+            <div class="ficha-titulo"
+                 data-es="Ficha artística"
+                 data-en="Creative team">Ficha artística</div>
 
-            <!-- CRÉDITOS -->
             <div class="ficha-creditos">
-                <div class="credito"><span>Dirección y dramaturgia</span><strong>Pablo Velasco</strong></div>
-                <div class="credito"><span>Ayudantía de dirección</span><strong>Po Ruiz</strong></div>
-                <div class="credito"><span>Cuerpos en escena</span><strong>Po Ruiz · Pablo Velasco · Intérprete Invitado</strong></div>
-                <div class="credito"><span>Diseño de sonido</span><strong>Ale Iodice</strong></div>
-                <div class="credito"><span>Diseño escénico e iluminación</span><strong>Pablo Velasco</strong></div>
-                <div class="credito"><span>Producción</span><strong>SAVE THE F***ING RABBITS prod. · Ángela Aguilar</strong></div>
+                <div class="credito">
+                    <span data-es="Dirección y dramaturgia" data-en="Direction and dramaturgy">Dirección y dramaturgia</span>
+                    <strong>Pablo Velasco</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Ayudantía de dirección" data-en="Assistant direction">Ayudantía de dirección</span>
+                    <strong>Po Ruiz</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Cuerpos en escena" data-en="Performers on stage">Cuerpos en escena</span>
+                    <strong>Po Ruiz · Pablo Velasco · <span data-es="Intérprete Invitado" data-en="Guest Performer">Intérprete Invitado</span></strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Diseño de sonido" data-en="Sound design">Diseño de sonido</span>
+                    <strong>Ale Iodice</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Diseño escénico e iluminación" data-en="Stage and lighting design">Diseño escénico e iluminación</span>
+                    <strong>Pablo Velasco</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Producción" data-en="Production">Producción</span>
+                    <strong>SAVE THE F***ING RABBITS prod. · Ángela Aguilar</strong>
+                </div>
             </div>
 
-            <!-- LÍNEA INFERIOR (CIERRE) -->
             <div class="ficha-linea-cierre"></div>
 
         </div>
 
-        <!-- ============================================ -->
-        <!-- COLLAGE                                     -->
-        <!-- ============================================ -->
-
+        <!-- COLLAGE -->
         <div class="collage">
             <img src="../../stfr6.png" alt="STFR 6">
             <img src="../../stfr2.png" alt="STFR 2">
@@ -401,15 +450,21 @@
 
         <!-- ENLACES VÍDEOS -->
         <div class="enlaces-video">
-            <a href="https://vimeo.com/704850488" target="_blank"> Ver teaser</a>
+            <a href="https://vimeo.com/704850488" target="_blank"
+               data-es="Ver teaser"
+               data-en="Watch teaser">Ver teaser</a>
 
             <div class="bloque-contraseña">
-                <span class="label-contraseña">🔒 Obra completa </span>
+                <span class="label-contraseña"
+                      data-es="🔒 Obra completa"
+                      data-en="🔒 Full play">🔒 Obra completa</span>
                 <input type="password" id="inputPass" placeholder="Introduce la contraseña">
                 <button id="btnPass">Acceder</button>
                 <div class="mensaje-error" id="mensajeError">Contraseña incorrecta</div>
                 <div class="enlace-oculto" id="enlaceOculto">
-                    <a href="https://www.youtube.com/watch?v=qf5tfBNuBhM" target="_blank">▶ Ver obra completa</a>
+                    <a href="https://www.youtube.com/watch?v=qf5tfBNuBhM" target="_blank"
+                       data-es="▶ Ver obra completa"
+                       data-en="▶ Watch full play">▶ Ver obra completa</a>
                 </div>
             </div>
         </div>
@@ -418,7 +473,78 @@
         <div class="firma">SAVE THE F***ING RABBITS .prod © 2026</div>
     </div>
 
+    <!-- SISTEMA DE IDIOMA INTEGRADO -->
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const DEFAULT_LANG = 'es';
+
+        const TITLES = {
+            es: 'SAVE THE F***ING RABBITS — SAVE THE F***ING RABBITS',
+            en: 'SAVE THE F***ING RABBITS — SAVE THE F***ING RABBITS'
+        };
+
+        const PASS_TEXTS = {
+            es: {
+                placeholder: 'Introduce la contraseña',
+                button: 'Acceder',
+                error: 'Contraseña incorrecta',
+                success: '✅ ¡Acceso concedido!'
+            },
+            en: {
+                placeholder: 'Enter the password',
+                button: 'Access',
+                error: 'Incorrect password',
+                success: '✅ Access granted!'
+            }
+        };
+
+        function applyLang(lang) {
+            document.querySelectorAll('[data-es][data-en]').forEach(function(el) {
+                el.innerHTML = el.getAttribute('data-' + lang);
+            });
+
+            document.querySelectorAll('[data-alt-es][data-alt-en]').forEach(function(el) {
+                el.setAttribute('alt', el.getAttribute('data-alt-' + lang));
+            });
+
+            if (TITLES[lang]) document.title = TITLES[lang];
+
+            document.documentElement.setAttribute('lang', lang);
+
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            const t = PASS_TEXTS[lang];
+            if (t) {
+                const inputPass = document.getElementById('inputPass');
+                const btnPass = document.getElementById('btnPass');
+                const mensajeError = document.getElementById('mensajeError');
+
+                if (inputPass && inputPass.placeholder !== PASS_TEXTS.es.success && inputPass.placeholder !== PASS_TEXTS.en.success) {
+                    inputPass.placeholder = t.placeholder;
+                }
+                if (btnPass && btnPass.textContent !== '✔') {
+                    btnPass.textContent = t.button;
+                }
+                if (mensajeError) mensajeError.textContent = t.error;
+            }
+
+            try { localStorage.setItem('lang', lang); } catch(e) {}
+        }
+
+        let savedLang = DEFAULT_LANG;
+        try { savedLang = localStorage.getItem('lang') || DEFAULT_LANG; } catch(e) {}
+        applyLang(savedLang);
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                applyLang(this.dataset.lang);
+            });
+        });
+
+        // BLOQUE DE CONTRASEÑA
         const inputPass = document.getElementById('inputPass');
         const btnPass = document.getElementById('btnPass');
         const mensajeError = document.getElementById('mensajeError');
@@ -426,18 +552,27 @@
 
         const CONTRASENA_CORRECTA = 'stfr2022completa';
 
+        function getCurrentLang() {
+            try { return localStorage.getItem('lang') || 'es'; } catch(e) { return 'es'; }
+        }
+
         function verificarContraseña() {
+            const lang = getCurrentLang();
+            const t = PASS_TEXTS[lang] || PASS_TEXTS.es;
             const pass = inputPass.value.trim();
+
             if (pass === CONTRASENA_CORRECTA) {
                 mensajeError.classList.remove('visible');
                 enlaceOculto.classList.add('visible');
                 inputPass.value = '';
-                inputPass.placeholder = '✅ ¡Acceso concedido!';
+                inputPass.placeholder = t.success;
                 btnPass.textContent = '✔';
                 btnPass.style.background = '#4CAF50';
                 setTimeout(() => {
-                    inputPass.placeholder = 'Introduce la contraseña';
-                    btnPass.textContent = 'Acceder';
+                    const currentLang = getCurrentLang();
+                    const t2 = PASS_TEXTS[currentLang] || PASS_TEXTS.es;
+                    inputPass.placeholder = t2.placeholder;
+                    btnPass.textContent = t2.button;
                     btnPass.style.background = '#F5E98D';
                 }, 3000);
             } else {
@@ -454,6 +589,8 @@
                 verificarContraseña();
             }
         });
+
+    });
     </script>
 
 </body>
