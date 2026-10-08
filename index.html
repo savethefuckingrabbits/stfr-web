@@ -7,10 +7,10 @@
 <!-- TÍTULO MEJORADO PARA SEO -->
 <title>SAVE THE F***ING RABBITS · Compañía de teatro contemporáneo</title>
 
-<!-- ✅ ETIQUETA CANÓNICA: le dice a Google cuál es la URL principal -->
+<!-- ✅ ETIQUETA CANÓNICA -->
 <link rel="canonical" href="https://savethefuckingrabbits.com">
 
-<!-- ✅ META DESCRIPCIÓN MEJORADA (texto que aparece en Google) -->
+<!-- ✅ META DESCRIPCIÓN MEJORADA -->
 <meta name="description" content="SAVE THE F***ING RABBITS es una compañía de teatro contemporáneo fundada en 2020. Nuevos lenguajes escénicos y animalidad. Descubre más: Sucré, SAVE THE F***ING RABBITS, The Hours, Pisapapeles...">
 
 <!-- ✅ DATOS ESTRUCTURADOS JSON-LD -->
@@ -64,6 +64,7 @@ body{
     min-height:100vh;
     display:flex;
     flex-direction:column;
+    position:relative;
 }
 
 .container{
@@ -74,6 +75,50 @@ body{
     display:flex;
     flex-direction:column;
     align-items:center;
+    position:relative;
+}
+
+/* ============================================ */
+/* CONMUTADOR DE IDIOMA                         */
+/* ============================================ */
+
+.lang-switcher{
+    position:absolute;
+    top:20px;
+    right:30px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    z-index:100;
+    font-family:'Inter',sans-serif;
+}
+
+.lang-btn{
+    background:none;
+    border:none;
+    color:rgba(255,255,255,0.5);
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    cursor:pointer;
+    padding:4px 6px;
+    transition:color 0.3s ease;
+}
+
+.lang-btn:hover{
+    color:#F4DE65;
+}
+
+.lang-btn.active{
+    color:#F4DE65;
+    font-weight:600;
+}
+
+.lang-sep{
+    color:rgba(255,255,255,0.25);
+    font-size:11px;
 }
 
 /* ============================================ */
@@ -128,7 +173,7 @@ body{
     pointer-events:auto;
 }
 
-/* ENLACE "SOBRE EL PROYECTO" - SIN ESTIRAMIENTOS */
+/* ENLACE "SOBRE EL PROYECTO" */
 .info-panel .enlace-sobre{
     display:inline-block;
     color:#ffffff;
@@ -198,7 +243,6 @@ body{
     z-index:1;
 }
 
-/* ===== TÍTULOS CON TAHOMA EN NEGRITA - CENTRADOS ===== */
 .titulo{
     color:#F4DE65;
     font-family:'Tahoma', 'Geneva', 'Verdana', sans-serif;
@@ -321,7 +365,6 @@ body{
     color:#ffffff;
 }
 
-/* PANEL DE CONTACTO - AHORA HACIA ABAJO */
 .contacto-panel{
     max-height:0;
     opacity:0;
@@ -426,6 +469,16 @@ body{
 /* ============================================ */
 
 @media (max-width:768px){
+
+    .lang-switcher{
+        top:12px;
+        right:15px;
+    }
+
+    .lang-btn{
+        font-size:10px;
+        letter-spacing:2px;
+    }
 
     .container{
         width:92%;
@@ -567,23 +620,37 @@ body{
 <div class="container">
 
     <!-- ============================================ -->
+    <!-- CONMUTADOR DE IDIOMA                         -->
+    <!-- ============================================ -->
+
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+
+    <!-- ============================================ -->
     <!-- LOGO CON DESPLEGABLE - SOLO ENLACE           -->
     <!-- ============================================ -->
 
     <div class="logo-wrapper" id="logoWrapper">
 
-        <img class="logo-img" id="logoImg" src="logo.png" alt="Logo de SAVE THE F***ING RABBITS">
+        <img class="logo-img" id="logoImg" src="logo.png" alt="Logo de SAVE THE F***ING RABBITS"
+             data-alt-es="Logo de SAVE THE F***ING RABBITS"
+             data-alt-en="SAVE THE F***ING RABBITS logo">
 
         <div class="info-panel">
             <p style="text-align:center; margin:0;">
-                <a href="sobre-nosotros/index.html" class="enlace-sobre">SOBRE EL PROYECTO</a>
+                <a href="sobre-nosotros/index.html" class="enlace-sobre"
+                   data-es="SOBRE EL PROYECTO"
+                   data-en="ABOUT THE PROJECT">SOBRE EL PROYECTO</a>
             </p>
         </div>
 
     </div>
 
     <!-- ============================================ -->
-    <!-- PROYECTOS - TÍTULOS AHORA SON H2            -->
+    <!-- PROYECTOS                                    -->
     <!-- ============================================ -->
 
     <div class="proyectos">
@@ -593,7 +660,9 @@ body{
             <!-- SUCRÉ -->
             <a href="obras/sucre/index.html" style="text-decoration:none; display:block;">
                 <div class="proyecto">
-                    <img src="sucré.jpg" alt="Fotografía de la obra Sucré">
+                    <img src="sucré.jpg" alt="Fotografía de la obra Sucré"
+                         data-alt-es="Fotografía de la obra Sucré"
+                         data-alt-en="Photograph of the play Sucré">
                     <h2 class="titulo">SUCRÉ</h2>
                 </div>
             </a>
@@ -601,7 +670,9 @@ body{
             <!-- SAVE THE F***ING RABBITS -->
             <a href="obras/rabbits/index.html" style="text-decoration:none; display:block;">
                 <div class="proyecto">
-                    <img src="madriguera.png" alt="Fotografía de la obra SAVE THE F***ING RABBITS">
+                    <img src="madriguera.png" alt="Fotografía de la obra SAVE THE F***ING RABBITS"
+                         data-alt-es="Fotografía de la obra SAVE THE F***ING RABBITS"
+                         data-alt-en="Photograph of the play SAVE THE F***ING RABBITS">
                     <h2 class="titulo">SAVE THE F***ING RABBITS</h2>
                 </div>
             </a>
@@ -613,7 +684,9 @@ body{
             <!-- THE HOURS -->
             <a href="obras/hours/index.html" style="text-decoration:none; display:block;">
                 <div class="proyecto">
-                    <img src="hours.png" alt="Fotografía de la obra The Hours">
+                    <img src="hours.png" alt="Fotografía de la obra The Hours"
+                         data-alt-es="Fotografía de la obra The Hours"
+                         data-alt-en="Photograph of the play The Hours">
                     <h2 class="titulo">THE HOURS</h2>
                 </div>
             </a>
@@ -621,7 +694,9 @@ body{
             <!-- PISAPAPELES -->
             <a href="obras/pisapapeles/index.html" style="text-decoration:none; display:block;">
                 <div class="proyecto">
-                    <img src="pisapapelesv2.jpg" alt="Fotografía de la obra Pisapapeles">
+                    <img src="pisapapelesv2.jpg" alt="Fotografía de la obra Pisapapeles"
+                         data-alt-es="Fotografía de la obra Pisapapeles"
+                         data-alt-en="Photograph of the play Pisapapeles">
                     <h2 class="titulo">PISAPAPELES</h2>
                 </div>
             </a>
@@ -641,12 +716,16 @@ body{
     <div class="footer-logos">
 
         <!-- SOBRE EL PROYECTO - ENLACE EN FOOTER -->
-        <a href="sobre-nosotros/index.html" class="sobre-proyecto-link">SOBRE EL PROYECTO</a>
+        <a href="sobre-nosotros/index.html" class="sobre-proyecto-link"
+           data-es="SOBRE EL PROYECTO"
+           data-en="ABOUT THE PROJECT">SOBRE EL PROYECTO</a>
 
         <!-- CONTACTO DESPLEGABLE HACIA ABAJO -->
         <div class="contacto-wrapper" id="contactoWrapper">
 
-            <span class="contacto-text">CONTACTO</span>
+            <span class="contacto-text"
+                  data-es="CONTACTO"
+                  data-en="CONTACT">CONTACTO</span>
 
             <div class="contacto-panel">
                 <p><a href="mailto:savethefvckingrabbits@gmail.com">savethefvckingrabbits@gmail.com</a></p>
@@ -658,10 +737,12 @@ body{
 
         <!-- LOGO INAEM + TEXTO EN DOS LÍNEAS -->
         <div class="logo-inaem-wrapper">
-            <img class="logo-inaem" src="logo-blanco-inaem-1200x212.png" alt="Logo del INAEM">
+            <img class="logo-inaem" src="logo-blanco-inaem-1200x212.png" alt="Logo del INAEM"
+                 data-alt-es="Logo del INAEM"
+                 data-alt-en="INAEM logo">
             <div class="compania-info">
-                <span>COMPAÑÍA DE TEATRO</span>
-                <span>FUNDADA EN 2020 · MADRID</span>
+                <span data-es="COMPAÑÍA DE TEATRO" data-en="THEATRE COMPANY">COMPAÑÍA DE TEATRO</span>
+                <span data-es="FUNDADA EN 2020 · MADRID" data-en="FOUNDED IN 2020 · MADRID">FUNDADA EN 2020 · MADRID</span>
             </div>
         </div>
 
@@ -678,6 +759,70 @@ body{
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
+    // ========================================== */
+    // SISTEMA DE IDIOMAS                         */
+    // ========================================== */
+
+    const DEFAULT_LANG = 'es';
+
+    const TITLES = {
+        es: 'SAVE THE F***ING RABBITS · Compañía de teatro contemporáneo',
+        en: 'SAVE THE F***ING RABBITS · Contemporary theatre company'
+    };
+
+    const DESCRIPTIONS = {
+        es: 'SAVE THE F***ING RABBITS es una compañía de teatro contemporáneo fundada en 2020. Nuevos lenguajes escénicos y animalidad. Descubre más: Sucré, SAVE THE F***ING RABBITS, The Hours, Pisapapeles...',
+        en: 'SAVE THE F***ING RABBITS is a contemporary theatre company founded in 2020. New stage languages and animality. Discover more: Sucré, SAVE THE F***ING RABBITS, The Hours, Pisapapeles...'
+    };
+
+    function applyLang(lang) {
+        // 1. Textos con data-es / data-en
+        document.querySelectorAll('[data-es][data-en]').forEach(function(el) {
+            el.textContent = el.getAttribute('data-' + lang);
+        });
+
+        // 2. Atributos alt de imágenes
+        document.querySelectorAll('[data-alt-es][data-alt-en]').forEach(function(el) {
+            el.setAttribute('alt', el.getAttribute('data-alt-' + lang));
+        });
+
+        // 3. <title>
+        if (TITLES[lang]) document.title = TITLES[lang];
+
+        // 4. <html lang="">
+        document.documentElement.setAttribute('lang', lang);
+
+        // 5. Meta description
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc && DESCRIPTIONS[lang]) {
+            metaDesc.setAttribute('content', DESCRIPTIONS[lang]);
+        }
+
+        // 6. Botones activos
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        // 7. Guardar preferencia
+        try { localStorage.setItem('lang', lang); } catch(e) {}
+    }
+
+    // Inicializar idioma
+    let savedLang = DEFAULT_LANG;
+    try { savedLang = localStorage.getItem('lang') || DEFAULT_LANG; } catch(e) {}
+    applyLang(savedLang);
+
+    // Eventos de los botones
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            applyLang(this.dataset.lang);
+        });
+    });
+
+    // ========================================== */
+    // LOGO - HOVER / CLICK                       */
+    // ========================================== */
+
     const logoWrapper = document.getElementById('logoWrapper');
     const logoImg = document.getElementById('logoImg');
     const contactoWrapper = document.getElementById('contactoWrapper');
@@ -685,21 +830,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const isMobile = window.innerWidth <= 768;
 
-    // ========================================== */
-    // LOGO - HOVER SOLO SOBRE LA IMAGEN         */
-    // ========================================== */
-
+    // ESCRITORIO - HOVER SOBRE LA IMAGEN DEL LOGO
     if (!isMobile) {
 
-        // Al pasar el ratón sobre la imagen del logo → abrir
         logoImg.addEventListener('mouseenter', function() {
             clearTimeout(closeTimeout);
             logoWrapper.classList.add('active');
         });
 
-        // Al salir del logo-wrapper (incluye el texto desplegado) → cerrar con retardo
         logoWrapper.addEventListener('mouseleave', function(e) {
-            // Si el ratón se mueve al panel de texto, no cerramos
             const related = e.relatedTarget;
             if (related && logoWrapper.contains(related)) {
                 return;
@@ -709,7 +848,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 400);
         });
 
-        // Mantener abierto si el ratón está dentro del panel de texto
         const infoPanel = document.querySelector('.info-panel');
         if (infoPanel) {
             infoPanel.addEventListener('mouseenter', function() {
@@ -721,13 +859,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 400);
             });
         }
-
     }
 
-    // ========================================== */
-    // MÓVIL - CLICK EN EL LOGO                 */
-    // ========================================== */
-
+    // MÓVIL - CLICK EN EL LOGO
     if (isMobile) {
 
         logoWrapper.addEventListener('click', function(e) {
@@ -748,11 +882,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 contactoWrapper.classList.remove('active');
             }
         });
-
     }
 
     // ========================================== */
-    // CONTACTO - HOVER / CLICK                  */
+    // CONTACTO - HOVER / CLICK                   */
     // ========================================== */
 
     if (!isMobile) {
@@ -782,7 +915,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 250);
             });
         }
-
     }
 
     if (isMobile) {
@@ -791,11 +923,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target.closest('a')) return;
             contactoWrapper.classList.toggle('active');
         });
-
     }
 
     // ========================================== */
-    // REDIMENSIONAR                             */
+    // REDIMENSIONAR                              */
     // ========================================== */
 
     window.addEventListener('resize', function() {
