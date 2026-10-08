@@ -35,6 +35,37 @@
             z-index: 100;
         }
         .volver:hover { color: #ffffff; }
+
+        /* ============================================ */
+        /* CONMUTADOR DE IDIOMA                          */
+        /* ============================================ */
+        .lang-switcher {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 100;
+            font-family: 'Inter', sans-serif;
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 4px 6px;
+            transition: color 0.3s ease;
+        }
+        .lang-btn:hover { color: #F4DE65; }
+        .lang-btn.active { color: #F4DE65; font-weight: 600; }
+        .lang-sep { color: rgba(255,255,255,0.25); font-size: 11px; }
+
         .contenido {
             max-width: 700px;
             text-align: center;
@@ -70,6 +101,8 @@
             .contenido h1 { font-size: 22px; margin-bottom: 35px; }
             .contenido p { font-size: 13px; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
+            .lang-switcher { top: 20px; right: 20px; }
+            .lang-btn { font-size: 10px; letter-spacing: 2px; }
             .contenido { padding: 60px 0 40px; }
             .contenido .firma { margin-top: 60px; font-size: 9px; letter-spacing: 1.2px; }
         }
@@ -77,26 +110,54 @@
 </head>
 <body>
 
-    <a class="volver" href="../index.html">← Volver</a>
+    <a class="volver" href="../index.html"
+       data-es="← Volver"
+       data-en="← Back">← Volver</a>
+
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
 
     <div class="contenido">
-        <h1>SOBRE EL PROYECTO</h1>
+        <h1 data-es="SOBRE EL PROYECTO" data-en="ABOUT THE PROJECT">SOBRE EL PROYECTO</h1>
 
-        <p>SAVE THE F***ING RABBITS es una compañía de teatro contemporáneo fundada en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.</p>
+        <p data-es="SAVE THE F***ING RABBITS es una compañía de teatro contemporáneo fundada en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico."
+           data-en="SAVE THE F***ING RABBITS is a contemporary theater company founded in 2020 by Pablo Velasco (Madrid, 1995), who leads the artistic project.">
+           SAVE THE F***ING RABBITS es una compañía de teatro contemporáneo fundada en 2020 por Pablo Velasco (Madrid, 1995) al frente del proyecto artístico.
+        </p>
 
-        <p>Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, en el que diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.</p>
+        <p data-es="Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, en el que diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos."
+           data-en="This multidisciplinary project stands out for its collaborative approach, in which various performing artists contribute independently to each production.">
+           Este proyecto de carácter multidisciplinar destaca por su enfoque colaborativo, en el que diversos artistas escénicos contribuyen de manera independiente en cada uno de los dispositivos.
+        </p>
 
-        <p>En términos de contenido, la compañía investiga la condición humana, abordando temas complejos que se mueven entre lo político y lo filosófico. El animal atraviesa las creaciones como un recurso poético y conceptual desde el que pensar al ser humano. A través de esta relación, se explora la distancia que hemos construido entre lo humano y lo animal y las contradicciones que surgen de esa separación, preguntándonos por aquello que nos define como especie.</p>
+        <p data-es="En términos de contenido, la compañía investiga la condición humana, abordando temas complejos que se mueven entre lo político y lo filosófico. El animal atraviesa las creaciones como un recurso poético y conceptual desde el que pensar al ser humano. A través de esta relación, se explora la distancia que hemos construido entre lo humano y lo animal y las contradicciones que surgen de esa separación, preguntándonos por aquello que nos define como especie."
+           data-en="In terms of content, the company explores the human condition, addressing complex themes that straddle the political and the philosophical. Animals feature throughout the productions as a poetic and conceptual device through which to reflect on what it means to be human. Through this relationship, the company explores the distance we have created between humans and animals and the contradictions that arise from that separation, prompting us to question what defines us as a species.">
+           En términos de contenido, la compañía investiga la condición humana, abordando temas complejos que se mueven entre lo político y lo filosófico. El animal atraviesa las creaciones como un recurso poético y conceptual desde el que pensar al ser humano. A través de esta relación, se explora la distancia que hemos construido entre lo humano y lo animal y las contradicciones que surgen de esa separación, preguntándonos por aquello que nos define como especie.
+        </p>
 
-        <p>La propuesta artística se distingue por su capacidad para generar sensaciones: no solo apela a la percepción visual y auditiva, sino que involucra otros sentidos para crear un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.</p>
+        <p data-es="La propuesta artística se distingue por su capacidad para generar sensaciones: no solo apela a la percepción visual y auditiva, sino que involucra otros sentidos para crear un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico."
+           data-en="The artistic proposal is distinguished by its ability to evoke sensations: it not only appeals to visual and auditory perception but also engages other senses to create a physical and emotional dialogue between the work and the viewer. These stage productions establish a visual and atmospheric aesthetic, resulting from a interplay between literature, the visual arts, and choreographic movement.">
+           La propuesta artística se distingue por su capacidad para generar sensaciones: no solo apela a la percepción visual y auditiva, sino que involucra otros sentidos para crear un diálogo físico y emocional entre la obra y quien la experimenta. Estas creaciones escénicas configuran una estética visual y atmosférica, resultado de una oscilación entre la literatura, las artes plásticas y el movimiento coreográfico.
+        </p>
 
-        <p>El proyecto busca situar al espectador ante una experiencia que lo interpele, convirtiéndolo en un sujeto activo dentro de la propuesta. Es un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.</p>
+        <p data-es="El proyecto busca situar al espectador ante una experiencia que lo interpele, convirtiéndolo en un sujeto activo dentro de la propuesta. Es un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos."
+           data-en="The project seeks to place the viewer in an experience that challenges them, transforming them into an active participant within the work. It is a call to action, an invitation to confront who we are, what we think, and what we feel.">
+           El proyecto busca situar al espectador ante una experiencia que lo interpele, convirtiéndolo en un sujeto activo dentro de la propuesta. Es un llamado a la acción, una invitación a confrontar lo que somos, lo que pensamos y lo que sentimos.
+        </p>
 
-        <p>Esta línea de investigación se ha desarrollado a través de distintos procesos de creación, exhibición y residencia, contando con el apoyo de espacios e instituciones como Teatro Pradillo, Teatro Cuarta Pared, El Umbral de Primavera, CentroCentro, La Juan Gallery y el Festival Nombrarse Volcán, entre otros.<p>
-
+        <p data-es="Esta línea de investigación se ha desarrollado a través de distintos procesos de creación, exhibición y residencia, contando con el apoyo de espacios e instituciones como Teatro Pradillo, Teatro Cuarta Pared, El Umbral de Primavera, CentroCentro, La Juan Gallery y el Festival Nombrarse Volcán, entre otros."
+           data-en="This line of research has been developed through various creative, exhibition, and residency processes, with the support of venues and institutions such as Teatro Pradillo, Teatro Cuarta Pared, El Umbral de Primavera, CentroCentro, La Juan Gallery, and the Nombrarse Volcán Festival, among others.">
+           Esta línea de investigación se ha desarrollado a través de distintos procesos de creación, exhibición y residencia, contando con el apoyo de espacios e instituciones como Teatro Pradillo, Teatro Cuarta Pared, El Umbral de Primavera, CentroCentro, La Juan Gallery y el Festival Nombrarse Volcán, entre otros.
+        </p>
 
         <div class="firma">SAVE THE F***ING RABBITS .prod © 2026</div>
     </div>
+
+    <!-- SISTEMA DE IDIOMA (sube dos niveles hasta la raíz) -->
+    <script src="../../lang.js"></script>
 
 </body>
 </html>
