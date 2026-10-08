@@ -35,6 +35,37 @@
             z-index: 100;
         }
         .volver:hover { color: #ffffff; }
+
+        /* ============================================ */
+        /* CONMUTADOR DE IDIOMA                          */
+        /* ============================================ */
+        .lang-switcher {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 100;
+            font-family: 'Inter', sans-serif;
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 4px 6px;
+            transition: color 0.3s ease;
+        }
+        .lang-btn:hover { color: #F5E98D; }
+        .lang-btn.active { color: #F5E98D; font-weight: 600; }
+        .lang-sep { color: rgba(255,255,255,0.25); font-size: 11px; }
+
         .contenido { max-width: 700px; text-align: center; padding-bottom: 40px; }
         .contenido h1 {
             font-family: 'Impact', 'Arial Black', sans-serif;
@@ -85,16 +116,12 @@
             font-style: italic;
         }
 
-        /* ============================================ */
-        /* FICHA ARTÍSTICA - BLOQUE                    */
-        /* ============================================ */
-
+        /* FICHA ARTÍSTICA */
         .ficha-bloque {
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid rgba(245, 233, 141, 0.15);
         }
-
         .ficha-titulo {
             color: #F5E98D;
             font-family: 'Inter', sans-serif;
@@ -104,7 +131,6 @@
             text-transform: uppercase;
             margin-bottom: 25px;
         }
-
         .ficha-creditos {
             display: flex;
             flex-direction: column;
@@ -112,36 +138,29 @@
             gap: 10px;
             margin-bottom: 25px;
         }
-
         .ficha-creditos .credito {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 2px;
         }
-
         .ficha-creditos .credito span {
             color: rgba(255,255,255,0.4);
             font-size: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
-
         .ficha-creditos .credito strong {
             color: #F5E98D;
             font-weight: 400;
             font-size: 13px;
         }
-
         .ficha-bloque .ficha-linea-cierre {
             border-top: 1px solid rgba(245, 233, 141, 0.15);
             padding-top: 0;
         }
 
-        /* ============================================ */
-        /* COLLAGE                                     */
-        /* ============================================ */
-
+        /* COLLAGE */
         .collage {
             width: 100%;
             max-width: 500px;
@@ -273,15 +292,15 @@
             display: inline-block;
         }
 
-        .espacio-pregunta {
-            margin-top: 48px;
-        }
+        .espacio-pregunta { margin-top: 48px; }
 
         @media (max-width: 768px) {
             .contenido h1 { font-size: 32px; letter-spacing: 3px; }
             .contenido p { font-size: 13px; }
             .contenido .cita { font-size: 14px; padding: 15px 0; }
             .volver { top: 20px; left: 20px; font-size: 10px; }
+            .lang-switcher { top: 20px; right: 20px; }
+            .lang-btn { font-size: 10px; letter-spacing: 2px; }
             .bloque-contraseña input { width: 150px; }
             .collage { max-width: 100%; }
             .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
@@ -293,11 +312,23 @@
 </head>
 <body>
 
-    <a class="volver" href="../../index.html">← Volver</a>
+    <a class="volver" href="../../index.html"
+       data-es="← Volver"
+       data-en="← Back">← Volver</a>
+
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
 
     <div class="contenido">
         <h1>SUCRÉ</h1>
-        <div class="subtitulo">2024 · Teatro Contemporáneo · 60 min</div>
+        <div class="subtitulo"
+             data-es="2024 · Teatro Contemporáneo · 60 min"
+             data-en="2024 · Contemporary Theatre · 60 min">
+             2024 · Teatro Contemporáneo · 60 min
+        </div>
 
         <!-- IMAGEN PRINCIPAL -->
         <div class="imagen-principal">
@@ -305,52 +336,117 @@
         </div>
 
         <!-- CITA -->
-        <div class="cita">
-            "El sol saldrá en apenas unos minutos y ya no se volverá a esconder. Una promesa de calor que avivará los nauseabundos olores que emanan de las entrañas de este lugar. Agudizará el olor de las ratas en las cloacas, de los cerdos en el lodo. Por suerte los machos no se huelen entre sí, porque todos comparten el mismo aroma."
+        <div class="cita"
+             data-es='"El sol saldrá en apenas unos minutos y ya no se volverá a esconder. Una promesa de calor que avivará los nauseabundos olores que emanan de las entrañas de este lugar. Agudizará el olor de las ratas en las cloacas, de los cerdos en el lodo. Por suerte los machos no se huelen entre sí, porque todos comparten el mismo aroma."'
+             data-en='"The sun will rise in just a few minutes and will hide no more. A promise of heat that will stir up the nauseating smells emanating from the bowels of this place. It will sharpen the smell of rats in the sewers, of pigs in the mud. Fortunately, males do not smell each other, because they all share the same scent."'>
+             "El sol saldrá en apenas unos minutos y ya no se volverá a esconder. Una promesa de calor que avivará los nauseabundos olores que emanan de las entrañas de este lugar. Agudizará el olor de las ratas en las cloacas, de los cerdos en el lodo. Por suerte los machos no se huelen entre sí, porque todos comparten el mismo aroma."
         </div>
 
         <!-- SINOPSIS -->
-        <p style="color:rgba(255,255,255,0.75); font-weight:400;">La violencia como respuesta a un mundo violento</p>
+        <p style="color:rgba(255,255,255,0.75); font-weight:400;"
+           data-es="La violencia como respuesta a un mundo violento"
+           data-en="Violence as a response to a violent world">
+           La violencia como respuesta a un mundo violento
+        </p>
 
-        <p>"Sucré" es una autopsia escénica sobre la violencia normalizada en nuestra sociedad. Inspirada en Roberto Zucco de Bernard-Marie Koltès, la obra entrelaza dos trayectorias independientes —la de un hombre y una mujer— para explorar cómo la violencia se oculta en la cotidianidad, en los cuerpos y en el lenguaje que la endulza para hacerla digerible.</p>
+        <p data-es='"Sucré" es una autopsia escénica sobre la violencia normalizada en nuestra sociedad. Inspirada en Roberto Zucco de Bernard-Marie Koltès, la obra entrelaza dos trayectorias independientes —la de un hombre y una mujer— para explorar cómo la violencia se oculta en la cotidianidad, en los cuerpos y en el lenguaje que la endulza para hacerla digerible.'
+           data-en='"Sucré" is a stage autopsy of the normalized violence in our society. Inspired by Bernard-Marie Koltès\'s Roberto Zucco, the play intertwines two independent trajectories —those of a man and a woman— to explore how violence hides in everyday life, in bodies, and in the language that sweetens it to make it digestible.'>
+           "Sucré" es una autopsia escénica sobre la violencia normalizada en nuestra sociedad. Inspirada en Roberto Zucco de Bernard-Marie Koltès, la obra entrelaza dos trayectorias independientes —la de un hombre y una mujer— para explorar cómo la violencia se oculta en la cotidianidad, en los cuerpos y en el lenguaje que la endulza para hacerla digerible.
+        </p>
 
-        <p>No hay moralejas aquí. Los cuerpos no enseñan. Sucumben. Un recordatorio de que, aunque la violencia pueda parecer parte del paisaje, nunca deja de estar ahí.</p>
+        <p data-es="No hay moralejas aquí. Los cuerpos no enseñan. Sucumben. Un recordatorio de que, aunque la violencia pueda parecer parte del paisaje, nunca deja de estar ahí."
+           data-en="There are no morals here. Bodies do not teach. They succumb. A reminder that, although violence may seem part of the landscape, it never ceases to be there.">
+           No hay moralejas aquí. Los cuerpos no enseñan. Sucumben. Un recordatorio de que, aunque la violencia pueda parecer parte del paisaje, nunca deja de estar ahí.
+        </p>
+
+        <!-- PÁRRAFOS NUEVOS -->
+        <p data-es="En esta sala de contención forense, lo terrible se estudia, se diseca y se expone, revelando las cicatrices invisibles del cuerpo."
+           data-en="In this forensic containment room, the terrible is studied, dissected, and displayed, revealing the invisible scars of the body.">
+           En esta sala de contención forense, lo terrible se estudia, se diseca y se expone, revelando las cicatrices invisibles del cuerpo.
+        </p>
+
+        <p data-es="Una cámara en directo amplía, acerca, selecciona y recorta aquello que queremos ver y aquello que preferimos mantener lejos. Enfoca lo imperceptible y revela matices que a simple vista permanecen ocultos."
+           data-en="A live camera magnifies, brings closer, selects, and crops what we want to see and what we prefer to keep at a distance. It focuses on the imperceptible and reveals nuances that remain hidden to the naked eye.">
+           Una cámara en directo amplía, acerca, selecciona y recorta aquello que queremos ver y aquello que preferimos mantener lejos. Enfoca lo imperceptible y revela matices que a simple vista permanecen ocultos.
+        </p>
+
+        <p data-es="Una mujer yace en la cama, con la mirada perdida. Mientras, un hombre le habla sobre el último libro que ha leído: El hombre en busca de sentido, de Viktor Frankl."
+           data-en="A woman lies on the bed, her gaze lost. Meanwhile, a man tells her about the last book he read: Man's Search for Meaning, by Viktor Frankl.">
+           Una mujer yace en la cama, con la mirada perdida. Mientras, un hombre le habla sobre el último libro que ha leído: El hombre en busca de sentido, de Viktor Frankl.
+        </p>
+
+        <p data-es="Una paloma negra se posa sobre el lomo de un rinoceronte blanco."
+           data-en="A black dove lands on the back of a white rhinoceros.">
+           Una paloma negra se posa sobre el lomo de un rinoceronte blanco.
+        </p>
+
+        <p data-es="El público será voyeur de estos cuadros vivos. Testigo, pero también partícipe de los actos que aquí sucedan."
+           data-en="The audience will be a voyeur of these living pictures. Witness, but also participant, in the acts that take place here.">
+           El público será voyeur de estos cuadros vivos. Testigo, pero también partícipe de los actos que aquí sucedan.
+        </p>
 
         <!-- PREGUNTA -->
-        <p class="espacio-pregunta" style="color:#F5E98D; font-style:italic; text-align:center;">"¿Hasta qué punto la violencia no es una anomalía, sino el lenguaje oculto de un sistema que la reproduce?"</p>
+        <p class="espacio-pregunta" style="color:#F5E98D; font-style:italic; text-align:center;"
+           data-es='"¿Hasta qué punto la violencia no es una anomalía, sino el lenguaje oculto de un sistema que la reproduce?"'
+           data-en='"To what extent is violence not an anomaly, but the hidden language of a system that reproduces it?"'>
+           "¿Hasta qué punto la violencia no es una anomalía, sino el lenguaje oculto de un sistema que la reproduce?"
+        </p>
 
-        <!-- ============================================ -->
-        <!-- FICHA ARTÍSTICA - BLOQUE                    -->
-        <!-- ============================================ -->
-
+        <!-- FICHA ARTÍSTICA -->
         <div class="ficha-bloque">
 
-            <!-- LÍNEA SUPERIOR + TÍTULO -->
-            <div class="ficha-titulo">Ficha artística</div>
+            <div class="ficha-titulo"
+                 data-es="Ficha artística"
+                 data-en="Creative team">Ficha artística</div>
 
-            <!-- CRÉDITOS -->
             <div class="ficha-creditos">
-                <div class="credito"><span>Dirección</span><strong>Pablo Velasco</strong></div>
-                <div class="credito"><span>Ayudantía de dirección</span><strong>Ángela Aguilar</strong></div>
-                <div class="credito"><span>Dramaturgia</span><strong>Pablo Velasco · Bernard-Marie Koltès · Textos de David Foster Wallace</strong></div>
-                <div class="credito"><span>Cuerpos en escena</span><strong>Ángela Aguilar · Pablo Velasco</strong></div>
-                <div class="credito"><span>Asistencia coreográfica</span><strong>Paula Barragán</strong></div>
-                <div class="credito"><span>Diseño de utilería</span><strong>Alejandro Castro Sánchez</strong></div>
-                <div class="credito"><span>Diseño de vestuario</span><strong>Celina Fernández Ponte</strong></div>
-                <div class="credito"><span>Diseño de sonido e iluminación</span><strong>Pablo Velasco</strong></div>
-                <div class="credito"><span>Miradas amigas</span><strong>Candela Caballero · Paula Lloret</strong></div>
-                <div class="credito"><span>Producción</span><strong>SAVE THE F***ING RABBITS Prod.</strong></div>
+                <div class="credito">
+                    <span data-es="Dirección" data-en="Direction">Dirección</span>
+                    <strong>Pablo Velasco</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Ayudantía de dirección" data-en="Assistant direction">Ayudantía de dirección</span>
+                    <strong>Ángela Aguilar</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Dramaturgia" data-en="Dramaturgy">Dramaturgia</span>
+                    <strong>Pablo Velasco · Bernard-Marie Koltès · Textos de David Foster Wallace</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Cuerpos en escena" data-en="Performers on stage">Cuerpos en escena</span>
+                    <strong>Ángela Aguilar · Pablo Velasco</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Asistencia coreográfica" data-en="Choreographic assistance">Asistencia coreográfica</span>
+                    <strong>Paula Barragán</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Diseño de utilería" data-en="Props design">Diseño de utilería</span>
+                    <strong>Alejandro Castro Sánchez</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Diseño de vestuario" data-en="Costume design">Diseño de vestuario</span>
+                    <strong>Celina Fernández Ponte</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Diseño de sonido e iluminación" data-en="Sound and lighting design">Diseño de sonido e iluminación</span>
+                    <strong>Pablo Velasco</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Miradas amigas" data-en="Friendly eyes">Miradas amigas</span>
+                    <strong>Candela Caballero · Paula Lloret</strong>
+                </div>
+                <div class="credito">
+                    <span data-es="Producción" data-en="Production">Producción</span>
+                    <strong>SAVE THE F***ING RABBITS Prod.</strong>
+                </div>
             </div>
 
-            <!-- LÍNEA INFERIOR (CIERRE) -->
             <div class="ficha-linea-cierre"></div>
 
         </div>
 
-        <!-- ============================================ -->
-        <!-- COLLAGE                                     -->
-        <!-- ============================================ -->
-
+        <!-- COLLAGE -->
         <div class="collage">
             <img src="../../sucre p 11.jpg" alt="Sucré 11">
             <img src="../../sucre p 9.jpg" alt="Sucré 9">
@@ -363,7 +459,9 @@
             <a href="https://youtu.be/qj6Agie2Hn0?si=y02FVtZ1kl0-Q8Rh" target="_blank"> TEASER</a>
 
             <div class="bloque-contraseña">
-                <span class="label-contraseña">🔒 OBRA COMPLETA </span>
+                <span class="label-contraseña"
+                      data-es="🔒 OBRA COMPLETA"
+                      data-en="🔒 FULL PLAY">🔒 OBRA COMPLETA</span>
                 <input type="password" id="inputPass" placeholder="Introduce la contraseña">
                 <button id="btnPass">Acceder</button>
                 <div class="mensaje-error" id="mensajeError">Contraseña incorrecta</div>
@@ -377,7 +475,85 @@
         <div class="firma">SAVE THE F***ING RABBITS .prod © 2026</div>
     </div>
 
+    <!-- SISTEMA DE IDIOMA INTEGRADO -->
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const DEFAULT_LANG = 'es';
+
+        const TITLES = {
+            es: 'SUCRÉ — SAVE THE F***ING RABBITS',
+            en: 'SUCRÉ — SAVE THE F***ING RABBITS'
+        };
+
+        const PASS_TEXTS = {
+            es: {
+                placeholder: 'Introduce la contraseña',
+                button: 'Acceder',
+                error: 'Contraseña incorrecta',
+                success: '✅ ¡Acceso concedido!',
+                viewPlay: '▶ Ver obra completa'
+            },
+            en: {
+                placeholder: 'Enter the password',
+                button: 'Access',
+                error: 'Incorrect password',
+                success: '✅ Access granted!',
+                viewPlay: '▶ Watch full play'
+            }
+        };
+
+        function applyLang(lang) {
+            document.querySelectorAll('[data-es][data-en]').forEach(function(el) {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+
+            document.querySelectorAll('[data-alt-es][data-alt-en]').forEach(function(el) {
+                el.setAttribute('alt', el.getAttribute('data-alt-' + lang));
+            });
+
+            if (TITLES[lang]) document.title = TITLES[lang];
+
+            document.documentElement.setAttribute('lang', lang);
+
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            const t = PASS_TEXTS[lang];
+            if (t) {
+                const inputPass = document.getElementById('inputPass');
+                const btnPass = document.getElementById('btnPass');
+                const mensajeError = document.getElementById('mensajeError');
+                const enlaceOcultoLink = document.querySelector('#enlaceOculto a');
+
+                if (inputPass && inputPass.placeholder !== PASS_TEXTS.es.success && inputPass.placeholder !== PASS_TEXTS.en.success) {
+                    inputPass.placeholder = t.placeholder;
+                }
+                if (btnPass && btnPass.textContent !== '✔') {
+                    btnPass.textContent = t.button;
+                }
+                if (mensajeError) mensajeError.textContent = t.error;
+                if (enlaceOcultoLink) enlaceOcultoLink.textContent = t.viewPlay;
+            }
+
+            try { localStorage.setItem('lang', lang); } catch(e) {}
+        }
+
+        let savedLang = DEFAULT_LANG;
+        try { savedLang = localStorage.getItem('lang') || DEFAULT_LANG; } catch(e) {}
+        applyLang(savedLang);
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                applyLang(this.dataset.lang);
+            });
+        });
+
+        // ========================================== */
+        // BLOQUE DE CONTRASEÑA                       */
+        // ========================================== */
+
         const inputPass = document.getElementById('inputPass');
         const btnPass = document.getElementById('btnPass');
         const mensajeError = document.getElementById('mensajeError');
@@ -385,18 +561,27 @@
 
         const CONTRASENA_CORRECTA = 'sucre2024completa';
 
+        function getCurrentLang() {
+            try { return localStorage.getItem('lang') || 'es'; } catch(e) { return 'es'; }
+        }
+
         function verificarContraseña() {
+            const lang = getCurrentLang();
+            const t = PASS_TEXTS[lang] || PASS_TEXTS.es;
             const pass = inputPass.value.trim();
+
             if (pass === CONTRASENA_CORRECTA) {
                 mensajeError.classList.remove('visible');
                 enlaceOculto.classList.add('visible');
                 inputPass.value = '';
-                inputPass.placeholder = '✅ ¡Acceso concedido!';
+                inputPass.placeholder = t.success;
                 btnPass.textContent = '✔';
                 btnPass.style.background = '#4CAF50';
                 setTimeout(() => {
-                    inputPass.placeholder = 'Introduce la contraseña';
-                    btnPass.textContent = 'Acceder';
+                    const currentLang = getCurrentLang();
+                    const t2 = PASS_TEXTS[currentLang] || PASS_TEXTS.es;
+                    inputPass.placeholder = t2.placeholder;
+                    btnPass.textContent = t2.button;
                     btnPass.style.background = '#F5E98D';
                 }, 3000);
             } else {
@@ -413,6 +598,8 @@
                 verificarContraseña();
             }
         });
+
+    });
     </script>
 
 </body>
