@@ -36,7 +36,6 @@
         }
         .volver:hover { color: #ffffff; }
 
-        /* CONMUTADOR DE IDIOMA */
         .lang-switcher {
             position: fixed;
             top: 30px;
@@ -178,6 +177,18 @@
             color: #F5E98D;
             font-weight: 400;
             font-size: 13px;
+        }
+
+        /* ============================================ */
+        /* NOMBRE DE PERFORMER (rompe herencia del rol) */
+        /* ============================================ */
+        .ficha-creditos .credito strong .nombre-performer {
+            color: #F5E98D;
+            font-weight: 400;
+            font-size: 13px;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline;
         }
 
         .ficha-bloque .ficha-linea-cierre {
@@ -360,7 +371,6 @@
              2022 · Teatro Contemporáneo · 60 min
         </div>
 
-        <!-- IMAGEN PRINCIPAL -->
         <div class="imagen-principal">
             <img src="../../stfr9.png" alt="SAVE THE F***ING RABBITS">
         </div>
@@ -419,7 +429,7 @@
                 </div>
                 <div class="credito">
                     <span data-es="Cuerpos en escena" data-en="Performers on stage">Cuerpos en escena</span>
-                    <strong>Po Ruiz · Pablo Velasco · <span data-es="Intérprete Invitado" data-en="Guest Performer">Intérprete Invitado</span></strong>
+                    <strong>Po Ruiz · Pablo Velasco · <span class="nombre-performer" data-es="Intérprete Invitado" data-en="Guest Performer">Intérprete Invitado</span></strong>
                 </div>
                 <div class="credito">
                     <span data-es="Diseño de sonido" data-en="Sound design">Diseño de sonido</span>
