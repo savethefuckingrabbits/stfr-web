@@ -156,8 +156,49 @@
         <div class="firma">SAVE THE F***ING RABBITS .prod © 2026</div>
     </div>
 
-    <!-- SISTEMA DE IDIOMA (sube dos niveles hasta la raíz) -->
-    <script src="../../lang.js"></script>
+    <!-- SISTEMA DE IDIOMA INTEGRADO -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const DEFAULT_LANG = 'es';
+
+        const TITLES = {
+            es: 'SOBRE EL PROYECTO — SAVE THE F***ING RABBITS',
+            en: 'ABOUT THE PROJECT — SAVE THE F***ING RABBITS'
+        };
+
+        function applyLang(lang) {
+            document.querySelectorAll('[data-es][data-en]').forEach(function(el) {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+
+            document.querySelectorAll('[data-alt-es][data-alt-en]').forEach(function(el) {
+                el.setAttribute('alt', el.getAttribute('data-alt-' + lang));
+            });
+
+            if (TITLES[lang]) document.title = TITLES[lang];
+
+            document.documentElement.setAttribute('lang', lang);
+
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            try { localStorage.setItem('lang', lang); } catch(e) {}
+        }
+
+        let savedLang = DEFAULT_LANG;
+        try { savedLang = localStorage.getItem('lang') || DEFAULT_LANG; } catch(e) {}
+        applyLang(savedLang);
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                applyLang(this.dataset.lang);
+            });
+        });
+
+    });
+    </script>
 
 </body>
 </html>
