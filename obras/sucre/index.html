@@ -287,7 +287,19 @@
             display: inline-block;
         }
 
-        .espacio-pregunta { margin-top: 48px; }
+        /* ============================================ */
+        /* PREGUNTA FINAL - MÁS GRANDE Y GRUESA        */
+        /* ============================================ */
+        .pregunta-final {
+            color: #F5E98D !important;
+            font-size: 19px !important;
+            font-weight: 600 !important;
+            font-style: italic;
+            text-align: center !important;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
 
         @media (max-width: 768px) {
             .contenido h1 { font-size: 32px; letter-spacing: 3px; }
@@ -299,7 +311,7 @@
             .bloque-contraseña input { width: 150px; }
             .collage { max-width: 100%; }
             .firma { font-size: 9px; letter-spacing: 1.2px; margin-top: 40px; }
-            .espacio-pregunta { margin-top: 36px; }
+            .pregunta-final { font-size: 16px !important; margin-top: 36px; }
             .ficha-titulo { font-size: 14px; letter-spacing: 3px; }
             .ficha-bloque { margin-top: 30px; padding-top: 15px; }
         }
@@ -329,11 +341,11 @@
             <img src="../../sucre p 8.jpg" alt="SUCRÉ">
         </div>
 
-        <!-- CITA -->
+        <!-- CITA CON COMILLAS -->
         <div class="cita"
-             data-es="El sol saldrá en apenas unos minutos y ya no se volverá a esconder. Una promesa de calor que avivará los nauseabundos olores que emanan de las entrañas de este lugar. Agudizará el olor de las ratas en las cloacas, de los cerdos en el lodo. Por suerte los machos no se huelen entre sí, porque todos comparten el mismo aroma."
-             data-en="The sun will rise in just a few minutes and will never set again. A promise of heat that will intensify the nauseating odors emanating from the depths of this place. It will heighten the smell of the rats in the sewers and the pigs in the mud. Fortunately, the males can&#8217;t smell one another, because they all share the same scent.">
-             El sol saldrá en apenas unos minutos y ya no se volverá a esconder. Una promesa de calor que avivará los nauseabundos olores que emanan de las entrañas de este lugar. Agudizará el olor de las ratas en las cloacas, de los cerdos en el lodo. Por suerte los machos no se huelen entre sí, porque todos comparten el mismo aroma.
+             data-es="&#8220;El sol saldrá en apenas unos minutos y ya no se volverá a esconder. Una promesa de calor que avivará los nauseabundos olores que emanan de las entrañas de este lugar. Agudizará el olor de las ratas en las cloacas, de los cerdos en el lodo. Por suerte los machos no se huelen entre sí, porque todos comparten el mismo aroma.&#8221;"
+             data-en="&#8220;The sun will rise in just a few minutes and will never set again. A promise of heat that will intensify the nauseating odors emanating from the depths of this place. It will heighten the smell of the rats in the sewers and the pigs in the mud. Fortunately, the males can&#8217;t smell one another, because they all share the same scent.&#8221;">
+             &#8220;El sol saldrá en apenas unos minutos y ya no se volverá a esconder. Una promesa de calor que avivará los nauseabundos olores que emanan de las entrañas de este lugar. Agudizará el olor de las ratas en las cloacas, de los cerdos en el lodo. Por suerte los machos no se huelen entre sí, porque todos comparten el mismo aroma.&#8221;
         </div>
 
         <!-- VIOLENCIA -->
@@ -343,9 +355,10 @@
            La violencia como respuesta a un mundo violento
         </p>
 
-        <p data-es="SUCRÉ es una autopsia escénica sobre la violencia normalizada en nuestra sociedad. Inspirada en Roberto Zucco de Bernard-Marie Koltès, la obra entrelaza dos trayectorias independientes —la de un hombre y una mujer— para explorar cómo la violencia se oculta en la cotidianidad, en los cuerpos y en el lenguaje que la endulza para hacerla digerible."
-           data-en="SUCRÉ is a theatrical dissection of the normalized violence in our society. Inspired by Bernard-Marie Koltès&#8217;s Roberto Zucco, the play intertwines two separate storylines&#8212;those of a man and a woman&#8212;to explore how violence hides within everyday life, within bodies, and within the language that sugarcoats it to make it palatable.">
-           SUCRÉ es una autopsia escénica sobre la violencia normalizada en nuestra sociedad. Inspirada en Roberto Zucco de Bernard-Marie Koltès, la obra entrelaza dos trayectorias independientes —la de un hombre y una mujer— para explorar cómo la violencia se oculta en la cotidianidad, en los cuerpos y en el lenguaje que la endulza para hacerla digerible.
+        <!-- SINOPSIS - CON CURSIVA EN LOS TÍTULOS -->
+        <p data-es="SUCRÉ es una autopsia escénica sobre la violencia normalizada en nuestra sociedad. Inspirada en <em>Roberto Zucco</em> de Bernard-Marie Koltès, la obra entrelaza dos trayectorias independientes —la de un hombre y una mujer— para explorar cómo la violencia se oculta en la cotidianidad, en los cuerpos y en el lenguaje que la endulza para hacerla digerible."
+           data-en="SUCRÉ is a theatrical dissection of the normalized violence in our society. Inspired by Bernard-Marie Koltès&#8217;s <em>Roberto Zucco</em>, the play intertwines two separate storylines&#8212;those of a man and a woman&#8212;to explore how violence hides within everyday life, within bodies, and within the language that sugarcoats it to make it palatable.">
+           SUCRÉ es una autopsia escénica sobre la violencia normalizada en nuestra sociedad. Inspirada en <em>Roberto Zucco</em> de Bernard-Marie Koltès, la obra entrelaza dos trayectorias independientes —la de un hombre y una mujer— para explorar cómo la violencia se oculta en la cotidianidad, en los cuerpos y en el lenguaje que la endulza para hacerla digerible.
         </p>
 
         <p data-es="No hay moralejas aquí. Los cuerpos no enseñan. Sucumben. Un recordatorio de que, aunque la violencia pueda parecer parte del paisaje, nunca deja de estar ahí."
@@ -363,9 +376,10 @@
            Una cámara en directo amplía, acerca, selecciona y recorta aquello que queremos ver y aquello que preferimos mantener lejos. Enfoca lo imperceptible y revela matices que a simple vista permanecen ocultos.
         </p>
 
-        <p data-es="Una mujer yace en la cama, con la mirada perdida. Mientras, un hombre le habla sobre el último libro que ha leído: El hombre en busca de sentido, de Viktor Frankl."
-           data-en="A woman lies on the bed, her gaze lost in the distance. Meanwhile, a man talks to her about the last book he&#8217;s read: Man&#8217;s Search for Meaning by Viktor Frankl.">
-           Una mujer yace en la cama, con la mirada perdida. Mientras, un hombre le habla sobre el último libro que ha leído: El hombre en busca de sentido, de Viktor Frankl.
+        <!-- PÁRRAFO CON CURSIVA EN "El hombre en busca de sentido" -->
+        <p data-es="Una mujer yace en la cama, con la mirada perdida. Mientras, un hombre le habla sobre el último libro que ha leído: <em>El hombre en busca de sentido</em>, de Viktor Frankl."
+           data-en="A woman lies on the bed, her gaze lost in the distance. Meanwhile, a man talks to her about the last book he&#8217;s read: <em>Man&#8217;s Search for Meaning</em> by Viktor Frankl.">
+           Una mujer yace en la cama, con la mirada perdida. Mientras, un hombre le habla sobre el último libro que ha leído: <em>El hombre en busca de sentido</em>, de Viktor Frankl.
         </p>
 
         <p data-es="Una paloma negra se posa sobre el lomo de un rinoceronte blanco."
@@ -378,8 +392,8 @@
            El público será voyeur de estos cuadros vivos. Testigo, pero también partícipe de los actos que aquí sucedan.
         </p>
 
-        <!-- PREGUNTA -->
-        <p class="espacio-pregunta" style="color:#F5E98D; font-style:italic; text-align:center;"
+        <!-- PREGUNTA FINAL - MÁS GRANDE Y GRUESA -->
+        <p class="pregunta-final"
            data-es="&#8220;¿Hasta qué punto la violencia no es una anomalía, sino el lenguaje oculto de un sistema que la reproduce?&#8221;"
            data-en="&#8220;To what extent is violence not an anomaly, but rather the hidden language of a system that reproduces it?&#8221;">
            &#8220;¿Hasta qué punto la violencia no es una anomalía, sino el lenguaje oculto de un sistema que la reproduce?&#8221;
@@ -403,7 +417,7 @@
                 </div>
                 <div class="credito">
                     <span data-es="Dramaturgia" data-en="Dramaturgy">Dramaturgia</span>
-                    <strong>Pablo Velasco · Bernard-Marie Koltès · David Foster Wallace</strong>
+                    <strong>Pablo Velasco · Bernard-Marie Koltès · Textos de David Foster Wallace</strong>
                 </div>
                 <div class="credito">
                     <span data-es="Cuerpos en escena" data-en="Performers on stage">Cuerpos en escena</span>
@@ -497,8 +511,9 @@
         };
 
         function applyLang(lang) {
+            // Usamos innerHTML en lugar de textContent para que <em> funcione
             document.querySelectorAll('[data-es][data-en]').forEach(function(el) {
-                el.textContent = el.getAttribute('data-' + lang);
+                el.innerHTML = el.getAttribute('data-' + lang);
             });
 
             document.querySelectorAll('[data-alt-es][data-alt-en]').forEach(function(el) {
